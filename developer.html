@@ -578,24 +578,29 @@
     }
 
     if(db){
-      db.ref("products").on("value", function(snap){
-        var val = snap.val();
-        if(!val || Object.keys(val).length === 0){
-          renderProjects({
-            "zishu-ai": { title:"Zishu AI", url:"https://zishuai.cloud/", description:"Intelligent voice assistant with natural conversation capabilities.", published:true, featured:true, displayOrder:1 },
-            "upcodez": { title:"Upcodez", url:"https://zishutron.github.io/upcodez/", description:"An OTT platform to explore amazing videos.", published:true, displayOrder:2 },
-            "stardust-canvas": { title:"Stardust Canvas", url:"https://zishutron.github.io/Stardust-media/", description:"Photo sharing platform for creative communities.", published:true, displayOrder:3 },
-            "student-os": { title:"Stardust Student OS", url:"https://zishutron.github.io/stardust-student-OS/", description:"Educational operating system for students.", published:true, displayOrder:4 },
-            "stardust-hub": { title:"Stardust Hub", url:"https://zishutron.github.io/Stardust-hub/", description:"Social media platform for creators.", published:true, displayOrder:5 },
-            "warrior": { title:"Stardust Warrior", url:"https://zishutron.github.io/Stardust-warrior/", description:"Zombie survival game with immersive gameplay.", published:true, displayOrder:6 }
-          });
-        } else {
-          renderProjects(val);
-        }
-      });
-    } else {
+  db.ref("products")
+    .orderByChild("published")
+    .equalTo(true)
+    .on("value", function(snap){
+      var val = snap.val();
+      if(!val || Object.keys(val).length === 0){
+        renderProjects({
+          "zishu-ai": { title:"Zishu AI", url:"https://zishuai.cloud/", description:"Intelligent voice assistant with natural conversation capabilities.", published:true, featured:true, displayOrder:1 },
+          "upcodez": { title:"Upcodez", url:"https://zishutron.github.io/upcodez/", description:"An OTT platform to explore amazing videos.", published:true, displayOrder:2 },
+          "stardust-canvas": { title:"Stardust Canvas", url:"https://zishutron.github.io/Stardust-media/", description:"Photo sharing platform for creative communities.", published:true, displayOrder:3 },
+          "student-os": { title:"Stardust Student OS", url:"https://zishutron.github.io/stardust-student-OS/", description:"Educational operating system for students.", published:true, displayOrder:4 },
+          "stardust-hub": { title:"Stardust Hub", url:"https://zishutron.github.io/Stardust-hub/", description:"Social media platform for creators.", published:true, displayOrder:5 },
+          "warrior": { title:"Stardust Warrior", url:"https://zishutron.github.io/Stardust-warrior/", description:"Zombie survival game with immersive gameplay.", published:true, displayOrder:6 }
+        });
+      } else {
+        renderProjects(val);
+      }
+    }, function(){
       renderProjects({});
-    }
+    });
+} else {
+  renderProjects({});
+}
   })();
   </script>
 </body>
