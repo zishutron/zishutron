@@ -257,7 +257,7 @@ Connect
 <a href="https://github.com/zishutron"><img src="https://img.shields.io/badge/GitHub-zishutron-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
 <a href="https://x.com/zishanstardust"><img src="https://img.shields.io/badge/X-@zishanstardust-000000?style=for-the-badge&logo=x&logoColor=white" alt="X" /></a>
 <a href="https://youtube.com/@zishutron"><img src="https://img.shields.io/badge/YouTube-@zishutron-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube" /></a>
-<a href="https://linkedin.com/in/zishu-tron-a8a71241"><img src="https://img.shields.io/badge/LinkedIn-Zishu%20Tron-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+<a href="https://www.linkedin.com/in/zishutron"><img src="https://img.shields.io/badge/LinkedIn-Zishu%20Tron-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
 <a href="https://discord.gg/Xhh5r2UM5C"><img src="https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
 
 <br /><br />
