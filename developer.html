@@ -11,7 +11,7 @@
   <meta property="og:description" content="A student and developer building software, applications and digital products through ZISHU TRON." />
   <meta property="og:type" content="profile" />
   <meta property="og:image" content="https://i.postimg.cc/J03qRF6g/file-00000000672081f8b21d29d30298e881.png" />
-  <link rel="canonical" href="https://zishutron.github.io/developer.html" />
+  <link rel="canonical" href="https://zishutron.zishuai.cloud/developer.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
@@ -21,8 +21,8 @@
     "@type": "Person",
     "name": "Zishan",
     "jobTitle": "Founder & Developer",
-    "worksFor": { "@type": "Organization", "name": "ZISHU TRON", "url": "https://zishutron.github.io/" },
-    "url": "https://zishutron.github.io/developer.html",
+    "worksFor": { "@type": "Organization", "name": "ZISHU TRON", "url": "https://zishutron.zishuai.cloud/" },
+    "url": "https://zishutron.zishuai.cloud/developer.html",
     "sameAs": [
       "https://github.com/zishutron",
       "https://x.com/zishanstardust",
@@ -82,6 +82,23 @@
     .btn-ghost{background:transparent;color:var(--text);border:1.5px solid var(--border)}
     .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
 
+    /* Account menu (same as index.html) */
+    .account{position:relative}
+    .account-trigger{display:flex;align-items:center;gap:8px;padding:4px;border-radius:50px;transition:background .2s var(--ease);cursor:pointer}
+    .account-trigger:hover{background:var(--bg-2)}
+    .dark .account-trigger:hover{background:var(--surface-2)}
+    .account-trigger .avatar{width:32px;height:32px;border-radius:50%;object-fit:cover;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:700;font-size:.8rem;border:2px solid var(--surface)}
+    .account-trigger .avatar-fallback{background:linear-gradient(135deg,var(--accent),#7c3aed)}
+    .account-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:230px;background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow-lg);padding:6px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:all .22s var(--ease);z-index:100}
+    .account-menu.open{opacity:1;visibility:visible;transform:none}
+    .account-menu .am-header{padding:12px 12px 10px;border-bottom:1px solid var(--border-2);margin-bottom:6px}
+    .account-menu .am-name{font-weight:700;font-size:.9rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .account-menu .am-email{font-size:.76rem;color:var(--text-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .account-menu a,.account-menu button{display:flex;align-items:center;gap:10px;width:100%;padding:9px 12px;border-radius:8px;font-size:.86rem;color:var(--text-2);text-align:left;transition:background .15s var(--ease),color .15s var(--ease)}
+    .account-menu a:hover,.account-menu button:hover{background:var(--bg-2);color:var(--text)}
+    .dark .account-menu a:hover,.dark .account-menu button:hover{background:var(--surface-2)}
+    .account-menu svg{width:16px;height:16px;flex-shrink:0;opacity:.7}
+
     /* Hero */
     .dev-hero{background:var(--navy);color:#fff;padding:6rem 0 5rem;position:relative;overflow:hidden}
     .dev-hero::before{content:"";position:absolute;top:-30%;right:-10%;width:700px;height:700px;background:radial-gradient(circle,rgba(37,99,235,.22),transparent 70%);pointer-events:none}
@@ -102,14 +119,12 @@
     .section-title{font-size:clamp(1.7rem,3.6vw,2.5rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;color:var(--text);margin-bottom:1rem}
     .section-lead{font-size:1.05rem;color:var(--text-2);line-height:1.7}
 
-    /* Story */
     .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
     .story-text p{font-size:1rem;color:var(--text-2);margin-bottom:1.25rem;line-height:1.75}
     .story-text p:last-child{margin-bottom:0}
     .story-visual{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);position:sticky;top:100px}
     .story-visual img{width:100%;height:auto}
 
-    /* Journey / Timeline */
     .journey-section{background:var(--bg-2)}
     .timeline{position:relative;max-width:760px;margin:0 auto}
     .timeline::before{content:"";position:absolute;left:23px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),rgba(37,99,235,.1))}
@@ -121,7 +136,6 @@
     .tl-title{font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:.35rem}
     .tl-desc{font-size:.92rem;color:var(--text-2);line-height:1.65}
 
-    /* What I Build */
     .build-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem}
     .build-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem 1.5rem;transition:all .3s var(--ease)}
     .build-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--accent)}
@@ -130,7 +144,6 @@
     .build-card h3{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.4rem}
     .build-card p{font-size:.86rem;color:var(--text-2);line-height:1.6}
 
-    /* Projects */
     .projects-section{background:var(--navy);color:#fff}
     .projects-section .section-title{color:#fff}
     .projects-section .section-eyebrow{color:#60a5fa}
@@ -146,7 +159,6 @@
     .proj-link{display:inline-flex;align-items:center;gap:5px;font-size:.78rem;font-weight:600;color:#60a5fa;margin-top:.5rem}
     .proj-link:hover{gap:9px}
 
-    /* Philosophy */
     .phil-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
     .phil-card{padding:1.75rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);transition:all .3s var(--ease)}
     .phil-card:hover{border-color:var(--accent);transform:translateY(-3px)}
@@ -155,7 +167,6 @@
     .phil-card h3{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.4rem}
     .phil-card p{font-size:.88rem;color:var(--text-2);line-height:1.6}
 
-    /* Status / Profile */
     .status-section{background:var(--bg-2)}
     .status-card{max-width:680px;margin:0 auto;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.5rem;box-shadow:var(--shadow)}
     .status-row{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:1px solid var(--border-2)}
@@ -163,12 +174,10 @@
     .status-row .sr-label{font-size:.82rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--text-3)}
     .status-row .sr-value{font-size:1rem;font-weight:600;color:var(--text);text-align:right}
 
-    /* Skills */
     .skills-wrap{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;max-width:760px;margin:0 auto}
     .skill-tag{padding:.5rem 1.1rem;background:var(--surface);border:1px solid var(--border);border-radius:100px;font-size:.86rem;font-weight:500;color:var(--text-2);transition:all .2s var(--ease)}
     .skill-tag:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-glow)}
 
-    /* Note */
     .note-section{background:var(--navy);color:#fff;position:relative;overflow:hidden}
     .note-section::before{content:"";position:absolute;top:-40%;left:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(37,99,235,.18),transparent 70%);pointer-events:none}
     .note-inner{position:relative;z-index:1;max-width:760px;margin:0 auto;text-align:center}
@@ -177,14 +186,12 @@
     .note-inner .note-sign{font-size:.95rem;font-weight:700;color:#60a5fa}
     .note-inner .note-sign small{display:block;font-size:.78rem;font-weight:500;color:rgba(150,180,220,.6);font-style:normal;margin-top:.25rem}
 
-    /* Social */
     .social-section{text-align:center}
     .social-links{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:2rem}
     .social-link{display:flex;align-items:center;gap:10px;padding:.85rem 1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;font-size:.9rem;font-weight:600;color:var(--text-2);transition:all .25s var(--ease)}
     .social-link:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow)}
     .social-link svg{width:20px;height:20px}
 
-    /* Footer */
     .dev-footer{background:var(--navy);color:#fff;padding:3rem 0 2rem;text-align:center}
     .dev-footer .df-brand{display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:1rem}
     .dev-footer .df-brand img{width:36px;height:36px;border-radius:9px}
@@ -231,13 +238,27 @@
         <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         </button>
-        <a href="auth.html" class="btn btn-ghost">Login</a>
+        <a href="auth.html" class="btn btn-ghost" id="loginBtn">Login</a>
+        <div class="account" id="accountWrap" style="display:none;">
+          <button class="account-trigger" id="accountTrigger" aria-label="Account menu" aria-expanded="false">
+            <span class="avatar avatar-fallback" id="accountAvatar">Z</span>
+          </button>
+          <div class="account-menu" id="accountMenu">
+            <div class="am-header">
+              <div class="am-name" id="amName">User</div>
+              <div class="am-email" id="amEmail">user@example.com</div>
+            </div>
+            <a href="account.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>My Account</a>
+            <a href="account.html#sessions"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Login Activity</a>
+            <a href="account.html#settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Settings</a>
+            <button id="signOutBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>Sign Out</button>
+          </div>
+        </div>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
     <section class="dev-hero">
       <div class="container dev-hero-inner">
         <div class="dev-avatar" aria-hidden="true">Z</div>
@@ -254,7 +275,6 @@
       </div>
     </section>
 
-    <!-- WHO I AM -->
     <section id="who">
       <div class="container">
         <div class="section-head reveal">
@@ -274,7 +294,6 @@
       </div>
     </section>
 
-    <!-- MY STORY -->
     <section id="story" style="background:var(--bg-2);">
       <div class="container">
         <div class="section-head reveal">
@@ -297,7 +316,6 @@
       </div>
     </section>
 
-    <!-- JOURNEY -->
     <section class="journey-section" id="journey">
       <div class="container">
         <div class="section-head reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
@@ -345,7 +363,6 @@
       </div>
     </section>
 
-    <!-- WHAT I BUILD -->
     <section id="build">
       <div class="container">
         <div class="section-head center reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
@@ -388,7 +405,6 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
     <section class="projects-section" id="projects">
       <div class="container">
         <div class="section-head center reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
@@ -405,7 +421,6 @@
       </div>
     </section>
 
-    <!-- PHILOSOPHY -->
     <section id="philosophy">
       <div class="container">
         <div class="section-head center reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
@@ -423,7 +438,6 @@
       </div>
     </section>
 
-    <!-- STATUS -->
     <section class="status-section" id="status">
       <div class="container">
         <div class="section-head center reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
@@ -440,7 +454,6 @@
       </div>
     </section>
 
-    <!-- SKILLS -->
     <section id="skills" style="background:var(--bg-2);">
       <div class="container">
         <div class="section-head center reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
@@ -461,7 +474,6 @@
       </div>
     </section>
 
-    <!-- NOTE -->
     <section class="note-section" id="note">
       <div class="container">
         <div class="note-inner reveal">
@@ -472,7 +484,6 @@
       </div>
     </section>
 
-    <!-- SOCIAL -->
     <section class="social-section" id="connect">
       <div class="container">
         <div class="section-head center reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
@@ -508,7 +519,9 @@
     </div>
   </footer>
 
+  <!-- Firebase SDKs — added auth for login state detection -->
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
   <script>
   (function(){
@@ -523,8 +536,12 @@
       appId: "1:818976752868:web:6097a46a709329a3dd18f1",
       measurementId: "G-0S122FQGJF"
     };
-    var db;
-    try { firebase.initializeApp(firebaseConfig); db = firebase.database(); } catch(e){ console.warn(e); }
+    var app, auth, db;
+    try {
+      app = firebase.initializeApp(firebaseConfig);
+      auth = firebase.auth();
+      db = firebase.database();
+    } catch(e){ console.warn(e); }
 
     function $(s){ return document.querySelector(s); }
     function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
@@ -547,7 +564,87 @@
     }, {threshold:.12, rootMargin:"0px 0px -40px 0px"});
     document.querySelectorAll(".reveal").forEach(function(el){ obs.observe(el); });
 
-    // Load projects from DB
+    /* ============================================================
+       AUTH STATE — Login/Logout detect karo aur header update karo
+       ============================================================ */
+    function showAccount(user, profile){
+      var loginBtn = $("#loginBtn");
+      var accountWrap = $("#accountWrap");
+      if(loginBtn) loginBtn.style.display = "none";
+      if(accountWrap) accountWrap.style.display = "block";
+      var name = (profile && profile.displayName) || user.displayName || (user.email ? user.email.split("@")[0] : "User");
+      var email = user.email || "";
+      var avatar = (profile && profile.photoURL) || user.photoURL || "";
+      var amName = $("#amName"), amEmail = $("#amEmail"), av = $("#accountAvatar");
+      if(amName) amName.textContent = name;
+      if(amEmail) amEmail.textContent = email;
+      if(av){
+        if(avatar){
+          av.innerHTML = '<img src="'+esc(avatar)+'" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" onerror="this.parentNode.textContent=\''+esc(name.charAt(0).toUpperCase())+'\';" />';
+          av.classList.remove("avatar-fallback");
+        } else {
+          av.textContent = name.charAt(0).toUpperCase();
+          av.classList.add("avatar-fallback");
+        }
+      }
+    }
+    function hideAccount(){
+      var loginBtn = $("#loginBtn");
+      var accountWrap = $("#accountWrap");
+      if(loginBtn) loginBtn.style.display = "";
+      if(accountWrap) accountWrap.style.display = "none";
+    }
+
+    // Account dropdown toggle
+    var accountTrigger = $("#accountTrigger"), accountMenu = $("#accountMenu");
+    if(accountTrigger && accountMenu){
+      accountTrigger.addEventListener("click", function(e){
+        e.stopPropagation();
+        var open = accountMenu.classList.toggle("open");
+        accountTrigger.setAttribute("aria-expanded", open);
+      });
+      document.addEventListener("click", function(){
+        accountMenu.classList.remove("open");
+        accountTrigger.setAttribute("aria-expanded", "false");
+      });
+      accountMenu.addEventListener("click", function(e){ e.stopPropagation(); });
+    }
+
+    // Sign out
+    var signOutBtn = $("#signOutBtn");
+    if(signOutBtn){
+      signOutBtn.addEventListener("click", function(){
+        if(!auth) return;
+        auth.signOut().then(function(){
+          // Optional: reload page to reset state
+          window.location.reload();
+        }).catch(function(){});
+      });
+    }
+
+    // Listen to auth state
+    if(auth){
+      auth.onAuthStateChanged(function(user){
+        if(user){
+          // Show account immediately with basic info
+          showAccount(user, null);
+          // Fetch profile from DB for richer info
+          if(db){
+            db.ref("users/" + user.uid).once("value").then(function(snap){
+              showAccount(user, snap.val() || {});
+            }).catch(function(){});
+          }
+        } else {
+          hideAccount();
+        }
+      });
+    } else {
+      hideAccount();
+    }
+
+    /* ============================================================
+       PROJECTS — published products load karo
+       ============================================================ */
     function renderProjects(products){
       var list = [];
       for(var id in products){ if(products.hasOwnProperty(id)){ var p = products[id]; if(p && p.published){ p.id = id; list.push(p); } } }
@@ -578,29 +675,30 @@
     }
 
     if(db){
-  db.ref("products")
-    .orderByChild("published")
-    .equalTo(true)
-    .on("value", function(snap){
-      var val = snap.val();
-      if(!val || Object.keys(val).length === 0){
-        renderProjects({
-          "zishu-ai": { title:"Zishu AI", url:"https://zishuai.cloud/", description:"Intelligent voice assistant with natural conversation capabilities.", published:true, featured:true, displayOrder:1 },
-          "upcodez": { title:"Upcodez", url:"https://zishutron.github.io/upcodez/", description:"An OTT platform to explore amazing videos.", published:true, displayOrder:2 },
-          "stardust-canvas": { title:"Stardust Canvas", url:"https://zishutron.github.io/Stardust-media/", description:"Photo sharing platform for creative communities.", published:true, displayOrder:3 },
-          "student-os": { title:"Stardust Student OS", url:"https://zishutron.github.io/stardust-student-OS/", description:"Educational operating system for students.", published:true, displayOrder:4 },
-          "stardust-hub": { title:"Stardust Hub", url:"https://zishutron.github.io/Stardust-hub/", description:"Social media platform for creators.", published:true, displayOrder:5 },
-          "warrior": { title:"Stardust Warrior", url:"https://zishutron.github.io/Stardust-warrior/", description:"Zombie survival game with immersive gameplay.", published:true, displayOrder:6 }
+      db.ref("products")
+        .orderByChild("published")
+        .equalTo(true)
+        .on("value", function(snap){
+          var val = snap.val();
+          if(!val || Object.keys(val).length === 0){
+            // Fallback demo data
+            renderProjects({
+              "zishu-ai": { title:"Zishu AI", url:"https://zishuai.cloud/", description:"Intelligent voice assistant with natural conversation capabilities.", published:true, featured:true, displayOrder:1 },
+              "upcodez": { title:"Upcodez", url:"https://zishutron.github.io/upcodez/", description:"An OTT platform to explore amazing videos.", published:true, displayOrder:2 },
+              "stardust-canvas": { title:"Stardust Canvas", url:"https://zishutron.github.io/Stardust-media/", description:"Photo sharing platform for creative communities.", published:true, displayOrder:3 },
+              "student-os": { title:"Stardust Student OS", url:"https://zishutron.github.io/stardust-student-OS/", description:"Educational operating system for students.", published:true, displayOrder:4 },
+              "stardust-hub": { title:"Stardust Hub", url:"https://zishutron.github.io/Stardust-hub/", description:"Social media platform for creators.", published:true, displayOrder:5 },
+              "warrior": { title:"Stardust Warrior", url:"https://zishutron.github.io/Stardust-warrior/", description:"Zombie survival game with immersive gameplay.", published:true, displayOrder:6 }
+            });
+          } else {
+            renderProjects(val);
+          }
+        }, function(){
+          renderProjects({});
         });
-      } else {
-        renderProjects(val);
-      }
-    }, function(){
+    } else {
       renderProjects({});
-    });
-} else {
-  renderProjects({});
-}
+    }
   })();
   </script>
 </body>
