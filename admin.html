@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>ZISHU TRON Admin — CMS Dashboard</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="icon" href="https://i.postimg.cc/k5MLzQ4r/file-00000000f1388211a43bfe8ca49302e4.jpg" type="image/jpeg" />
+  <meta name="theme-color" content="#050d1a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --bg:#f6f8fc;--bg-2:#eef2f9;--surface:#fff;--surface-2:#f8fafd;
+      --text:#050d1a;--text-2:#2a3f5a;--text-3:#5f7590;
+      --border:rgba(5,13,26,.08);--border-2:rgba(5,13,26,.05);
+      --accent:#2563eb;--accent-2:#1d4ed8;--accent-glow:rgba(37,99,235,.12);
+      --danger:#dc2626;--success:#16a34a;--warning:#ca8a04;
+      --radius:12px;--shadow:0 4px 24px rgba(5,13,26,.06);
+      --shadow-lg:0 20px 60px rgba(5,13,26,.12);
+      --ease:cubic-bezier(.22,1,.36,1);--t:.25s var(--ease);
+    }
+    .dark{
+      --bg:#050d1a;--bg-2:#081426;--surface:#0a1628;--surface-2:#0e1d33;
+      --text:#f0f4fa;--text-2:#a8bcd4;--text-3:#6a809c;
+      --border:rgba(255,255,255,.07);--border-2:rgba(255,255,255,.04);
+      --accent:#3b82f6;--accent-2:#60a5fa;--accent-glow:rgba(59,130,246,.15);
+      --shadow:0 4px 24px rgba(0,0,0,.35);--shadow-lg:0 20px 60px rgba(0,0,0,.5);
+    }
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased}
+    a{text-decoration:none;color:inherit}
+    button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+    input,textarea,select{font-family:inherit;font-size:inherit}
+    :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+    /* Auth gate */
+    #authGate{position:fixed;inset:0;z-index:5000;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:1.5rem}
+    #authGate .gate{max-width:440px;width:100%;text-align:center;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:2.5rem 2rem;box-shadow:var(--shadow-lg)}
+    #authGate img{width:60px;height:60px;border-radius:14px;margin:0 auto 1.25rem;display:block}
+    #authGate h1{font-size:1.4rem;font-weight:800;margin-bottom:.5rem}
+    #authGate p{color:var(--text-2);font-size:.92rem;margin-bottom:1.5rem}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:.72rem 1.5rem;border-radius:10px;font-weight:600;font-size:.88rem;transition:all .22s var(--ease)}
+    .btn-primary{background:var(--accent);color:#fff;box-shadow:0 4px 16px rgba(37,99,235,.28)}
+    .btn-primary:hover{background:var(--accent-2);transform:translateY(-1px)}
+    .btn-ghost{background:transparent;color:var(--text);border:1.5px solid var(--border)}
+    .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+    .btn-danger{background:var(--danger);color:#fff}
+    .btn-danger:hover{background:#b91c1c}
+    .btn-sm{padding:.45rem .9rem;font-size:.8rem}
+
+    /* Layout */
+    .admin-shell{display:none}
+    .admin-shell.ready{display:flex;min-height:100vh}
+    .sidebar{width:250px;flex-shrink:0;background:var(--surface);border-right:1px solid var(--border);padding:1.25rem 1rem;display:flex;flex-direction:column;gap:.25rem;position:sticky;top:0;height:100vh;overflow-y:auto}
+    .sidebar .side-brand{display:flex;align-items:center;gap:10px;padding:.5rem .5rem 1.25rem;border-bottom:1px solid var(--border);margin-bottom:.75rem}
+    .sidebar .side-brand img{width:34px;height:34px;border-radius:8px}
+    .sidebar .side-brand span{font-weight:800;font-size:.95rem;letter-spacing:-.02em}
+    .sidebar .side-brand small{display:block;font-size:.58rem;font-weight:500;letter-spacing:.18em;color:var(--text-3);text-transform:uppercase}
+    .side-link{display:flex;align-items:center;gap:10px;padding:.65rem .75rem;border-radius:9px;font-size:.86rem;font-weight:500;color:var(--text-2);transition:.18s var(--ease)}
+    .side-link svg{width:17px;height:17px;opacity:.7}
+    .side-link:hover{background:var(--bg-2);color:var(--text)}
+    .dark .side-link:hover{background:var(--surface-2)}
+    .side-link.active{background:var(--accent-glow);color:var(--accent);font-weight:600}
+    .side-link.active svg{opacity:1}
+    .side-foot{margin-top:auto;padding-top:1rem;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:.5rem}
+    .side-user{display:flex;align-items:center;gap:10px;padding:.5rem;border-radius:9px}
+    .side-user .su-av{width:32px;height:32px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:700;font-size:.8rem;flex-shrink:0}
+    .side-user .su-info{min-width:0}
+    .side-user .su-name{font-size:.82rem;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .side-user .su-mail{font-size:.7rem;color:var(--text-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+    .main{flex:1;padding:1.5rem 2rem 3rem;min-width:0}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:2rem;flex-wrap:wrap}
+    .topbar h1{font-size:1.5rem;font-weight:800;letter-spacing:-.02em}
+    .topbar .tb-actions{display:flex;align-items:center;gap:.6rem}
+    .icon-btn{width:38px;height:38px;display:grid;place-items:center;border-radius:10px;color:var(--text-2);transition:.2s}
+    .icon-btn:hover{background:var(--bg-2);color:var(--text)}
+    .dark .icon-btn:hover{background:var(--surface-2)}
+    .icon-btn svg{width:20px;height:20px}
+
+    .panel{display:none}
+    .panel.active{display:block}
+
+    /* Stat cards */
+    .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-bottom:2rem}
+    .stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem 1.35rem}
+    .stat-card .sc-label{font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);margin-bottom:.5rem}
+    .stat-card .sc-value{font-size:1.8rem;font-weight:800;letter-spacing:-.02em;color:var(--text)}
+    .stat-card .sc-icon{width:38px;height:38px;border-radius:10px;background:var(--accent-glow);display:grid;place-items:center;color:var(--accent);margin-bottom:.75rem}
+    .stat-card .sc-icon svg{width:19px;height:19px}
+
+    /* Table / list */
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:1.5rem}
+    .card-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.25rem;border-bottom:1px solid var(--border);flex-wrap:wrap}
+    .card-head h2{font-size:1rem;font-weight:700}
+    .card-body{padding:1.25rem}
+    .toolbar{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-bottom:1.25rem}
+    .search{position:relative;flex:1;min-width:200px;max-width:320px}
+    .search input{width:100%;padding:.6rem .9rem .6rem 2.2rem;border-radius:9px;border:1px solid var(--border);background:var(--surface-2);color:var(--text);font-size:.86rem}
+    .search input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+    .search svg{position:absolute;left:.7rem;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--text-3);pointer-events:none}
+    select.filter{padding:.6rem .9rem;border-radius:9px;border:1px solid var(--border);background:var(--surface-2);color:var(--text);font-size:.84rem}
+
+    table{width:100%;border-collapse:collapse;font-size:.86rem}
+    th{text-align:left;padding:.7rem .75rem;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);border-bottom:1px solid var(--border);white-space:nowrap}
+    td{padding:.75rem;border-bottom:1px solid var(--border-2);color:var(--text-2);vertical-align:middle}
+    tr:last-child td{border-bottom:none}
+    tr:hover td{background:var(--surface-2)}
+    .row-title{font-weight:600;color:var(--text)}
+    .row-desc{font-size:.78rem;color:var(--text-3);margin-top:2px;max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .badge{display:inline-flex;align-items:center;gap:4px;padding:.22rem .6rem;border-radius:100px;font-size:.68rem;font-weight:700;letter-spacing:.03em}
+    .badge-pub{background:rgba(22,163,74,.12);color:var(--success)}
+    .badge-draft{background:rgba(202,138,4,.12);color:var(--warning)}
+    .badge-feat{background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff}
+    .row-actions{display:flex;gap:.35rem;justify-content:flex-end}
+    .row-actions .icon-btn{width:30px;height:30px}
+    .row-actions .icon-btn svg{width:15px;height:15px}
+    .icon-btn.danger:hover{background:rgba(220,38,38,.1);color:var(--danger)}
+
+    .empty{padding:3rem 1.5rem;text-align:center;color:var(--text-3);font-size:.9rem}
+    .empty svg{width:44px;height:44px;margin:0 auto 1rem;display:block;opacity:.4}
+
+    /* Modal */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(5,13,26,.55);backdrop-filter:blur(4px);z-index:4000;display:none;align-items:center;justify-content:center;padding:1.5rem}
+    .modal-backdrop.open{display:flex}
+    .modal{background:var(--surface);border:1px solid var(--border);border-radius:16px;width:100%;max-width:560px;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-lg);animation:modalIn .28s var(--ease)}
+    @keyframes modalIn{from{opacity:0;transform:scale(.96) translateY(8px)}to{opacity:1;transform:none}}
+    .modal-head{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--surface);z-index:1}
+    .modal-head h3{font-size:1.05rem;font-weight:700}
+    .modal-body{padding:1.5rem}
+    .modal-foot{padding:1.25rem 1.5rem;border-top:1px solid var(--border);display:flex;justify-content:flex-end;gap:.6rem;position:sticky;bottom:0;background:var(--surface)}
+
+    .form-row{margin-bottom:1rem}
+    .form-row label{display:block;font-size:.8rem;font-weight:600;color:var(--text-2);margin-bottom:.35rem}
+    .form-row input,.form-row textarea,.form-row select{width:100%;padding:.65rem .85rem;border-radius:9px;border:1.5px solid var(--border);background:var(--surface-2);color:var(--text);font-size:.88rem;transition:border-color .2s}
+    .form-row input:focus,.form-row textarea:focus,.form-row select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+    .form-row textarea{min-height:80px;resize:vertical}
+    .form-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .checkbox-row{display:flex;align-items:center;gap:.5rem;padding:.5rem 0}
+    .checkbox-row input{width:auto}
+    .checkbox-row label{margin:0;font-weight:500;font-size:.88rem;color:var(--text)}
+    .help{font-size:.74rem;color:var(--text-3);margin-top:.3rem}
+
+    /* Toast */
+    .toast-wrap{position:fixed;bottom:1.5rem;right:1.5rem;z-index:5000;display:flex;flex-direction:column;gap:.6rem;max-width:360px}
+    .toast{display:flex;align-items:flex-start;gap:.75rem;padding:1rem 1.25rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-lg);font-size:.86rem;color:var(--text);animation:toastIn .3s var(--ease)}
+    .toast.success{border-left:3px solid var(--success)}
+    .toast.error{border-left:3px solid var(--danger)}
+    .toast svg{width:17px;height:17px;flex-shrink:0;margin-top:1px}
+    .toast.success svg{color:var(--success)}
+    .toast.error svg{color:var(--danger)}
+    @keyframes toastIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:none}}
+
+    /* Toggle switch */
+    .switch{position:relative;display:inline-block;width:38px;height:22px;flex-shrink:0}
+    .switch input{opacity:0;width:0;height:0}
+    .switch .slider{position:absolute;cursor:pointer;inset:0;background:var(--border);border-radius:22px;transition:.25s}
+    .switch .slider::before{content:"";position:absolute;height:16px;width:16px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.25s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+    .switch input:checked+.slider{background:var(--accent)}
+    .switch input:checked+.slider::before{transform:translateX(16px)}
+
+    .loading-row td{text-align:center;padding:2rem;color:var(--text-3)}
+
+    @media(max-width:860px){
+      .sidebar{position:fixed;left:0;top:0;z-index:3000;transform:translateX(-100%);transition:transform .3s var(--ease)}
+      .sidebar.open{transform:none}
+      .main{padding:1.25rem}
+      .form-grid-2{grid-template-columns:1fr}
+      .topbar h1{font-size:1.25rem}
+    }
+    .sidebar-toggle{display:none}
+    @media(max-width:860px){.sidebar-toggle{display:grid}}
+  </style>
+</head>
+<body>
+
+  <!-- AUTH GATE -->
+  <div id="authGate">
+    <div class="gate">
+      <img src="https://i.postimg.cc/k5MLzQ4r/file-00000000f1388211a43bfe8ca49302e4.jpg" alt="ZISHU TRON" />
+      <h1>ZISHU TRON Admin</h1>
+      <p id="gateMsg">Checking access…</p>
+      <div id="gateActions"></div>
+    </div>
+  </div>
+
+  <!-- ADMIN SHELL -->
+  <div class="admin-shell" id="adminShell">
+    <aside class="sidebar" id="sidebar">
+      <div class="side-brand">
+        <img src="https://i.postimg.cc/k5MLzQ4r/file-00000000f1388211a43bfe8ca49302e4.jpg" alt="ZISHU TRON" />
+        <span>ZISHU TRON<small>Admin CMS</small></span>
+      </div>
+      <a href="#dashboard" class="side-link active" data-panel="dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Dashboard
+      </a>
+      <a href="#products" class="side-link" data-panel="products">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        Products
+      </a>
+      <a href="#links" class="side-link" data-panel="links">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+        Links
+      </a>
+      <a href="#updates" class="side-link" data-panel="updates">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+        Updates
+      </a>
+      <a href="#users" class="side-link" data-panel="users">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        Users
+      </a>
+      <a href="#settings" class="side-link" data-panel="settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        Settings
+      </a>
+      <div class="side-foot">
+        <div class="side-user">
+          <div class="su-av" id="sideAv">A</div>
+          <div class="su-info">
+            <div class="su-name" id="sideName">Admin</div>
+            <div class="su-mail" id="sideMail">admin@zishutron.com</div>
+          </div>
+        </div>
+        <button class="btn btn-ghost btn-sm" id="sideSignOut" style="width:100%;">Sign Out</button>
+        <a href="index.html" class="btn btn-ghost btn-sm" style="width:100%;">View Site</a>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div style="display:flex;align-items:center;gap:.6rem;">
+          <button class="icon-btn sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <h1 id="panelTitle">Dashboard</h1>
+        </div>
+        <div class="tb-actions">
+          <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- DASHBOARD -->
+      <section class="panel active" id="panel-dashboard">
+        <div class="stat-grid">
+          <div class="stat-card"><div class="sc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div class="sc-label">Total Products</div><div class="sc-value" id="dTotalProducts">—</div></div>
+          <div class="stat-card"><div class="sc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div class="sc-label">Published</div><div class="sc-value" id="dPubProducts">—</div></div>
+          <div class="stat-card"><div class="sc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="sc-label">Drafts</div><div class="sc-value" id="dDraftProducts">—</div></div>
+          <div class="stat-card"><div class="sc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div class="sc-label">Total Users</div><div class="sc-value" id="dTotalUsers">—</div></div>
+          <div class="stat-card"><div class="sc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><div class="sc-label">Updates</div><div class="sc-value" id="dTotalUpdates">—</div></div>
+          <div class="stat-card"><div class="sc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="sc-label">Links</div><div class="sc-value" id="dTotalLinks">—</div></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><h2>Recent Products</h2><button class="btn btn-primary btn-sm" data-action="new-product">+ New Product</button></div>
+          <div class="card-body" id="dRecentProducts"><div class="empty">Loading…</div></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><h2>Recent Updates</h2><button class="btn btn-primary btn-sm" data-action="new-update">+ New Update</button></div>
+          <div class="card-body" id="dRecentUpdates"><div class="empty">Loading…</div></div>
+        </div>
+      </section>
+
+      <!-- PRODUCTS -->
+      <section class="panel" id="panel-products">
+        <div class="card">
+          <div class="card-head">
+            <h2>Products</h2>
+            <button class="btn btn-primary btn-sm" id="addProductBtn">+ Add Product</button>
+          </div>
+          <div class="card-body">
+            <div class="toolbar">
+              <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" id="productSearch" placeholder="Search products…" /></div>
+              <select class="filter" id="productFilter"><option value="all">All status</option><option value="published">Published</option><option value="draft">Draft</option></select>
+            </div>
+            <div id="productsTableWrap"><div class="empty">Loading…</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LINKS -->
+      <section class="panel" id="panel-links">
+        <div class="card">
+          <div class="card-head">
+            <h2>Links</h2>
+            <button class="btn btn-primary btn-sm" id="addLinkBtn">+ Add Link</button>
+          </div>
+          <div class="card-body">
+            <div class="toolbar">
+              <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" id="linkSearch" placeholder="Search links…" /></div>
+              <select class="filter" id="linkFilter"><option value="all">All categories</option><option value="nav">Navigation</option><option value="product">Product</option><option value="contact">Contact</option><option value="social">Social</option><option value="footer">Footer</option><option value="legal">Legal</option><option value="custom">Custom</option></select>
+            </div>
+            <div id="linksTableWrap"><div class="empty">Loading…</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- UPDATES -->
+      <section class="panel" id="panel-updates">
+        <div class="card">
+          <div class="card-head">
+            <h2>Updates</h2>
+            <button class="btn btn-primary btn-sm" id="addUpdateBtn">+ Add Update</button>
+          </div>
+          <div class="card-body">
+            <div class="toolbar">
+              <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" id="updateSearch" placeholder="Search updates…" /></div>
+              <select class="filter" id="updateFilter"><option value="all">All status</option><option value="published">Published</option><option value="draft">Draft</option></select>
+            </div>
+            <div id="updatesTableWrap"><div class="empty">Loading…</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- USERS -->
+      <section class="panel" id="panel-users">
+        <div class="card">
+          <div class="card-head"><h2>Users</h2></div>
+          <div class="card-body">
+            <div class="toolbar">
+              <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" id="userSearch" placeholder="Search users…" /></div>
+            </div>
+            <div id="usersTableWrap"><div class="empty">Loading…</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="panel" id="panel-settings">
+        <div class="card">
+          <div class="card-head"><h2>Settings</h2></div>
+          <div class="card-body">
+            <div class="form-row">
+              <label>Site Title</label>
+              <input type="text" id="settingSiteTitle" placeholder="ZISHU TRON" />
+            </div>
+            <div class="form-row">
+              <label>Site Description</label>
+              <textarea id="settingSiteDesc" placeholder="Building Intelligent Technology for a Better Future"></textarea>
+            </div>
+            <div class="form-row">
+              <label>Contact Email</label>
+              <input type="email" id="settingContactEmail" placeholder="hello@zishutron.com" />
+            </div>
+            <button class="btn btn-primary btn-sm" id="saveSettingsBtn">Save Settings</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal" id="modalBox">
+      <div class="modal-head">
+        <h3 id="modalTitle">Edit</h3>
+        <button class="icon-btn" id="modalClose" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-foot" id="modalFoot"></div>
+    </div>
+  </div>
+
+  <!-- CONFIRM -->
+  <div class="modal-backdrop" id="confirmBackdrop">
+    <div class="modal" style="max-width:420px;">
+      <div class="modal-head"><h3 id="confirmTitle">Confirm</h3></div>
+      <div class="modal-body"><p id="confirmText" style="color:var(--text-2);font-size:.92rem;"></p></div>
+      <div class="modal-foot">
+        <button class="btn btn-ghost btn-sm" id="confirmCancel">Cancel</button>
+        <button class="btn btn-danger btn-sm" id="confirmOk">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-wrap" id="toastWrap"></div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+  <script>
+  (function(){
+    "use strict";
+    var firebaseConfig = {
+      apiKey: "AIzaSyBU5CZxIycjaY9t12BGhWADJyAbrS8WzqY",
+      authDomain: "zishu-tron.firebaseapp.com",
+      databaseURL: "https://zishu-tron-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "zishu-tron",
+      storageBucket: "zishu-tron.firebasestorage.app",
+      messagingSenderId: "818976752868",
+      appId: "1:818976752868:web:6097a46a709329a3dd18f1",
+      measurementId: "G-0S122FQGJF"
+    };
+    var app, auth, db;
+    try {
+      app = firebase.initializeApp(firebaseConfig);
+      auth = firebase.auth();
+      db = firebase.database();
+    } catch(e){ console.warn("Firebase init failed", e); }
+
+    function $(s,c){ return (c||document).querySelector(s); }
+    function $all(s,c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); }
+    function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+    function sanitizeUrl(u){ if(!u) return ""; u=String(u).trim(); if(/^(https?:|mailto:|tel:|\/|#)/i.test(u)) return u; return "https://"+u; }
+
+    var currentUser = null;
+    var isAdmin = false;
+    var cache = { products:{}, links:{}, updates:{}, users:{}, admins:{} };
+
+    /* Theme */
+    var root = document.documentElement;
+    var saved = localStorage.getItem("zt-theme");
+    if(saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) root.classList.add("dark");
+    $("#themeToggle").addEventListener("click", function(){
+      root.classList.toggle("dark");
+      localStorage.setItem("zt-theme", root.classList.contains("dark") ? "dark" : "light");
+    });
+
+    /* Toast */
+    function toast(msg, type){
+      var wrap = $("#toastWrap");
+      var t = document.createElement("div");
+      t.className = "toast " + (type||"success");
+      var icon = type === "error"
+        ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>'
+        : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>';
+      t.innerHTML = icon + '<span>'+esc(msg)+'</span>';
+      wrap.appendChild(t);
+      setTimeout(function(){
+        t.style.opacity="0"; t.style.transform="translateX(20px)"; t.style.transition="all .3s";
+        setTimeout(function(){ t.remove(); }, 320);
+      }, 3200);
+    }
+
+    /* Confirm dialog */
+    function confirmDialog(title, text, onOk){
+      $("#confirmTitle").textContent = title;
+      $("#confirmText").textContent = text;
+      $("#confirmBackdrop").classList.add("open");
+      var okBtn = $("#confirmOk"), cancelBtn = $("#confirmCancel");
+      var handler = function(){ cleanup(); onOk(); };
+      var cancelHandler = function(){ cleanup(); };
+      function cleanup(){
+        $("#confirmBackdrop").classList.remove("open");
+        okBtn.removeEventListener("click", handler);
+        cancelBtn.removeEventListener("click", cancelHandler);
+      }
+      okBtn.addEventListener("click", handler);
+      cancelBtn.addEventListener("click", cancelHandler);
+    }
+
+    /* Modal */
+    function openModal(title, bodyHtml, footHtml){
+      $("#modalTitle").textContent = title;
+      $("#modalBody").innerHTML = bodyHtml;
+      $("#modalFoot").innerHTML = footHtml;
+      $("#modalBackdrop").classList.add("open");
+    }
+    function closeModal(){ $("#modalBackdrop").classList.remove("open"); }
+    $("#modalClose").addEventListener("click", closeModal);
+    $("#modalBackdrop").addEventListener("click", function(e){ if(e.target === this) closeModal(); });
+    document.addEventListener("keydown", function(e){ if(e.key === "Escape"){ closeModal(); $("#confirmBackdrop").classList.remove("open"); } });
+
+    /* Sidebar nav */
+    $all(".side-link").forEach(function(link){
+      link.addEventListener("click", function(e){
+        e.preventDefault();
+        var panel = this.getAttribute("data-panel");
+        $all(".side-link").forEach(function(l){ l.classList.remove("active"); });
+        this.classList.add("active");
+        $all(".panel").forEach(function(p){ p.classList.remove("active"); });
+        $("#panel-"+panel).classList.add("active");
+        $("#panelTitle").textContent = this.textContent.trim();
+        $("#sidebar").classList.remove("open");
+      });
+    });
+    $("#sidebarToggle").addEventListener("click", function(){ $("#sidebar").classList.toggle("open"); });
+
+    /* Role check + Auth gate */
+    function showGate(msg, actionsHtml){
+      $("#gateMsg").textContent = msg;
+      $("#gateActions").innerHTML = actionsHtml || "";
+      $("#authGate").style.display = "flex";
+      $("#adminShell").classList.remove("ready");
+    }
+    function hideGate(){
+      $("#authGate").style.display = "none";
+      $("#adminShell").classList.add("ready");
+    }
+
+    if(auth){
+      auth.onAuthStateChanged(function(user){
+        currentUser = user;
+        if(!user){
+          showGate("Please sign in to access the admin dashboard.", '<a href="auth.html" class="btn btn-primary" style="width:100%;">Sign In</a>');
+          return;
+        }
+        // Check admin node
+        db.ref("admins/"+user.uid).once("value").then(function(snap){
+          if(snap.val() === true){
+            isAdmin = true;
+            hideGate();
+            bootAdmin(user);
+          } else {
+            showGate("Your account does not have admin access. Contact the ZISHU TRON team if you believe this is a mistake.", '<button class="btn btn-ghost" id="gateSignOut" style="width:100%;">Sign Out</button>');
+            setTimeout(function(){
+              var b = $("#gateSignOut");
+              if(b) b.addEventListener("click", function(){ auth.signOut(); });
+            }, 50);
+          }
+        }).catch(function(err){
+          showGate("Unable to verify admin access: " + (err.message||"unknown error"), '<button class="btn btn-ghost" id="gateSignOut" style="width:100%;">Sign Out</button>');
+          setTimeout(function(){
+            var b = $("#gateSignOut");
+            if(b) b.addEventListener("click", function(){ auth.signOut(); });
+          }, 50);
+        });
+      });
+    } else {
+      showGate("Authentication service unavailable.", "");
+    }
+
+    $("#sideSignOut").addEventListener("click", function(){
+      if(auth) auth.signOut().then(function(){ location.reload(); });
+    });
+
+    /* ---------- DATA LISTENERS ---------- */
+    function sortByOrder(a, b){
+      var ao = a.displayOrder == null ? 9999 : Number(a.displayOrder);
+      var bo = b.displayOrder == null ? 9999 : Number(b.displayOrder);
+      if(ao !== bo) return ao - bo;
+      return (b.createdAt||0) - (a.createdAt||0);
+    }
+
+    function bootAdmin(user){
+      // user info
+      $("#sideName").textContent = user.displayName || (user.email||"").split("@")[0] || "Admin";
+      $("#sideMail").textContent = user.email || "";
+      $("#sideAv").textContent = (user.displayName || user.email || "A").charAt(0).toUpperCase();
+
+      // products
+      db.ref("products").on("value", function(snap){
+        cache.products = snap.val() || {};
+        renderDashboardStats();
+        renderRecentProducts();
+        renderProductsTable();
+      }, function(err){ toast("Failed to load products: " + err.message, "error"); });
+
+      // links
+      db.ref("links").on("value", function(snap){
+        cache.links = snap.val() || {};
+        renderDashboardStats();
+        renderLinksTable();
+      }, function(err){ toast("Failed to load links: " + err.message, "error"); });
+
+      // updates
+      db.ref("updates").on("value", function(snap){
+        cache.updates = snap.val() || {};
+        renderDashboardStats();
+        renderRecentUpdates();
+        renderUpdatesTable();
+      }, function(err){ toast("Failed to load updates: " + err.message, "error"); });
+
+      // users
+      db.ref("users").on("value", function(snap){
+        cache.users = snap.val() || {};
+        renderDashboardStats();
+        renderUsersTable();
+      }, function(err){ toast("Failed to load users: " + err.message, "error"); });
+
+      // settings
+      db.ref("settings/site").on("value", function(snap){
+        var s = snap.val() || {};
+        $("#settingSiteTitle").value = s.title || "";
+        $("#settingSiteDesc").value = s.description || "";
+        $("#settingContactEmail").value = s.contactEmail || "";
+      });
+
+      // Seed existing links if links node is empty
+      db.ref("links").once("value").then(function(snap){
+        if(!snap.exists()){
+          seedDefaultLinks();
+        }
+      });
+    }
+
+    /* ---------- SEED DEFAULT LINKS (preserve original) ---------- */
+    function seedDefaultLinks(){
+      var now = Date.now();
+      var defaults = {
+        "nav-home":       { name:"Home", url:"index.html#home", category:"nav", openMode:"same", published:true, displayOrder:1, description:"Main landing page", createdAt:now, updatedAt:now },
+        "nav-products":   { name:"Products", url:"index.html#products", category:"nav", openMode:"same", published:true, displayOrder:2, description:"Product ecosystem", createdAt:now, updatedAt:now },
+        "nav-about":      { name:"About", url:"index.html#about", category:"nav", openMode:"same", published:true, displayOrder:3, description:"About ZISHU TRON", createdAt:now, updatedAt:now },
+        "nav-updates":    { name:"Updates", url:"index.html#updates", category:"nav", openMode:"same", published:true, displayOrder:4, description:"News and updates", createdAt:now, updatedAt:now },
+        "nav-contact":    { name:"Contact", url:"index.html#contact", category:"nav", openMode:"same", published:true, displayOrder:5, description:"Contact us", createdAt:now, updatedAt:now },
+        "nav-developer":  { name:"Developer", url:"developer.html", category:"nav", openMode:"same", published:true, displayOrder:6, description:"About the founder", createdAt:now, updatedAt:now },
+        "social-github":  { name:"GitHub", url:"https://github.com/zishutron", category:"social", openMode:"new", published:true, displayOrder:1, description:"Code and development", createdAt:now, updatedAt:now },
+        "social-discord": { name:"Discord", url:"https://discord.gg/Xhh5r2UM5C", category:"social", openMode:"new", published:true, displayOrder:2, description:"Community and discussions", createdAt:now, updatedAt:now },
+        "social-x":       { name:"X", url:"https://x.com/zishanstardust", category:"social", openMode:"new", published:true, displayOrder:3, description:"Updates and announcements", createdAt:now, updatedAt:now },
+        "social-youtube": { name:"YouTube", url:"https://youtube.com/@zishutron", category:"social", openMode:"new", published:true, displayOrder:4, description:"Videos and demos", createdAt:now, updatedAt:now },
+        "social-linkedin":{ name:"LinkedIn", url:"https://linkedin.com/in/zishu-tron-a8a71241", category:"social", openMode:"new", published:true, displayOrder:5, description:"Professional presence", createdAt:now, updatedAt:now },
+        "contact-email":  { name:"Email", url:"mailto:hello@zishutron.com", category:"contact", openMode:"same", published:true, displayOrder:1, description:"General enquiries", createdAt:now, updatedAt:now },
+        "legal-privacy":  { name:"Privacy Policy", url:"privacy.html", category:"legal", openMode:"same", published:true, displayOrder:1, description:"Privacy Policy", createdAt:now, updatedAt:now },
+        "legal-terms":    { name:"Terms of Service", url:"terms.html", category:"legal", openMode:"same", published:true, displayOrder:2, description:"Terms of Service", createdAt:now, updatedAt:now }
+      };
+      db.ref("links").set(defaults).then(function(){ toast("Default links seeded", "success"); });
+    }
+
+    /* ---------- DASHBOARD ---------- */
+    function renderDashboardStats(){
+      var products = Object.keys(cache.products||{});
+      var published = products.filter(function(id){ return cache.products[id].published; }).length;
+      $("#dTotalProducts").textContent = products.length;
+      $("#dPubProducts").textContent = published;
+      $("#dDraftProducts").textContent = products.length - published;
+      $("#dTotalUsers").textContent = Object.keys(cache.users||{}).length;
+      $("#dTotalUpdates").textContent = Object.keys(cache.updates||{}).length;
+      $("#dTotalLinks").textContent = Object.keys(cache.links||{}).length;
+    }
+
+    function renderRecentProducts(){
+      var list = [];
+      for(var id in cache.products){ if(cache.products.hasOwnProperty(id)){ var p = cache.products[id]; p.id = id; list.push(p); } }
+      list.sort(function(a,b){ return (b.createdAt||0) - (a.createdAt||0); });
+      list = list.slice(0,5);
+      var wrap = $("#dRecentProducts");
+      if(list.length === 0){ wrap.innerHTML = '<div class="empty">No products yet. Click "+ New Product" to add one.</div>'; return; }
+      var html = '<table><thead><tr><th>Title</th><th>Category</th><th>Status</th><th></th></tr></thead><tbody>';
+      list.forEach(function(p){
+        html += '<tr><td><div class="row-title">'+esc(p.title||"Untitled")+'</div></td><td>'+esc(p.category||"—")+'</td><td>'+(p.published?'<span class="badge badge-pub">Published</span>':'<span class="badge badge-draft">Draft</span>')+'</td><td class="row-actions"><button class="icon-btn" data-edit-product="'+esc(p.id)+'" title="Edit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button></td></tr>';
+      });
+      html += '</tbody></table>';
+      wrap.innerHTML = html;
+      bindProductEditButtons(wrap);
+    }
+
+    function renderRecentUpdates(){
+      var list = [];
+      for(var id in cache.updates){ if(cache.updates.hasOwnProperty(id)){ var u = cache.updates[id]; u.id = id; list.push(u); } }
+      list.sort(function(a,b){ return (b.createdAt||0) - (a.createdAt||0); });
+      list = list.slice(0,5);
+      var wrap = $("#dRecentUpdates");
+      if(list.length === 0){ wrap.innerHTML = '<div class="empty">No updates yet. Click "+ New Update" to add one.</div>'; return; }
+      var html = '<table><thead><tr><th>Title</th><th>Category</th><th>Status</th><th></th></tr></thead><tbody>';
+      list.forEach(function(u){
+        html += '<tr><td><div class="row-title">'+esc(u.title||"Untitled")+'</div></td><td>'+esc(u.category||"—")+'</td><td>'+(u.published?'<span class="badge badge-pub">Published</span>':'<span class="badge badge-draft">Draft</span>')+'</td><td class="row-actions"><button class="icon-btn" data-edit-update="'+esc(u.id)+'" title="Edit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button></td></tr>';
+      });
+      html += '</tbody></table>';
+      wrap.innerHTML = html;
+      bindUpdateEditButtons(wrap);
+    }
+
+    /* ---------- PRODUCTS TABLE ---------- */
+    function renderProductsTable(){
+      var wrap = $("#productsTableWrap");
+      var q = ($("#productSearch").value||"").toLowerCase();
+      var filter = $("#productFilter").value;
+      var list = [];
+      for(var id in cache.products){ if(cache.products.hasOwnProperty(id)){ var p = cache.products[id]; p.id = id; list.push(p); } }
+      list.sort(sortByOrder);
+      if(q) list = list.filter(function(p){ return (p.title||"").toLowerCase().indexOf(q)>=0 || (p.category||"").toLowerCase().indexOf(q)>=0; });
+      if(filter === "published") list = list.filter(function(p){ return !!p.published; });
+      if(filter === "draft") list = list.filter(function(p){ return !p.published; });
+
+      if(list.length === 0){
+        wrap.innerHTML = '<div class="empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>No products found.</div>';
+        return;
+      }
+      var html = '<table><thead><tr><th>Order</th><th>Title</th><th>Category</th><th>Status</th><th>Featured</th><th></th></tr></thead><tbody>';
+      list.forEach(function(p){
+        html += '<tr>'
+          + '<td><input type="number" value="'+esc(p.displayOrder==null?0:p.displayOrder)+'" data-order-product="'+esc(p.id)+'" style="width:64px;padding:.3rem .4rem;border-radius:6px;border:1px solid var(--border);background:var(--surface-2);color:var(--text);font-size:.8rem;" /></td>'
+          + '<td><div class="row-title">'+esc(p.title||"Untitled")+'</div><div class="row-desc">'+esc(p.description||"")+'</div></td>'
+          + '<td>'+esc(p.category||"—")+'</td>'
+          + '<td>'+(p.published?'<span class="badge badge-pub">Published</span>':'<span class="badge badge-draft">Draft</span>')+'</td>'
+          + '<td><label class="switch"><input type="checkbox" '+(p.featured?'checked':'')+' data-feat-product="'+esc(p.id)+'" /><span class="slider"></span></label></td>'
+          + '<td class="row-actions">'
+          +   '<button class="icon-btn" data-edit-product="'+esc(p.id)+'" title="Edit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>'
+          +   '<button class="icon-btn" data-toggle-product="'+esc(p.id)+'" title="'+(p.published?'Unpublish':'Publish')+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'+(p.published?'<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>':'<path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>')+'</svg></button>'
+          +   '<button class="icon-btn danger" data-del-product="'+esc(p.id)+'" title="Delete"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></button>'
+          + '</td></tr>';
+      });
+      html += '</tbody></table>';
+      wrap.innerHTML = html;
+      bindProductEditButtons(wrap);
+      $all("[data-toggle-product]", wrap).forEach(function(b){ b.addEventListener("click", function(){ toggleProduct(this.getAttribute("data-toggle-product")); }); });
+      $all("[data-del-product]", wrap).forEach(function(b){ b.addEventListener("click", function(){ deleteProduct(this.getAttribute("data-del-product")); }); });
+      $all("[data-feat-product]", wrap).forEach(function(cb){ cb.addEventListener("change", function(){ setFeatured(this.getAttribute("data-feat-product"), this.checked); }); });
+      $all("[data-order-product]", wrap).forEach(function(inp){ inp.addEventListener("change", function(){ setOrder("products", this.getAttribute("data-order-product"), this.value); }); });
+    }
+
+    /* ---------- LINKS TABLE ---------- */
+    function renderLinksTable(){
+      var wrap = $("#linksTableWrap");
+      var q = ($("#linkSearch").value||"").toLowerCase();
+      var filter = $("#linkFilter").value;
+      var list = [];
+      for(var id in cache.links){ if(cache.links.hasOwnProperty(id)){ var l = cache.links[id]; l.id = id; list.push(l); } }
+      list.sort(sortByOrder);
+      if(q) list = list.filter(function(l){ return (l.name||"").toLowerCase().indexOf(q)>=0 || (l.url||"").toLowerCase().indexOf(q)>=0; });
+      if(filter !== "all") list = list.filter(function(l){ return l.category === filter; });
+
+      if(list.length === 0){
+        wrap.innerHTML = '<div class="empty">No links found.</div>';
+        return;
+      }
+      var html = '<table><thead><tr><th>Order</th><th>Name</th><th>URL</th><th>Category</th><th>Status</th><th></th></tr></thead><tbody>';
+      list.forEach(function(l){
+        html += '<tr>'
+          + '<td><input type="number" value="'+esc(l.displayOrder==null?0:l.displayOrder)+'" data-order-link="'+esc(l.id)+'" style="width:64px;padding:.3rem .4rem;border-radius:6px;border:1px solid var(--border);background:var(--surface-2);color:var(--text);font-size:.8rem;" /></td>'
+          + '<td><div class="row-title">'+esc(l.name||"Untitled")+'</div></td>'
+          + '<td><a href="'+esc(sanitizeUrl(l.url||"#"))+'" target="_blank" rel="noopener" style="color:var(--accent);font-size:.8rem;word-break:break-all;">'+esc((l.url||"").slice(0,50))+'</a></td>'
+          + '<td>'+esc(l.category||"—")+'</td>'
+          + '<td>'+(l.published?'<span class="badge badge-pub">Published</span>':'<span class="badge badge-draft">Draft</span>')+'</td>'
+          + '<td class="row-actions">'
+          +   '<button class="icon-btn" data-edit-link="'+esc(l.id)+'" title="Edit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>'
+          +   '<button class="icon-btn danger" data-del-link="'+esc(l.id)+'" title="Delete"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/></svg></button>'
+          + '</td></tr>';
+      });
+      html += '</tbody></table>';
+      wrap.innerHTML = html;
+      $all("[data-edit-link]", wrap).forEach(function(b){ b.addEventListener("click", function(){ openLinkModal(this.getAttribute("data-edit-link")); }); });
+      $all("[data-del-link]", wrap).forEach(function(b){ b.addEventListener("click", function(){ deleteItem("links", this.getAttribute("data-del-link"), "link"); }); });
+      $all("[data-order-link]", wrap).forEach(function(inp){ inp.addEventListener("change", function(){ setOrder("links", this.getAttribute("data-order-link"), this.value); }); });
+    }
+
+    /* ---------- UPDATES TABLE ---------- */
+    function renderUpdatesTable(){
+      var wrap = $("#updatesTableWrap");
+      var q = ($("#updateSearch").value||"").toLowerCase();
+      var filter = $("#updateFilter").value;
+      var list = [];
+      for(var id in cache.updates){ if(cache.updates.hasOwnProperty(id)){ var u = cache.updates[id]; u.id = id; list.push(u); } }
+      list.sort(sortByOrder);
+      if(q) list = list.filter(function(u){ return (u.title||"").toLowerCase().indexOf(q)>=0; });
+      if(filter === "published") list = list.filter(function(u){ return !!u.published; });
+      if(filter === "draft") list = list.filter(function(u){ return !u.published; });
+
+      if(list.length === 0){
+        wrap.innerHTML = '<div class="empty">No updates found.</div>';
+        return;
+      }
+      var html = '<table><thead><tr><th>Order</th><th>Title</th><th>Category</th><th>Status</th><th></th></tr></thead><tbody>';
+      list.forEach(function(u){
+        html += '<tr>'
+          + '<td><input type="number" value="'+esc(u.displayOrder==null?0:u.displayOrder)+'" data-order-update="'+esc(u.id)+'" style="width:64px;padding:.3rem .4rem;border-radius:6px;border:1px solid var(--border);background:var(--surface-2);color:var(--text);font-size:.8rem;" /></td>'
+          + '<td><div class="row-title">'+esc(u.title||"Untitled")+'</div><div class="row-desc">'+esc(u.description||"")+'</div></td>'
+          + '<td>'+esc(u.category||"—")+'</td>'
+          + '<td>'+(u.published?'<span class="badge badge-pub">Published</span>':'<span class="badge badge-draft">Draft</span>')+'</td>'
+          + '<td class="row-actions">'
+          +   '<button class="icon-btn" data-edit-update="'+esc(u.id)+'" title="Edit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>'
+          +   '<button class="icon-btn danger" data-del-update="'+esc(u.id)+'" title="Delete"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/></svg></button>'
+          + '</td></tr>';
+      });
+      html += '</tbody></table>';
+      wrap.innerHTML = html;
+      bindUpdateEditButtons(wrap);
+      $all("[data-del-update]", wrap).forEach(function(b){ b.addEventListener("click", function(){ deleteItem("updates", this.getAttribute("data-del-update"), "update"); }); });
+      $all("[data-order-update]", wrap).forEach(function(inp){ inp.addEventListener("change", function(){ setOrder("updates", this.getAttribute("data-order-update"), this.value); }); });
+    }
+
+    function bindProductEditButtons(scope){
+      $all("[data-edit-product]", scope||document).forEach(function(b){
+        b.onclick = function(){ openProductModal(this.getAttribute("data-edit-product")); };
+      });
+    }
+    function bindUpdateEditButtons(scope){
+      $all("[data-edit-update]", scope||document).forEach(function(b){
+        b.onclick = function(){ openUpdateModal(this.getAttribute("data-edit-update")); };
+      });
+    }
+
+    /* ---------- USERS TABLE ---------- */
+    function renderUsersTable(){
+      var wrap = $("#usersTableWrap");
+      var q = ($("#userSearch").value||"").toLowerCase();
+      var list = [];
+      for(var id in cache.users){ if(cache.users.hasOwnProperty(id)){ var u = cache.users[id]; u.uid = id; list.push(u); } }
+      list.sort(function(a,b){ return (b.createdAt||0) - (a.createdAt||0); });
+      if(q) list = list.filter(function(u){ return (u.email||"").toLowerCase().indexOf(q)>=0 || (u.displayName||"").toLowerCase().indexOf(q)>=0; });
+
+      if(list.length === 0){
+        wrap.innerHTML = '<div class="empty">No users found.</div>';
+        return;
+      }
+      var html = '<table><thead><tr><th>User</th><th>Email</th><th>Provider</th><th>Role</th><th>Joined</th></tr></thead><tbody>';
+      list.forEach(function(u){
+        var joined = u.createdAt ? new Date(u.createdAt).toLocaleDateString() : "—";
+        html += '<tr>'
+          + '<td><div class="row-title">'+esc(u.displayName||"Unnamed")+'</div></td>'
+          + '<td>'+esc(u.email||"—")+'</td>'
+          + '<td>'+esc(u.provider||"—")+'</td>'
+          + '<td><span class="badge '+(u.role==="admin"?"badge-feat":"badge-pub")+'">'+esc(u.role||"user")+'</span></td>'
+          + '<td>'+esc(joined)+'</td>'
+          + '</tr>';
+      });
+      html += '</tbody></table>';
+      wrap.innerHTML = html;
+    }
+
+    /* ---------- PRODUCT MODAL ---------- */
+    function openProductModal(id){
+      var isNew = !id;
+      var p = isNew ? { title:"", url:"", description:"", category:"", icon:"", banner:"", embedUrl:"", embedMode:"auto", published:false, featured:false, status:"Available", displayOrder:0 } : cache.products[id];
+      if(!p) return;
+      var body = ''
+        + '<div class="form-row"><label>Product Title *</label><input type="text" id="mp_title" value="'+esc(p.title||"")+'" placeholder="My Product" /></div>'
+        + '<div class="form-row"><label>Product URL *</label><input type="text" id="mp_url" value="'+esc(p.url||"")+'" placeholder="https://example.com" /></div>'
+        + '<div class="form-row"><label>Short Description</label><textarea id="mp_desc" placeholder="A short description…">'+esc(p.description||"")+'</textarea></div>'
+        + '<div class="form-grid-2">'
+        +   '<div class="form-row"><label>Category</label><input type="text" id="mp_category" value="'+esc(p.category||"")+'" placeholder="AI Assistant" /></div>'
+        +   '<div class="form-row"><label>Status</label><select id="mp_status"><option value="Available"'+(p.status==="Available"?" selected":"")+'>Available</option><option value="Coming Soon"'+(p.status==="Coming Soon"?" selected":"")+'>Coming Soon</option><option value="Beta"'+(p.status==="Beta"?" selected":"")+'>Beta</option></select></div>'
+        + '</div>'
+        + '<div class="form-row"><label>Icon URL</label><input type="text" id="mp_icon" value="'+esc(p.icon||"")+'" placeholder="https://…" /><div class="help">Square image recommended. Leave blank for auto-generated initial.</div></div>'
+        + '<div class="form-row"><label>Banner / Image URL</label><input type="text" id="mp_banner" value="'+esc(p.banner||"")+'" placeholder="https://…" /></div>'
+        + '<div class="form-grid-2">'
+        +   '<div class="form-row"><label>Embed URL</label><input type="text" id="mp_embed" value="'+esc(p.embedUrl||"")+'" placeholder="Optional embed URL" /></div>'
+        +   '<div class="form-row"><label>Embed Mode</label><select id="mp_embedMode"><option value="auto"'+(p.embedMode==="auto"?" selected":"")+'>Auto</option><option value="external"'+(p.embedMode==="external"?" selected":"")+'>External Link</option><option value="embedded"'+(p.embedMode==="embedded"?" selected":"")+'>Embedded</option></select></div>'
+        + '</div>'
+        + '<div class="form-grid-2">'
+        +   '<div class="form-row"><label>Display Order</label><input type="number" id="mp_order" value="'+esc(p.displayOrder==null?0:p.displayOrder)+'" /></div>'
+        +   '<div class="form-row"><label>&nbsp;</label><div class="checkbox-row"><input type="checkbox" id="mp_published" '+(p.published?'checked':'')+' /><label for="mp_published">Published</label></div><div class="checkbox-row"><input type="checkbox" id="mp_featured" '+(p.featured?'checked':'')+' /><label for="mp_featured">Featured</label></div></div>'
+        + '</div>';
+      var foot = '<button class="btn btn-ghost btn-sm" id="mp_cancel">Cancel</button><button class="btn btn-primary btn-sm" id="mp_save">'+(isNew?"Publish Product":"Save Changes")+'</button>';
+      openModal(isNew?"Add Product":"Edit Product", body, foot);
+      $("#mp_cancel").addEventListener("click", closeModal);
+      $("#mp_save").addEventListener("click", function(){ saveProduct(id); });
+    }
+
+    function saveProduct(id){
+      var title = $("#mp_title").value.trim();
+      var url = $("#mp_url").value.trim();
+      if(!title){ toast("Title is required", "error"); return; }
+      if(!url){ toast("URL is required", "error"); return; }
+      var data = {
+        title: title,
+        url: sanitizeUrl(url),
+        description: $("#mp_desc").value.trim(),
+        category: $("#mp_category").value.trim(),
+        icon: $("#mp_icon").value.trim(),
+        banner: $("#mp_banner").value.trim(),
+        embedUrl: sanitizeUrl($("#mp_embed").value.trim()),
+        embedMode: $("#mp_embedMode").value,
+        status: $("#mp_status").value,
+        published: $("#mp_published").checked,
+        featured: $("#mp_featured").checked,
+        displayOrder: Number($("#mp_order").value) || 0,
+        updatedAt: Date.now()
+      };
+      var ref;
+      if(id){ ref = db.ref("products/"+id); ref.update(data).then(function(){ toast("Product updated"); closeModal(); }).catch(function(e){ toast("Save failed: "+e.message, "error"); }); }
+      else { data.createdAt = Date.now(); ref = db.ref("products").push(); ref.set(data).then(function(){ toast("Product published"); closeModal(); }).catch(function(e){ toast("Create failed: "+e.message, "error"); }); }
+    }
+
+    /* ---------- LINK MODAL ---------- */
+    function openLinkModal(id){
+      var isNew = !id;
+      var l = isNew ? { name:"", url:"", category:"custom", description:"", openMode:"new", published:true, displayOrder:0 } : cache.links[id];
+      if(!l) return;
+      var body = ''
+        + '<div class="form-row"><label>Link Name *</label><input type="text" id="ml_name" value="'+esc(l.name||"")+'" placeholder="My Link" /></div>'
+        + '<div class="form-row"><label>URL *</label><input type="text" id="ml_url" value="'+esc(l.url||"")+'" placeholder="https://…" /></div>'
+        + '<div class="form-grid-2">'
+        +   '<div class="form-row"><label>Category</label><select id="ml_category"><option value="nav"'+(l.category==="nav"?" selected":"")+'>Navigation</option><option value="product"'+(l.category==="product"?" selected":"")+'>Product</option><option value="contact"'+(l.category==="contact"?" selected":"")+'>Contact</option><option value="social"'+(l.category==="social"?" selected":"")+'>Social</option><option value="footer"'+(l.category==="footer"?" selected":"")+'>Footer</option><option value="legal"'+(l.category==="legal"?" selected":"")+'>Legal</option><option value="custom"'+(l.category==="custom"?" selected":"")+'>Custom</option></select></div>'
+        +   '<div class="form-row"><label>Open Mode</label><select id="ml_openMode"><option value="new"'+(l.openMode==="new"?" selected":"")+'>New tab</option><option value="same"'+(l.openMode==="same"?" selected":"")+'>Same tab</option></select></div>'
+        + '</div>'
+        + '<div class="form-row"><label>Description</label><input type="text" id="ml_desc" value="'+esc(l.description||"")+'" placeholder="Optional description" /></div>'
+        + '<div class="form-grid-2">'
+        +   '<div class="form-row"><label>Display Order</label><input type="number" id="ml_order" value="'+esc(l.displayOrder==null?0:l.displayOrder)+'" /></div>'
+        +   '<div class="form-row"><label>&nbsp;</label><div class="checkbox-row"><input type="checkbox" id="ml_published" '+(l.published?'checked':'')+' /><label for="ml_published">Published</label></div></div>'
+        + '</div>';
+      var foot = '<button class="btn btn-ghost btn-sm" id="ml_cancel">Cancel</button><button class="btn btn-primary btn-sm" id="ml_save">'+(isNew?"Add Link":"Save Changes")+'</button>';
+      openModal(isNew?"Add Link":"Edit Link", body, foot);
+      $("#ml_cancel").addEventListener("click", closeModal);
+      $("#ml_save").addEventListener("click", function(){ saveLink(id); });
+    }
+
+    function saveLink(id){
+      var name = $("#ml_name").value.trim();
+      var url = $("#ml_url").value.trim();
+      if(!name){ toast("Name is required", "error"); return; }
+      if(!url){ toast("URL is required", "error"); return; }
+      var data = {
+        name: name,
+        url: sanitizeUrl(url),
+        category: $("#ml_category").value,
+        openMode: $("#ml_openMode").value,
+        description: $("#ml_desc").value.trim(),
+        published: $("#ml_published").checked,
+        displayOrder: Number($("#ml_order").value) || 0,
+        updatedAt: Date.now()
+      };
+      if(id){ db.ref("links/"+id).update(data).then(function(){ toast("Link updated"); closeModal(); }).catch(function(e){ toast("Save failed: "+e.message, "error"); }); }
+      else { data.createdAt = Date.now(); db.ref("links").push().set(data).then(function(){ toast("Link added"); closeModal(); }).catch(function(e){ toast("Create failed: "+e.message, "error"); }); }
+    }
+
+    /* ---------- UPDATE MODAL ---------- */
+    function openUpdateModal(id){
+      var isNew = !id;
+      var u = isNew ? { title:"", description:"", image:"", url:"", category:"", published:false, displayOrder:0 } : cache.updates[id];
+      if(!u) return;
+      var body = ''
+        + '<div class="form-row"><label>Title *</label><input type="text" id="mu_title" value="'+esc(u.title||"")+'" placeholder="Update title" /></div>'
+        + '<div class="form-row"><label>Description</label><textarea id="mu_desc" placeholder="Short description…">'+esc(u.description||"")+'</textarea></div>'
+        + '<div class="form-row"><label>Image URL</label><input type="text" id="mu_image" value="'+esc(u.image||"")+'" placeholder="https://…" /></div>'
+        + '<div class="form-row"><label>Link URL</label><input type="text" id="mu_url" value="'+esc(u.url||"")+'" placeholder="https://…" /></div>'
+        + '<div class="form-grid-2">'
+        +   '<div class="form-row"><label>Category</label><input type="text" id="mu_category" value="'+esc(u.category||"")+'" placeholder="Announcement" /></div>'
+        +   '<div class="form-row"><label>Display Order</label><input type="number" id="mu_order" value="'+esc(u.displayOrder==null?0:u.displayOrder)+'" /></div>'
+        + '</div>'
+        + '<div class="checkbox-row"><input type="checkbox" id="mu_published" '+(u.published?'checked':'')+' /><label for="mu_published">Published</label></div>';
+      var foot = '<button class="btn btn-ghost btn-sm" id="mu_cancel">Cancel</button><button class="btn btn-primary btn-sm" id="mu_save">'+(isNew?"Publish Update":"Save Changes")+'</button>';
+      openModal(isNew?"Add Update":"Edit Update", body, foot);
+      $("#mu_cancel").addEventListener("click", closeModal);
+      $("#mu_save").addEventListener("click", function(){ saveUpdate(id); });
+    }
+
+    function saveUpdate(id){
+      var title = $("#mu_title").value.trim();
+      if(!title){ toast("Title is required", "error"); return; }
+      var data = {
+        title: title,
+        description: $("#mu_desc").value.trim(),
+        image: $("#mu_image").value.trim(),
+        url: sanitizeUrl($("#mu_url").value.trim()),
+        category: $("#mu_category").value.trim(),
+        published: $("#mu_published").checked,
+        displayOrder: Number($("#mu_order").value) || 0,
+        updatedAt: Date.now()
+      };
+      if(id){ db.ref("updates/"+id).update(data).then(function(){ toast("Update saved"); closeModal(); }).catch(function(e){ toast("Save failed: "+e.message, "error"); }); }
+      else { data.createdAt = Date.now(); db.ref("updates").push().set(data).then(function(){ toast("Update published"); closeModal(); }).catch(function(e){ toast("Create failed: "+e.message, "error"); }); }
+    }
+
+    /* ---------- ACTIONS ---------- */
+    function toggleProduct(id){
+      var p = cache.products[id]; if(!p) return;
+      db.ref("products/"+id).update({ published: !p.published, updatedAt: Date.now() }).then(function(){
+        toast(p.published ? "Product unpublished" : "Product published");
+      }).catch(function(e){ toast("Failed: "+e.message, "error"); });
+    }
+    function setFeatured(id, val){
+      db.ref("products/"+id).update({ featured: !!val, updatedAt: Date.now() }).then(function(){ toast(val?"Marked featured":"Unfeatured"); }).catch(function(e){ toast("Failed: "+e.message, "error"); });
+    }
+    function setOrder(node, id, val){
+      var n = Number(val);
+      if(isNaN(n)) return;
+      db.ref(node+"/"+id).update({ displayOrder: n, updatedAt: Date.now() }).catch(function(e){ toast("Order save failed: "+e.message, "error"); });
+    }
+    function deleteProduct(id){
+      var p = cache.products[id]; if(!p) return;
+      confirmDialog("Delete product?", 'Permanently delete "'+(p.title||"this product")+'"? This cannot be undone.', function(){
+        db.ref("products/"+id).remove().then(function(){ toast("Product deleted"); }).catch(function(e){ toast("Delete failed: "+e.message, "error"); });
+      });
+    }
+    function deleteItem(node, id, label){
+      var item = cache[node] && cache[node][id];
+      confirmDialog("Delete "+label+"?", 'Permanently delete "'+((item&&(item.name||item.title))||label)+'"? This cannot be undone.', function(){
+        db.ref(node+"/"+id).remove().then(function(){ toast(label+" deleted"); }).catch(function(e){ toast("Delete failed: "+e.message, "error"); });
+      });
+    }
+
+    /* ---------- BUTTON BINDINGS ---------- */
+    $("#addProductBtn").addEventListener("click", function(){ openProductModal(null); });
+    $("#addLinkBtn").addEventListener("click", function(){ openLinkModal(null); });
+    $("#addUpdateBtn").addEventListener("click", function(){ openUpdateModal(null); });
+    document.addEventListener("click", function(e){
+      var t = e.target.closest("[data-action]");
+      if(!t) return;
+      var a = t.getAttribute("data-action");
+      if(a === "new-product") openProductModal(null);
+      if(a === "new-update") openUpdateModal(null);
+    });
+    $("#productSearch").addEventListener("input", renderProductsTable);
+    $("#productFilter").addEventListener("change", renderProductsTable);
+    $("#linkSearch").addEventListener("input", renderLinksTable);
+    $("#linkFilter").addEventListener("change", renderLinksTable);
+    $("#updateSearch").addEventListener("input", renderUpdatesTable);
+    $("#updateFilter").addEventListener("change", renderUpdatesTable);
+    $("#userSearch").addEventListener("input", renderUsersTable);
+
+    $("#saveSettingsBtn").addEventListener("click", function(){
+      var data = {
+        title: $("#settingSiteTitle").value.trim(),
+        description: $("#settingSiteDesc").value.trim(),
+        contactEmail: $("#settingContactEmail").value.trim(),
+        updatedAt: Date.now()
+      };
+      db.ref("settings/site").update(data).then(function(){ toast("Settings saved"); }).catch(function(e){ toast("Save failed: "+e.message, "error"); });
+    });
+
+  })();
+  </script>
+</body>
+</html>
