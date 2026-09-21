@@ -151,57 +151,6 @@ We believe the future isn't something we wait for. It's something we build, refi
 
 ```
 
----
-
-## Project Structure
-
-```
-
-zishu-tron/
-│
-├── index.html              Main company portal
-├── auth.html               ZISHU TRON Account — Sign In / Sign Up
-├── account.html            User account management
-├── admin.html              CMS dashboard (admin only)
-├── developer.html          About the founder
-├── privacy.html            Privacy Policy
-├── terms.html              Terms of Service
-├── sitemap.xml             SEO sitemap
-├── robots.txt              SEO crawler rules
-└── README.md               This file
-
-```
-
----
-
-## Pages Overview
-
-<table>
-<tr>
-<td width="33%">
-
-### Portal
-- **index.html** — Main landing, products, updates, contact
-- **developer.html** — Founder profile, journey, philosophy
-
-</td>
-<td width="33%">
-
-### Account
-- **auth.html** — Sign in / sign up / password reset
-- **account.html** — Profile, sessions, security, deletion
-
-</td>
-<td width="33%">
-
-### System
-- **admin.html** — CMS dashboard
-- **privacy.html / terms.html** — Legal
-- **sitemap.xml / robots.txt** — SEO
-
-</td>
-</tr>
-</table>
 
 ---
 
