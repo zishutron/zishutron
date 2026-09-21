@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>ZISHU TRON Account — Sign In</title>
+  <meta name="description" content="Sign in to your ZISHU TRON account. One account for all ZISHU TRON products and services." />
+  <link rel="icon" href="https://i.postimg.cc/k5MLzQ4r/file-00000000f1388211a43bfe8ca49302e4.jpg" type="image/jpeg" />
+  <meta name="theme-color" content="#050d1a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --bg:#f6f8fc;--bg-2:#eef2f9;--surface:#fff;--surface-2:#f8fafd;
+      --text:#050d1a;--text-2:#2a3f5a;--text-3:#5f7590;
+      --border:rgba(5,13,26,.08);--border-2:rgba(5,13,26,.05);
+      --accent:#2563eb;--accent-2:#1d4ed8;--accent-glow:rgba(37,99,235,.12);
+      --danger:#dc2626;--success:#16a34a;
+      --radius:14px;--shadow:0 4px 24px rgba(5,13,26,.06);
+      --shadow-lg:0 20px 60px rgba(5,13,26,.12);
+      --ease:cubic-bezier(.22,1,.36,1);--t:.28s var(--ease);
+    }
+    .dark{
+      --bg:#050d1a;--bg-2:#081426;--surface:#0a1628;--surface-2:#0e1d33;
+      --text:#f0f4fa;--text-2:#a8bcd4;--text-3:#6a809c;
+      --border:rgba(255,255,255,.07);--border-2:rgba(255,255,255,.04);
+      --accent:#3b82f6;--accent-2:#60a5fa;--accent-glow:rgba(59,130,246,.15);
+      --shadow:0 4px 24px rgba(0,0,0,.35);--shadow-lg:0 20px 60px rgba(0,0,0,.5);
+    }
+    html{-webkit-text-size-adjust:100%}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;display:flex;flex-direction:column;transition:background .4s var(--ease),color .4s var(--ease);-webkit-font-smoothing:antialiased}
+    a{text-decoration:none;color:inherit}
+    button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+    input{font-family:inherit;font-size:inherit}
+    :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 2rem;border-bottom:1px solid var(--border)}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.1rem;letter-spacing:-.02em}
+    .brand img{width:34px;height:34px;border-radius:8px}
+    .brand small{font-size:.6rem;font-weight:500;letter-spacing:.18em;color:var(--text-3);text-transform:uppercase;display:block}
+    .icon-btn{width:38px;height:38px;display:grid;place-items:center;border-radius:10px;color:var(--text-2);transition:.2s var(--ease)}
+    .icon-btn:hover{background:var(--bg-2);color:var(--text)}
+    .dark .icon-btn:hover{background:var(--surface-2)}
+    .icon-btn svg{width:20px;height:20px}
+    .auth-main{flex:1;display:flex;align-items:center;justify-content:center;padding:2rem 1.5rem;position:relative;overflow:hidden}
+    .auth-main::before{content:"";position:absolute;top:-20%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(37,99,235,.08),transparent 70%);pointer-events:none}
+    .auth-main::after{content:"";position:absolute;bottom:-20%;left:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(124,58,237,.06),transparent 70%);pointer-events:none}
+    .auth-card{position:relative;z-index:1;width:100%;max-width:440px;background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:2.5rem 2rem;box-shadow:var(--shadow-lg)}
+    .auth-logo{width:64px;height:64px;border-radius:16px;margin:0 auto 1.5rem;display:block;box-shadow:0 8px 24px rgba(37,99,235,.2)}
+    .auth-card h1{font-size:1.6rem;font-weight:800;letter-spacing:-.02em;text-align:center;margin-bottom:.5rem}
+    .auth-card .auth-sub{text-align:center;color:var(--text-2);font-size:.92rem;margin-bottom:2rem;line-height:1.55}
+    .btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:.85rem 1.5rem;border-radius:11px;font-weight:600;font-size:.92rem;transition:all .22s var(--ease);position:relative}
+    .btn-google{background:var(--surface);color:var(--text);border:1.5px solid var(--border);box-shadow:var(--shadow)}
+    .btn-google:hover{border-color:var(--accent);background:var(--bg-2)}
+    .dark .btn-google:hover{background:var(--surface-2)}
+    .btn-google svg{width:20px;height:20px;flex-shrink:0}
+    .btn-primary{background:var(--accent);color:#fff;box-shadow:0 4px 16px rgba(37,99,235,.28)}
+    .btn-primary:hover{background:var(--accent-2);transform:translateY(-1px);box-shadow:0 8px 24px rgba(37,99,235,.4)}
+    .btn-primary:disabled{opacity:.6;cursor:not-allowed;transform:none}
+    .divider{display:flex;align-items:center;gap:1rem;margin:1.5rem 0;color:var(--text-3);font-size:.78rem;font-weight:600;letter-spacing:.08em}
+    .divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--border)}
+    .field{margin-bottom:1rem}
+    .field label{display:block;font-size:.82rem;font-weight:600;color:var(--text-2);margin-bottom:.4rem}
+    .field input{width:100%;padding:.8rem 1rem;border-radius:11px;border:1.5px solid var(--border);background:var(--surface-2);color:var(--text);font-size:.92rem;transition:border-color .2s var(--ease),box-shadow .2s var(--ease)}
+    .field input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+    .field input::placeholder{color:var(--text-3)}
+    .field .field-error{font-size:.76rem;color:var(--danger);margin-top:.3rem;display:none}
+    .field.invalid input{border-color:var(--danger)}
+    .field.invalid .field-error{display:block}
+    .pw-wrap{position:relative}
+    .pw-toggle{position:absolute;right:.75rem;top:50%;transform:translateY(-50%);width:32px;height:32px;display:grid;place-items:center;border-radius:8px;color:var(--text-3);transition:.2s}
+    .pw-toggle:hover{color:var(--text);background:var(--bg-2)}
+    .dark .pw-toggle:hover{background:var(--surface-2)}
+    .pw-toggle svg{width:18px;height:18px}
+    .form-actions{display:flex;justify-content:flex-end;margin-top:.5rem}
+    .link-btn{font-size:.84rem;color:var(--accent);font-weight:600;transition:color .2s}
+    .link-btn:hover{color:var(--accent-2);text-decoration:underline}
+    .auth-switch{text-align:center;margin-top:1.5rem;font-size:.88rem;color:var(--text-2)}
+    .auth-switch button{color:var(--accent);font-weight:600;margin-left:4px}
+    .auth-switch button:hover{text-decoration:underline}
+    .auth-msg{padding:.75rem 1rem;border-radius:10px;font-size:.85rem;margin-bottom:1rem;display:none}
+    .auth-msg.show{display:block}
+    .auth-msg.error{background:rgba(220,38,38,.08);color:var(--danger);border:1px solid rgba(220,38,38,.2)}
+    .auth-msg.success{background:rgba(22,163,74,.08);color:var(--success);border:1px solid rgba(22,163,74,.2)}
+    .auth-legal{text-align:center;margin-top:1.5rem;font-size:.76rem;color:var(--text-3);line-height:1.6}
+    .auth-legal a{color:var(--text-2);text-decoration:underline}
+    .auth-legal a:hover{color:var(--accent)}
+    .auth-footer{text-align:center;padding:1.5rem;font-size:.78rem;color:var(--text-3);border-top:1px solid var(--border)}
+    .spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:none}
+    .btn.loading .spinner{display:block}
+    .btn.loading .btn-label{opacity:.6}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @media(max-width:480px){.auth-card{padding:2rem 1.5rem}.topbar{padding:1rem 1.25rem}}
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <a href="index.html" class="brand">
+      <img src="https://i.postimg.cc/k5MLzQ4r/file-00000000f1388211a43bfe8ca49302e4.jpg" alt="ZISHU TRON" />
+      <span>ZISHU TRON<small>Account</small></span>
+    </a>
+    <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    </button>
+  </div>
+
+  <main class="auth-main">
+    <div class="auth-card">
+      <img class="auth-logo" src="https://i.postimg.cc/k5MLzQ4r/file-00000000f1388211a43bfe8ca49302e4.jpg" alt="ZISHU TRON" />
+      <h1 id="authHeading">Welcome to ZISHU TRON</h1>
+      <p class="auth-sub" id="authSub">One account for your ZISHU TRON products and services.</p>
+
+      <div class="auth-msg" id="authMsg" role="alert"></div>
+
+      <!-- Google -->
+      <button class="btn btn-google" id="googleBtn">
+        <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        <span class="btn-label">Continue with Google</span>
+      </button>
+
+      <div class="divider">OR</div>
+
+      <!-- Email form -->
+      <form id="emailForm" novalidate>
+        <div class="field" id="nameField" style="display:none;">
+          <label for="nameInput">Display name</label>
+          <input type="text" id="nameInput" placeholder="Your name" autocomplete="name" />
+          <div class="field-error">Please enter your name.</div>
+        </div>
+        <div class="field" id="emailField">
+          <label for="emailInput">Email</label>
+          <input type="email" id="emailInput" placeholder="you@example.com" autocomplete="email" required />
+          <div class="field-error">Please enter a valid email address.</div>
+        </div>
+        <div class="field" id="passwordField">
+          <label for="passwordInput">Password</label>
+          <div class="pw-wrap">
+            <input type="password" id="passwordInput" placeholder="••••••••" autocomplete="current-password" required minlength="6" />
+            <button type="button" class="pw-toggle" id="pwToggle" aria-label="Show password">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <div class="field-error">Password must be at least 6 characters.</div>
+        </div>
+        <div class="form-actions" id="forgotRow">
+          <button type="button" class="link-btn" id="forgotBtn">Forgot password?</button>
+        </div>
+        <button type="submit" class="btn btn-primary" id="submitBtn" style="margin-top:1rem;">
+          <span class="spinner"></span>
+          <span class="btn-label">Sign In</span>
+        </button>
+      </form>
+
+      <div class="auth-switch">
+        <span id="switchText">Don't have an account?</span>
+        <button type="button" id="switchBtn">Create Account</button>
+      </div>
+
+      <p class="auth-legal">By continuing, you agree to our <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</p>
+    </div>
+  </main>
+
+  <div class="auth-footer">ZISHU TRON Account · Secure authentication powered by Firebase</div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+  <script>
+  (function(){
+    "use strict";
+    var firebaseConfig = {
+      apiKey: "AIzaSyBU5CZxIycjaY9t12BGhWADJyAbrS8WzqY",
+      authDomain: "zishu-tron.firebaseapp.com",
+      databaseURL: "https://zishu-tron-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "zishu-tron",
+      storageBucket: "zishu-tron.firebasestorage.app",
+      messagingSenderId: "818976752868",
+      appId: "1:818976752868:web:6097a46a709329a3dd18f1",
+      measurementId: "G-0S122FQGJF"
+    };
+    var app, auth, db;
+    try {
+      app = firebase.initializeApp(firebaseConfig);
+      auth = firebase.auth();
+      db = firebase.database();
+    } catch(e){ console.warn("Firebase init failed", e); }
+
+    function $(s){ return document.querySelector(s); }
+    var mode = "signin"; // signin | signup
+
+    /* Theme */
+    var root = document.documentElement;
+    var saved = localStorage.getItem("zt-theme");
+    if(saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) root.classList.add("dark");
+    $("#themeToggle").addEventListener("click", function(){
+      root.classList.toggle("dark");
+      localStorage.setItem("zt-theme", root.classList.contains("dark") ? "dark" : "light");
+    });
+
+    /* Mode switch */
+    function setMode(m){
+      mode = m;
+      var isSignup = m === "signup";
+      $("#authHeading").textContent = isSignup ? "Create your account" : "Welcome to ZISHU TRON";
+      $("#authSub").textContent = isSignup ? "Join ZISHU TRON and use one account across all our products." : "One account for your ZISHU TRON products and services.";
+      $("#nameField").style.display = isSignup ? "block" : "none";
+      $("#forgotRow").style.display = isSignup ? "none" : "flex";
+      $("#submitBtn").querySelector(".btn-label").textContent = isSignup ? "Create Account" : "Sign In";
+      $("#passwordInput").setAttribute("autocomplete", isSignup ? "new-password" : "current-password");
+      $("#switchText").textContent = isSignup ? "Already have an account?" : "Don't have an account?";
+      $("#switchBtn").textContent = isSignup ? "Sign In" : "Create Account";
+      hideMsg();
+    }
+    $("#switchBtn").addEventListener("click", function(){ setMode(mode === "signin" ? "signup" : "signin"); });
+
+    function showMsg(text, type){
+      var m = $("#authMsg");
+      m.textContent = text;
+      m.className = "auth-msg show " + (type||"error");
+    }
+    function hideMsg(){ var m = $("#authMsg"); m.className = "auth-msg"; }
+
+    /* Password visibility */
+    $("#pwToggle").addEventListener("click", function(){
+      var inp = $("#passwordInput");
+      inp.type = inp.type === "password" ? "text" : "password";
+      this.setAttribute("aria-label", inp.type === "password" ? "Show password" : "Hide password");
+    });
+
+    /* Field validation helpers */
+    function setInvalid(fieldId, invalid){
+      var f = $("#" + fieldId);
+      f.classList.toggle("invalid", !!invalid);
+    }
+
+    /* Google */
+    $("#googleBtn").addEventListener("click", function(){
+      if(!auth){ showMsg("Authentication service unavailable.", "error"); return; }
+      var provider = new firebase.auth.GoogleAuthProvider();
+      provider.setCustomParameters({ prompt: "select_account" });
+      auth.signInWithPopup(provider).then(function(result){
+        return ensureProfile(result.user);
+      }).then(function(){
+        redirectBack();
+      }).catch(function(err){
+        if(err && err.code !== "auth/popup-closed-by-user" && err.code !== "auth/cancelled-popup-request"){
+          showMsg(friendlyError(err), "error");
+        }
+      });
+    });
+
+    /* Email submit */
+    $("#emailForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      hideMsg();
+      var email = $("#emailInput").value.trim();
+      var password = $("#passwordInput").value;
+      var name = $("#nameInput").value.trim();
+      var valid = true;
+
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ setInvalid("emailField", true); valid = false; } else setInvalid("emailField", false);
+      if(!password || password.length < 6){ setInvalid("passwordField", true); valid = false; } else setInvalid("passwordField", false);
+      if(mode === "signup" && !name){ setInvalid("nameField", true); valid = false; } else setInvalid("nameField", false);
+      if(!valid) return;
+
+      if(!auth){ showMsg("Authentication service unavailable.", "error"); return; }
+      var btn = $("#submitBtn");
+      btn.classList.add("loading"); btn.disabled = true;
+
+      var promise;
+      if(mode === "signup"){
+        promise = auth.createUserWithEmailAndPassword(email, password).then(function(cred){
+          return cred.user.updateProfile({ displayName: name }).then(function(){
+            return cred.user.sendEmailVerification().catch(function(){});
+          }).then(function(){
+            return ensureProfile(cred.user, name);
+          });
+        });
+      } else {
+        promise = auth.signInWithEmailAndPassword(email, password).then(function(cred){
+          return ensureProfile(cred.user);
+        });
+      }
+
+      promise.then(function(){
+        redirectBack();
+      }).catch(function(err){
+        showMsg(friendlyError(err), "error");
+      }).finally(function(){
+        btn.classList.remove("loading"); btn.disabled = false;
+      });
+    });
+
+    /* Forgot password */
+    $("#forgotBtn").addEventListener("click", function(){
+      var email = $("#emailInput").value.trim();
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+        setInvalid("emailField", true);
+        showMsg("Enter your email address first, then click Forgot password.", "error");
+        return;
+      }
+      if(!auth) return;
+      auth.sendPasswordResetEmail(email).then(function(){
+        showMsg("Password reset email sent. Check your inbox.", "success");
+      }).catch(function(err){
+        showMsg(friendlyError(err), "error");
+      });
+    });
+
+    /* Profile bootstrap in DB */
+    function ensureProfile(user, displayName){
+      if(!db) return Promise.resolve();
+      var ref = db.ref("users/" + user.uid);
+      return ref.once("value").then(function(snap){
+        var now = Date.now();
+        if(!snap.exists()){
+          return ref.set({
+            email: user.email || "",
+            displayName: displayName || user.displayName || (user.email ? user.email.split("@")[0] : ""),
+            photoURL: user.photoURL || "",
+            provider: (user.providerData && user.providerData[0] && user.providerData[0].providerId) || "password",
+            createdAt: now,
+            lastLoginAt: now,
+            role: "user",
+            status: "active"
+          });
+        } else {
+          return ref.update({ lastLoginAt: now }).then(function(){
+            var v = snap.val() || {};
+            if(!v.role) return ref.update({ role: "user" });
+          });
+        }
+      });
+    }
+
+    function friendlyError(err){
+      var code = (err && err.code) || "";
+      var map = {
+        "auth/invalid-email": "That email address doesn't look right.",
+        "auth/user-disabled": "This account has been disabled.",
+        "auth/user-not-found": "No account found with that email.",
+        "auth/wrong-password": "Incorrect email or password.",
+        "auth/invalid-credential": "Incorrect email or password.",
+        "auth/invalid-login-credentials": "Incorrect email or password.",
+        "auth/email-already-in-use": "An account already exists with that email.",
+        "auth/weak-password": "Please choose a stronger password (at least 6 characters).",
+        "auth/too-many-requests": "Too many attempts. Please try again later.",
+        "auth/network-request-failed": "Network error. Check your connection and try again.",
+        "auth/popup-blocked": "Popup was blocked. Please allow popups and try again.",
+        "auth/operation-not-allowed": "This sign-in method is not enabled.",
+        "auth/requires-recent-login": "Please sign in again to continue."
+      };
+      return map[code] || (err && err.message) || "Something went wrong. Please try again.";
+    }
+
+    /* Redirect back after auth */
+    function redirectBack(){
+      var params = new URLSearchParams(window.location.search);
+      var next = params.get("next");
+      if(next && /^https?:\/\//i.test(next)){
+        // allow only same-origin or trusted zishu domains
+        try {
+          var u = new URL(next);
+          if(u.hostname.endsWith("zishutron.github.io") || u.hostname === location.hostname || u.hostname.endsWith("zishuai.cloud")){
+            window.location.href = next; return;
+          }
+        } catch(e){}
+      }
+      if(next && /^\/[^\/]/.test(next)){ window.location.href = next; return; }
+      window.location.href = "index.html";
+    }
+
+    /* Already signed in? */
+    if(auth){
+      auth.onAuthStateChanged(function(user){
+        if(user){
+          // If already signed in, go back to index
+          // (do not auto-redirect in case user wants to switch account)
+        }
+      });
+    } else {
+      showMsg("Authentication service is unavailable. Please try again later.", "error");
+    }
+  })();
+  </script>
+</body>
+</html>
