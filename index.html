@@ -13,7 +13,6 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://i.postimg.cc/J03qRF6g/file-00000000672081f8b21d29d30298e881.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="ZISHU TRON — Building Intelligent Technology" />
   <link rel="canonical" href="https://zishutron.github.io/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -53,16 +52,13 @@
     ::selection{background:var(--accent);color:#fff}
     .container{max-width:var(--container);margin:0 auto;padding:0 2rem}
     @media(max-width:640px){.container{padding:0 1.25rem}}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
-
-    /* ============ REVEAL ANIMATIONS ============ */
     .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
     .reveal.in{opacity:1;transform:none}
     @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
 
-    /* ============ HEADER ============ */
+    /* HEADER */
     .site-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.72);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid transparent;transition:background .3s var(--ease),border-color .3s var(--ease),padding .3s var(--ease)}
     .dark .site-header{background:rgba(5,13,26,.72)}
     .site-header.scrolled{background:rgba(255,255,255,.9);border-color:var(--border);box-shadow:0 1px 24px rgba(5,13,26,.05)}
@@ -83,10 +79,9 @@
     .icon-btn:hover{background:var(--bg-2);color:var(--text)}
     .dark .icon-btn:hover{background:var(--surface-2)}
     .icon-btn svg{width:20px;height:20px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:.72rem 1.5rem;border-radius:10px;font-weight:600;font-size:.88rem;letter-spacing:-.01em;transition:all .22s var(--ease);white-space:nowrap;position:relative;overflow:hidden}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:.72rem 1.5rem;border-radius:10px;font-weight:600;font-size:.88rem;letter-spacing:-.01em;transition:all .22s var(--ease);white-space:nowrap}
     .btn-primary{background:var(--accent);color:#fff;box-shadow:0 4px 16px rgba(37,99,235,.28)}
     .btn-primary:hover{background:var(--accent-2);transform:translateY(-1px);box-shadow:0 8px 24px rgba(37,99,235,.4)}
-    .btn-primary:active{transform:translateY(0)}
     .btn-ghost{background:transparent;color:var(--text);border:1.5px solid var(--border)}
     .btn-ghost:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-glow)}
     .btn-light{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.25);backdrop-filter:blur(8px)}
@@ -101,7 +96,6 @@
     .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
     .hamburger.open span:nth-child(2){opacity:0}
     .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-
     .account{position:relative}
     .account-trigger{display:flex;align-items:center;gap:8px;padding:4px;border-radius:50px;transition:background .2s var(--ease);cursor:pointer}
     .account-trigger:hover{background:var(--bg-2)}
@@ -117,7 +111,6 @@
     .account-menu a:hover,.account-menu button:hover{background:var(--bg-2);color:var(--text)}
     .dark .account-menu a:hover,.dark .account-menu button:hover{background:var(--surface-2)}
     .account-menu svg{width:16px;height:16px;flex-shrink:0;opacity:.7}
-
     .mobile-nav{display:none;position:fixed;inset:64px 0 0;background:var(--bg);z-index:999;padding:1.5rem;overflow-y:auto;transform:translateX(100%);transition:transform .35s var(--ease)}
     .mobile-nav.open{display:block;transform:translateX(0)}
     .mobile-nav a{display:block;padding:1rem 1.25rem;font-size:1.1rem;font-weight:600;color:var(--text);border-radius:12px;transition:background .2s var(--ease)}
@@ -125,31 +118,30 @@
     .dark .mobile-nav a:hover{background:var(--surface-2)}
     .mobile-nav .mn-actions{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:.75rem}
 
-    /* ============ HERO ============ */
+    /* HERO - VIDEO VISIBILITY FIXED */
     .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:120px 0 80px;overflow:hidden;background:var(--navy)}
     .hero-bg{position:absolute;inset:0;z-index:0}
-    .hero-bg video,.hero-bg img{width:100%;height:100%;object-fit:cover}
-    .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(5,13,26,.72) 0%,rgba(5,13,26,.55) 40%,rgba(5,13,26,.82) 100%);pointer-events:none}
-    .hero-overlay::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 20% 30%,rgba(37,99,235,.28),transparent 60%);pointer-events:none}
+    .hero-bg video,.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:1;filter:none;image-rendering:auto}
+    .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(5,13,26,.55) 0%,rgba(5,13,26,.35) 40%,rgba(5,13,26,.7) 100%);pointer-events:none}
+    .hero-overlay::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 20% 30%,rgba(37,99,235,.2),transparent 60%);pointer-events:none}
     .hero .container{position:relative;z-index:2;width:100%}
     .hero-inner{max-width:820px}
-    .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;padding:.42rem 1rem;background:rgba(59,130,246,.12);border:1px solid rgba(96,165,250,.28);border-radius:100px;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#8bb8ff;margin-bottom:1.75rem;backdrop-filter:blur(8px)}
-    .hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:#3b82f6;box-shadow:0 0 12px #3b82f6;animation:pulse 2s infinite}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;padding:.42rem 1rem;background:rgba(59,130,246,.14);border:1px solid rgba(96,165,250,.32);border-radius:100px;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#a8c8ff;margin-bottom:1.75rem;backdrop-filter:blur(8px)}
+    .hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:#60a5fa;box-shadow:0 0 12px #60a5fa;animation:pulse 2s infinite}
     @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-    .hero h1{font-size:clamp(2.4rem,6vw,4.6rem);font-weight:900;line-height:1.04;letter-spacing:-.035em;color:#fff;margin-bottom:1.5rem}
-    .hero h1 .accent{background:linear-gradient(135deg,#60a5fa 0%,#3b82f6 50%,#2563eb 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-    .hero-lead{font-size:clamp(1rem,1.6vw,1.2rem);color:rgba(230,240,255,.82);max-width:600px;margin-bottom:2.5rem;font-weight:400;line-height:1.65}
+    .hero h1{font-size:clamp(2.4rem,6vw,4.6rem);font-weight:900;line-height:1.04;letter-spacing:-.035em;color:#fff;margin-bottom:1.5rem;text-shadow:0 2px 24px rgba(0,0,0,.5)}
+    .hero h1 .accent{background:linear-gradient(135deg,#7db5ff 0%,#60a5fa 50%,#3b82f6 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .hero-lead{font-size:clamp(1rem,1.6vw,1.2rem);color:rgba(235,242,255,.92);max-width:600px;margin-bottom:2.5rem;font-weight:400;line-height:1.65;text-shadow:0 1px 12px rgba(0,0,0,.6)}
     .hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
     .hero-stats{display:flex;gap:2.5rem;margin-top:3.5rem;flex-wrap:wrap}
-    .hero-stat .hs-num{font-size:1.6rem;font-weight:800;color:#fff;letter-spacing:-.02em}
-    .hero-stat .hs-label{font-size:.78rem;color:rgba(200,220,245,.6);letter-spacing:.04em;text-transform:uppercase;font-weight:500}
-    .hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.4);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase}
-    .hero-scroll .mouse{width:22px;height:34px;border:1.5px solid rgba(255,255,255,.3);border-radius:12px;position:relative}
-    .hero-scroll .mouse::before{content:"";position:absolute;top:6px;left:50%;transform:translateX(-50%);width:3px;height:6px;background:rgba(255,255,255,.5);border-radius:2px;animation:scrollDot 1.8s infinite}
+    .hero-stat .hs-num{font-size:1.6rem;font-weight:800;color:#fff;letter-spacing:-.02em;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+    .hero-stat .hs-label{font-size:.78rem;color:rgba(215,230,250,.8);letter-spacing:.04em;text-transform:uppercase;font-weight:500}
+    .hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.55);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase}
+    .hero-scroll .mouse{width:22px;height:34px;border:1.5px solid rgba(255,255,255,.4);border-radius:12px;position:relative}
+    .hero-scroll .mouse::before{content:"";position:absolute;top:6px;left:50%;transform:translateX(-50%);width:3px;height:6px;background:rgba(255,255,255,.7);border-radius:2px;animation:scrollDot 1.8s infinite}
     @keyframes scrollDot{0%{opacity:0;transform:translateX(-50%) translateY(0)}40%{opacity:1}80%,100%{opacity:0;transform:translateX(-50%) translateY(12px)}}
     @media(max-width:640px){.hero-scroll{display:none}}
 
-    /* ============ SECTION ============ */
     section{padding:6rem 0;position:relative}
     .section-head{max-width:760px;margin-bottom:3.5rem}
     .section-eyebrow{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
@@ -157,7 +149,6 @@
     .section-lead{font-size:clamp(1rem,1.4vw,1.12rem);color:var(--text-2);line-height:1.65}
     .section-head.center{text-align:center;margin-left:auto;margin-right:auto}
 
-    /* ============ PRODUCTS ============ */
     .products-section{background:var(--bg)}
     .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
     .product-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.75rem;display:flex;flex-direction:column;gap:1rem;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);overflow:hidden}
@@ -185,7 +176,11 @@
     .product-card .pc-link:hover{gap:10px}
     .product-card .pc-link svg{width:14px;height:14px}
 
-    /* ============ ABOUT ============ */
+    .empty-state{padding:4rem 2rem;text-align:center;background:var(--surface);border:1px dashed var(--border);border-radius:var(--radius-lg);color:var(--text-3)}
+    .empty-state svg{width:48px;height:48px;margin:0 auto 1rem;display:block;opacity:.4;color:var(--accent)}
+    .empty-state h3{font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:.5rem}
+    .empty-state p{font-size:.92rem;max-width:400px;margin:0 auto}
+
     .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
     .about-visual{position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg)}
     .about-visual img{width:100%;height:auto;display:block}
@@ -196,7 +191,6 @@
     .about-feature h4{font-size:.98rem;font-weight:700;margin-bottom:.2rem;color:var(--text)}
     .about-feature p{font-size:.88rem;color:var(--text-2);line-height:1.6}
 
-    /* ============ WHY (dark) ============ */
     .why-section{background:var(--navy);color:#fff;position:relative;overflow:hidden}
     .why-section::before{content:"";position:absolute;top:-30%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(37,99,235,.18),transparent 70%);pointer-events:none}
     .why-section::after{content:"";position:absolute;bottom:-30%;left:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(124,58,237,.12),transparent 70%);pointer-events:none}
@@ -211,7 +205,6 @@
     .why-card h3{font-size:1.08rem;font-weight:700;margin-bottom:.5rem;color:#fff}
     .why-card p{font-size:.88rem;color:rgba(190,210,235,.7);line-height:1.6}
 
-    /* ============ TECHNOLOGY ============ */
     .tech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem}
     .tech-item{padding:1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);text-align:center;transition:all .3s var(--ease)}
     .tech-item:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:var(--shadow)}
@@ -220,9 +213,7 @@
     .tech-item h4{font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:.3rem}
     .tech-item p{font-size:.82rem;color:var(--text-3);line-height:1.5}
 
-    /* ============ ECOSYSTEM ============ */
     .eco-section{background:var(--bg-2)}
-    .dark .eco-section{background:var(--bg-2)}
     .eco-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.25rem}
     .eco-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;transition:all .3s var(--ease)}
     .eco-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--accent)}
@@ -233,10 +224,9 @@
     .eco-card h4{font-size:.98rem;font-weight:700;color:var(--text);margin-bottom:.25rem}
     .eco-card p{font-size:.82rem;color:var(--text-3);line-height:1.5}
 
-    /* ============ VISION ============ */
     .vision-section{background:var(--navy);color:#fff;text-align:center;position:relative;overflow:hidden;padding:7rem 0}
     .vision-section::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(37,99,235,.2),transparent 70%);pointer-events:none}
-    .vision-bg{position:absolute;inset:0;z-index:0;opacity:.25}
+    .vision-bg{position:absolute;inset:0;z-index:0;opacity:.35}
     .vision-bg img{width:100%;height:100%;object-fit:cover}
     .vision-inner{position:relative;z-index:1;max-width:820px;margin:0 auto}
     .vision-inner h2{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:1.5rem}
@@ -244,7 +234,6 @@
     .vision-inner p{font-size:clamp(1rem,1.5vw,1.15rem);color:rgba(200,215,240,.78);line-height:1.7;margin-bottom:2rem}
     .vision-tag{display:inline-block;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(150,180,220,.7);padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1)}
 
-    /* ============ UPDATES ============ */
     .updates-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
     .update-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:all .3s var(--ease);display:flex;flex-direction:column}
     .update-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:transparent}
@@ -258,7 +247,6 @@
     .update-card .uc-desc{font-size:.86rem;color:var(--text-2);line-height:1.6;flex-grow:1}
     .update-card .uc-date{font-size:.76rem;color:var(--text-3);margin-top:auto;padding-top:.75rem;border-top:1px solid var(--border-2)}
 
-    /* ============ CONTACT / CTA ============ */
     .cta-section{padding:0 0 6rem}
     .cta-inner{background:linear-gradient(135deg,var(--navy) 0%,#0a1f3d 100%);border-radius:var(--radius-lg);padding:4rem 3rem;color:#fff;position:relative;overflow:hidden;text-align:center}
     .cta-inner::before{content:"";position:absolute;top:-50%;right:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(37,99,235,.25),transparent 70%);pointer-events:none}
@@ -271,13 +259,13 @@
     .cta-contact:hover{color:#fff}
     .cta-contact svg{width:18px;height:18px;opacity:.7}
 
-    /* ============ FOOTER ============ */
+    /* FOOTER - VIDEO VISIBILITY FIXED */
     .site-footer{position:relative;background:var(--navy);color:#fff;overflow:hidden;padding-top:5rem}
-    .footer-bg{position:absolute;inset:0;z-index:0;opacity:.18}
-    .footer-bg video,.footer-bg img{width:100%;height:100%;object-fit:cover}
-    .footer-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(5,13,26,.92) 0%,rgba(5,13,26,.97) 100%)}
+    .footer-bg{position:absolute;inset:0;z-index:0;opacity:.4}
+    .footer-bg video,.footer-bg img{width:100%;height:100%;object-fit:cover;opacity:1;filter:none}
+    .footer-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(5,13,26,.82) 0%,rgba(5,13,26,.92) 100%)}
     .footer-content{position:relative;z-index:2}
-    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.08)}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.08)}
     .footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:1.25rem}
     .footer-brand img{width:42px;height:42px;border-radius:10px}
     .footer-brand .fb-text{font-weight:800;font-size:1.2rem;letter-spacing:-.02em}
@@ -297,7 +285,6 @@
     .footer-bottom a:hover{color:#fff}
     .footer-bottom .fb-links{display:flex;gap:1.5rem;flex-wrap:wrap}
 
-    /* ============ TOAST ============ */
     .toast-wrap{position:fixed;bottom:1.5rem;right:1.5rem;z-index:3000;display:flex;flex-direction:column;gap:.6rem;max-width:360px}
     .toast{display:flex;align-items:flex-start;gap:.75rem;padding:1rem 1.25rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-lg);font-size:.88rem;color:var(--text);animation:toastIn .35s var(--ease)}
     .toast.success{border-left:3px solid #16a34a}
@@ -307,12 +294,6 @@
     .toast.error svg{color:#dc2626}
     @keyframes toastIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:none}}
 
-    /* ============ SKELETON ============ */
-    .skeleton{background:linear-gradient(90deg,var(--bg-2) 25%,var(--surface-2) 50%,var(--bg-2) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:8px}
-    @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
-    .skeleton-card{height:220px;border-radius:var(--radius-lg)}
-
-    /* ============ RESPONSIVE ============ */
     @media(max-width:1024px){
       .nav-links{display:none}
       .hamburger{display:grid}
@@ -338,7 +319,6 @@
   </style>
 </head>
 <body>
-  <!-- HEADER -->
   <header class="site-header" id="siteHeader">
     <div class="container nav">
       <a href="#home" class="brand" aria-label="ZISHU TRON home">
@@ -368,7 +348,7 @@
               <div class="am-email" id="amEmail">user@example.com</div>
             </div>
             <a href="account.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>My Account</a>
-            <a href="account.html#products"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>My Products</a>
+            <a href="account.html#sessions"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Login Activity</a>
             <a href="account.html#settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Settings</a>
             <button id="signOutBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>Sign Out</button>
           </div>
@@ -378,7 +358,6 @@
     </div>
   </header>
 
-  <!-- MOBILE NAV -->
   <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
     <a href="#home">Home</a>
     <a href="#products">Products</a>
@@ -388,15 +367,14 @@
     <a href="developer.html">Developer</a>
     <div class="mn-actions">
       <a href="auth.html" class="btn btn-primary" id="mobileLoginBtn">Login</a>
-      <a href="auth.html" class="btn btn-ghost" id="mobileAccountBtn" style="display:none;">My Account</a>
+      <a href="account.html" class="btn btn-ghost" id="mobileAccountBtn" style="display:none;">My Account</a>
     </div>
   </nav>
 
   <main>
-    <!-- HERO -->
     <section class="hero" id="home">
       <div class="hero-bg">
-        <video autoplay muted playsinline loop preload="metadata" poster="https://i.postimg.cc/J03qRF6g/file-00000000672081f8b21d29d30298e881.png" aria-hidden="true">
+        <video autoplay muted playsinline loop preload="auto" poster="https://i.postimg.cc/J03qRF6g/file-00000000672081f8b21d29d30298e881.png" aria-hidden="true">
           <source src="https://res.cloudinary.com/vnq9eo7a/video/upload/v1789965498/Create_looping_technology_backgr__20260921100323.mp4" type="video/mp4" />
         </video>
       </div>
@@ -413,8 +391,8 @@
             <a href="#about" class="btn btn-light btn-lg">Learn More</a>
           </div>
           <div class="hero-stats">
-            <div class="hero-stat"><div class="hs-num" id="statProducts">—</div><div class="hs-label">Products</div></div>
-            <div class="hero-stat"><div class="hs-num" id="statUpdates">—</div><div class="hs-label">Updates</div></div>
+            <div class="hero-stat"><div class="hs-num" id="statProducts">0</div><div class="hs-label">Products</div></div>
+            <div class="hero-stat"><div class="hs-num" id="statUpdates">0</div><div class="hs-label">Updates</div></div>
             <div class="hero-stat"><div class="hs-num">1</div><div class="hs-label">Account</div></div>
           </div>
         </div>
@@ -422,7 +400,6 @@
       <div class="hero-scroll" aria-hidden="true"><span>Scroll</span><div class="mouse"></div></div>
     </section>
 
-    <!-- PRODUCTS -->
     <section class="products-section" id="products">
       <div class="container">
         <div class="section-head reveal">
@@ -430,15 +407,10 @@
           <h2 class="section-title">Powerful Solutions<br />for Everyone</h2>
           <p class="section-lead">We build modern, user-focused applications and digital tools designed to make technology simpler, smarter and more useful.</p>
         </div>
-        <div class="products-grid" id="productsGrid">
-          <div class="skeleton skeleton-card"></div>
-          <div class="skeleton skeleton-card"></div>
-          <div class="skeleton skeleton-card"></div>
-        </div>
+        <div class="products-grid" id="productsGrid"></div>
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section id="about">
       <div class="container">
         <div class="about-grid">
@@ -468,7 +440,6 @@
       </div>
     </section>
 
-    <!-- WHY (dark) -->
     <section class="why-section">
       <div class="container">
         <div class="section-head center reveal">
@@ -501,7 +472,6 @@
       </div>
     </section>
 
-    <!-- TECHNOLOGY -->
     <section id="technology">
       <div class="container">
         <div class="section-head center reveal">
@@ -521,7 +491,6 @@
       </div>
     </section>
 
-    <!-- ECOSYSTEM -->
     <section class="eco-section" id="ecosystem">
       <div class="container">
         <div class="section-head center reveal">
@@ -529,16 +498,10 @@
           <h2 class="section-title">One Connected<br />Product Ecosystem</h2>
           <p class="section-lead">ZISHU TRON products share a common vision, a common account and a common design language.</p>
         </div>
-        <div class="eco-grid" id="ecoGrid">
-          <div class="skeleton skeleton-card" style="height:100px;"></div>
-          <div class="skeleton skeleton-card" style="height:100px;"></div>
-          <div class="skeleton skeleton-card" style="height:100px;"></div>
-          <div class="skeleton skeleton-card" style="height:100px;"></div>
-        </div>
+        <div class="eco-grid" id="ecoGrid"></div>
       </div>
     </section>
 
-    <!-- VISION -->
     <section class="vision-section" id="vision">
       <div class="vision-bg"><img src="https://i.postimg.cc/J03qRF6g/file-00000000672081f8b21d29d30298e881.png" alt="" aria-hidden="true" loading="lazy" /></div>
       <div class="container vision-inner">
@@ -548,7 +511,6 @@
       </div>
     </section>
 
-    <!-- UPDATES -->
     <section id="updates">
       <div class="container">
         <div class="section-head reveal">
@@ -556,28 +518,23 @@
           <h2 class="section-title">Latest Updates<br />&amp; News</h2>
           <p class="section-lead">Announcements, product news and insights from the ZISHU TRON team.</p>
         </div>
-        <div class="updates-grid" id="updatesGrid">
-          <div class="skeleton skeleton-card"></div>
-          <div class="skeleton skeleton-card"></div>
-          <div class="skeleton skeleton-card"></div>
-        </div>
+        <div class="updates-grid" id="updatesGrid"></div>
       </div>
     </section>
 
-    <!-- CTA / CONTACT -->
     <section class="cta-section" id="contact">
       <div class="container">
         <div class="cta-inner reveal">
           <h2>Let's Build Something<br />Together</h2>
           <p>Whether you have a question, an idea or just want to follow our journey, we would love to hear from you.</p>
           <div class="cta-btns">
-            <a href="mailto:hello@zishutron.com" class="btn btn-primary btn-lg">Get in Touch
+            <a href="mailto:support.stardustofficial@gmail.com" class="btn btn-primary btn-lg">Get in Touch
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
             <a href="https://discord.gg/Xhh5r2UM5C" target="_blank" rel="noopener" class="btn btn-light btn-lg">Join Community</a>
           </div>
           <div class="cta-contacts">
-            <a href="mailto:hello@zishutron.com" class="cta-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>hello@zishutron.com</a>
+            <a href="mailto:support.stardustofficial@gmail.com" class="cta-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>support.stardustofficial@gmail.com</a>
             <a href="https://github.com/zishutron" target="_blank" rel="noopener" class="cta-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>GitHub</a>
             <a href="https://x.com/zishanstardust" target="_blank" rel="noopener" class="cta-contact"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a>
           </div>
@@ -586,7 +543,6 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-bg">
       <video muted playsinline loop preload="none" poster="https://i.postimg.cc/J03qRF6g/file-00000000672081f8b21d29d30298e881.png" aria-hidden="true" id="footerVideo">
@@ -614,26 +570,17 @@
           <h4>Company</h4>
           <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#products">Products</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#updates">Updates</a></li>
             <li><a href="developer.html">Developer</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Products</h4>
-          <ul id="footerProducts">
-            <li><a href="https://zishuai.cloud/" target="_blank" rel="noopener">Zishu AI</a></li>
-            <li><a href="https://zishutron.github.io/upcodez/" target="_blank" rel="noopener">Upcodez</a></li>
-            <li><a href="https://zishutron.github.io/zishu-insight/" target="_blank" rel="noopener">Zishu Insight</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
           <h4>Contact</h4>
           <ul>
-            <li><a href="mailto:hello@zishutron.com">hello@zishutron.com</a></li>
+            <li><a href="mailto:support.stardustofficial@gmail.com">support.stardustofficial@gmail.com</a></li>
             <li><a href="https://discord.gg/Xhh5r2UM5C" target="_blank" rel="noopener">Discord Community</a></li>
-            <li><a href="https://github.com/zishutron" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="account.html">My Account</a></li>
           </ul>
         </div>
       </div>
@@ -642,7 +589,6 @@
         <div class="fb-links">
           <a href="privacy.html">Privacy Policy</a>
           <a href="terms.html">Terms of Service</a>
-          <a href="auth.html">Account</a>
         </div>
       </div>
     </div>
@@ -650,15 +596,12 @@
 
   <div class="toast-wrap" id="toastWrap" aria-live="polite"></div>
 
-  <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
   <script>
   (function(){
     "use strict";
-
-    /* ---------- FIREBASE CONFIG ---------- */
     var firebaseConfig = {
       apiKey: "AIzaSyBU5CZxIycjaY9t12BGhWADJyAbrS8WzqY",
       authDomain: "zishu-tron.firebaseapp.com",
@@ -669,32 +612,15 @@
       appId: "1:818976752868:web:6097a46a709329a3dd18f1",
       measurementId: "G-0S122FQGJF"
     };
-
     var app, auth, db;
-    try {
-      app = firebase.initializeApp(firebaseConfig);
-      auth = firebase.auth();
-      db = firebase.database();
-    } catch(e) { console.warn("Firebase init failed", e); }
+    try { app = firebase.initializeApp(firebaseConfig); auth = firebase.auth(); db = firebase.database(); } catch(e){ console.warn("Firebase init failed", e); }
 
-    /* ---------- STATE ---------- */
-    var currentUser = null;
-    var userProfile = null;
-    var adminFlag = false;
-
-    /* ---------- UTIL ---------- */
-    function $(s, c){ return (c||document).querySelector(s); }
-    function $all(s, c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); }
+    function $(s,c){ return (c||document).querySelector(s); }
+    function $all(s,c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); }
     function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
-    function sanitizeUrl(u){
-      if(!u) return "";
-      u = String(u).trim();
-      if(/^(https?:|mailto:|tel:|\/|#)/i.test(u)) return u;
-      return "https://" + u;
-    }
+    function sanitizeUrl(u){ if(!u) return ""; u = String(u).trim(); if(/^(https?:|mailto:|tel:|\/|#)/i.test(u)) return u; return "https://" + u; }
     function toast(msg, type){
-      var wrap = $("#toastWrap");
-      if(!wrap) return;
+      var wrap = $("#toastWrap"); if(!wrap) return;
       var t = document.createElement("div");
       t.className = "toast " + (type||"success");
       var icon = type === "error"
@@ -702,41 +628,28 @@
         : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>';
       t.innerHTML = icon + '<span>' + esc(msg) + '</span>';
       wrap.appendChild(t);
-      setTimeout(function(){
-        t.style.opacity = "0";
-        t.style.transform = "translateX(20px)";
-        t.style.transition = "all .3s";
-        setTimeout(function(){ t.remove(); }, 320);
-      }, 3200);
+      setTimeout(function(){ t.style.opacity="0"; t.style.transform="translateX(20px)"; t.style.transition="all .3s"; setTimeout(function(){ t.remove(); }, 320); }, 3200);
     }
 
-    /* ---------- THEME ---------- */
     var root = document.documentElement;
     var savedTheme = localStorage.getItem("zt-theme");
-    if(savedTheme === "dark" || (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)){
-      root.classList.add("dark");
-    }
+    if(savedTheme === "dark" || (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) root.classList.add("dark");
     $("#themeToggle").addEventListener("click", function(){
       root.classList.toggle("dark");
       localStorage.setItem("zt-theme", root.classList.contains("dark") ? "dark" : "light");
     });
 
-    /* ---------- HEADER SCROLL ---------- */
     var header = $("#siteHeader");
     var ticking = false;
     window.addEventListener("scroll", function(){
-      if(ticking) return;
-      ticking = true;
+      if(ticking) return; ticking = true;
       requestAnimationFrame(function(){
-        if(window.scrollY > 24) header.classList.add("scrolled");
-        else header.classList.remove("scrolled");
+        if(window.scrollY > 24) header.classList.add("scrolled"); else header.classList.remove("scrolled");
         ticking = false;
       });
     }, {passive:true});
 
-    /* ---------- MOBILE NAV ---------- */
-    var hamburger = $("#hamburger");
-    var mobileNav = $("#mobileNav");
+    var hamburger = $("#hamburger"), mobileNav = $("#mobileNav");
     hamburger.addEventListener("click", function(){
       var open = mobileNav.classList.toggle("open");
       hamburger.classList.toggle("open", open);
@@ -745,41 +658,29 @@
     });
     $all("a", mobileNav).forEach(function(a){
       a.addEventListener("click", function(){
-        mobileNav.classList.remove("open");
-        hamburger.classList.remove("open");
-        hamburger.setAttribute("aria-expanded","false");
-        document.body.style.overflow = "";
+        mobileNav.classList.remove("open"); hamburger.classList.remove("open");
+        hamburger.setAttribute("aria-expanded","false"); document.body.style.overflow = "";
       });
     });
 
-    /* ---------- ACCOUNT MENU ---------- */
-    var accountTrigger = $("#accountTrigger");
-    var accountMenu = $("#accountMenu");
+    var accountTrigger = $("#accountTrigger"), accountMenu = $("#accountMenu");
     if(accountTrigger){
       accountTrigger.addEventListener("click", function(e){
         e.stopPropagation();
         var open = accountMenu.classList.toggle("open");
         accountTrigger.setAttribute("aria-expanded", open);
       });
-      document.addEventListener("click", function(){
-        accountMenu.classList.remove("open");
-        accountTrigger.setAttribute("aria-expanded","false");
-      });
+      document.addEventListener("click", function(){ accountMenu.classList.remove("open"); accountTrigger.setAttribute("aria-expanded","false"); });
       accountMenu.addEventListener("click", function(e){ e.stopPropagation(); });
     }
 
-    /* ---------- YEAR ---------- */
     $("#year").textContent = new Date().getFullYear();
 
-    /* ---------- REVEAL ON SCROLL ---------- */
     var revealObserver = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if(en.isIntersecting){ en.target.classList.add("in"); revealObserver.unobserve(en.target); }
-      });
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); revealObserver.unobserve(en.target); } });
     }, {threshold:0.12, rootMargin:"0px 0px -40px 0px"});
     $all(".reveal").forEach(function(el){ revealObserver.observe(el); });
 
-    /* ---------- FOOTER VIDEO LAZY ---------- */
     var footerVideo = $("#footerVideo");
     if(footerVideo){
       var fvObserver = new IntersectionObserver(function(entries){
@@ -794,7 +695,6 @@
       fvObserver.observe(footerVideo);
     }
 
-    /* ---------- RENDER PRODUCTS ---------- */
     function productInitial(title){ return (title||"Z").trim().charAt(0).toUpperCase(); }
     function statusClass(s){
       s = (s||"").toLowerCase();
@@ -802,16 +702,11 @@
       if(s === "coming soon" || s === "soon") return "badge-soon";
       return "badge-beta";
     }
+
     function renderProducts(products){
-      var grid = $("#productsGrid");
-      if(!grid) return;
+      var grid = $("#productsGrid"); if(!grid) return;
       var list = [];
-      for(var id in products){
-        if(!products.hasOwnProperty(id)) continue;
-        var p = products[id];
-        if(!p || !p.published) continue;
-        list.push(Object.assign({id:id}, p));
-      }
+      for(var id in products){ if(products.hasOwnProperty(id)){ var p = products[id]; if(p && p.published){ p.id = id; list.push(p); } } }
       list.sort(function(a,b){
         var ao = a.displayOrder == null ? 9999 : Number(a.displayOrder);
         var bo = b.displayOrder == null ? 9999 : Number(b.displayOrder);
@@ -819,7 +714,7 @@
         return (b.createdAt||0) - (a.createdAt||0);
       });
       if(list.length === 0){
-        grid.innerHTML = '<div class="product-card" style="grid-column:1/-1;text-align:center;padding:3rem 1.5rem;"><p style="color:var(--text-3);">No products published yet. Check back soon.</p></div>';
+        grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg><h3>Products coming soon</h3><p>We are currently preparing our product lineup. Check back soon to explore what we are building.</p></div>';
         return;
       }
       var html = "";
@@ -831,16 +726,11 @@
         var featuredBadge = p.featured ? '<span class="badge badge-featured">Featured</span>' : '';
         var status = p.status ? '<span class="badge '+statusClass(p.status)+'">'+esc(p.status)+'</span>' : '';
         html += '<article class="product-card reveal">'
-          + '<div class="pc-top">'
-          +   '<div class="pc-icon">'+iconHtml+'</div>'
-          +   '<div style="display:flex;flex-direction:column;gap:4px;align-items:flex-end;">'+featuredBadge+status+'</div>'
-          + '</div>'
+          + '<div class="pc-top"><div class="pc-icon">'+iconHtml+'</div><div style="display:flex;flex-direction:column;gap:4px;align-items:flex-end;">'+featuredBadge+status+'</div></div>'
           + '<div class="pc-cat">'+esc(p.category||"Product")+'</div>'
           + '<h3 class="pc-title">'+esc(p.title||"Untitled")+'</h3>'
           + '<p class="pc-desc">'+esc(p.description||"")+'</p>'
-          + '<div class="pc-foot">'
-          +   '<a href="'+esc(url)+'"'+(url.indexOf("http")===0?' target="_blank" rel="noopener"':'')+' class="pc-link">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>'
-          + '</div>'
+          + '<div class="pc-foot"><a href="'+esc(url)+'"'+(url.indexOf("http")===0?' target="_blank" rel="noopener"':'')+' class="pc-link">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>'
           + '</article>';
       });
       grid.innerHTML = html;
@@ -848,20 +738,10 @@
     }
 
     function renderEcosystem(products){
-      var grid = $("#ecoGrid");
-      if(!grid) return;
+      var grid = $("#ecoGrid"); if(!grid) return;
       var list = [];
-      for(var id in products){
-        if(!products.hasOwnProperty(id)) continue;
-        var p = products[id];
-        if(!p || !p.published) continue;
-        list.push(Object.assign({id:id}, p));
-      }
-      list.sort(function(a,b){
-        var af = a.featured ? 0 : 1, bf = b.featured ? 0 : 1;
-        if(af !== bf) return af - bf;
-        return (a.displayOrder||9999) - (b.displayOrder||9999);
-      });
+      for(var id in products){ if(products.hasOwnProperty(id)){ var p = products[id]; if(p && p.published){ p.id = id; list.push(p); } } }
+      list.sort(function(a,b){ var af = a.featured ? 0 : 1, bf = b.featured ? 0 : 1; if(af !== bf) return af - bf; return (a.displayOrder||9999) - (b.displayOrder||9999); });
       if(list.length === 0){ grid.innerHTML = ""; return; }
       var html = "";
       list.slice(0, 8).forEach(function(p){
@@ -878,37 +758,10 @@
       $all(".reveal", grid).forEach(function(el){ revealObserver.observe(el); });
     }
 
-    function renderFooterProducts(products){
-      var ul = $("#footerProducts");
-      if(!ul) return;
-      var list = [];
-      for(var id in products){
-        if(!products.hasOwnProperty(id)) continue;
-        var p = products[id];
-        if(!p || !p.published) continue;
-        list.push(p);
-      }
-      if(list.length === 0) return;
-      list.sort(function(a,b){ return (a.displayOrder||9999) - (b.displayOrder||9999); });
-      var html = "";
-      list.slice(0,5).forEach(function(p){
-        var url = sanitizeUrl(p.url || "#");
-        html += '<li><a href="'+esc(url)+'"'+(url.indexOf("http")===0?' target="_blank" rel="noopener"':'')+'>'+esc(p.title||"Product")+'</a></li>';
-      });
-      ul.innerHTML = html;
-    }
-
-    /* ---------- RENDER UPDATES ---------- */
     function renderUpdates(updates){
-      var grid = $("#updatesGrid");
-      if(!grid) return;
+      var grid = $("#updatesGrid"); if(!grid) return;
       var list = [];
-      for(var id in updates){
-        if(!updates.hasOwnProperty(id)) continue;
-        var u = updates[id];
-        if(!u || !u.published) continue;
-        list.push(Object.assign({id:id}, u));
-      }
+      for(var id in updates){ if(updates.hasOwnProperty(id)){ var u = updates[id]; if(u && u.published){ u.id = id; list.push(u); } } }
       list.sort(function(a,b){
         var ao = a.displayOrder == null ? 9999 : Number(a.displayOrder);
         var bo = b.displayOrder == null ? 9999 : Number(b.displayOrder);
@@ -916,7 +769,7 @@
         return (b.createdAt||0) - (a.createdAt||0);
       });
       if(list.length === 0){
-        grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:3rem 1.5rem;color:var(--text-3);">No updates published yet. Check back soon.</div>';
+        grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><h3>No updates yet</h3><p>We will share news and announcements here as they happen.</p></div>';
         return;
       }
       var html = "";
@@ -933,55 +786,30 @@
           + '<p class="uc-desc">'+esc(u.description||"")+'</p>'
           + (dateStr ? '<div class="uc-date">'+esc(dateStr)+'</div>' : '')
           + '</div>';
-        if(url){
-          html += '<a href="'+esc(url)+'"'+(url.indexOf("http")===0?' target="_blank" rel="noopener"':'')+' class="update-card reveal">'+inner+'</a>';
-        } else {
-          html += '<article class="update-card reveal">'+inner+'</article>';
-        }
+        if(url){ html += '<a href="'+esc(url)+'"'+(url.indexOf("http")===0?' target="_blank" rel="noopener"':'')+' class="update-card reveal">'+inner+'</a>'; }
+        else { html += '<article class="update-card reveal">'+inner+'</article>'; }
       });
       grid.innerHTML = html;
       $all(".reveal", grid).forEach(function(el){ revealObserver.observe(el); });
     }
 
-    /* ---------- LOAD DATA ---------- */
-    var fallbackProducts = {
-      "zishu-ai": { title:"Zishu AI", url:"https://zishuai.cloud/", description:"Intelligent voice assistant designed for natural, useful and conversational AI experiences.", category:"AI Assistant", status:"Available", featured:true, displayOrder:1, published:true, icon:"", banner:"", createdAt:Date.now() },
-      "upcodez": { title:"Upcodez", url:"https://zishutron.github.io/upcodez/", description:"An OTT platform where you can explore amazing videos and content.", category:"Entertainment", status:"Available", featured:false, displayOrder:2, published:true, icon:"", banner:"", createdAt:Date.now()-1000 },
-      "zishu-insight": { title:"Zishu Insight", url:"https://zishutron.github.io/zishu-insight/", description:"The official newsroom for ZISHU TRON updates and announcements.", category:"News", status:"Available", featured:false, displayOrder:3, published:true, icon:"", banner:"", createdAt:Date.now()-2000 }
-    };
-
     function loadProducts(){
-      if(!db){ renderProducts(fallbackProducts); renderEcosystem(fallbackProducts); renderFooterProducts(fallbackProducts); return; }
+      if(!db){ renderProducts({}); renderEcosystem({}); return; }
       db.ref("products").on("value", function(snap){
-        var val = snap.val();
-        if(!val || Object.keys(val).length === 0){
-          renderProducts(fallbackProducts);
-          renderEcosystem(fallbackProducts);
-          renderFooterProducts(fallbackProducts);
-        } else {
-          renderProducts(val);
-          renderEcosystem(val);
-          renderFooterProducts(val);
-        }
-        $("#statProducts").textContent = Object.keys(val || fallbackProducts).length;
-      }, function(err){
-        console.warn("Products load error", err);
-        renderProducts(fallbackProducts);
-        renderEcosystem(fallbackProducts);
-        renderFooterProducts(fallbackProducts);
-      });
+        var val = snap.val() || {};
+        renderProducts(val); renderEcosystem(val);
+        $("#statProducts").textContent = Object.keys(val).filter(function(k){ return val[k].published; }).length;
+      }, function(){ renderProducts({}); renderEcosystem({}); });
     }
-
     function loadUpdates(){
       if(!db){ renderUpdates({}); return; }
       db.ref("updates").on("value", function(snap){
         var val = snap.val() || {};
         renderUpdates(val);
-        $("#statUpdates").textContent = Object.keys(val).length;
-      }, function(err){ console.warn("Updates load error", err); renderUpdates({}); });
+        $("#statUpdates").textContent = Object.keys(val).filter(function(k){ return val[k].published; }).length;
+      }, function(){ renderUpdates({}); });
     }
 
-    /* ---------- AUTH STATE ---------- */
     function showAccount(user, profile){
       $("#loginBtn").style.display = "none";
       $("#mobileLoginBtn").style.display = "none";
@@ -1010,56 +838,27 @@
 
     if(auth){
       auth.onAuthStateChanged(function(user){
-        currentUser = user;
         if(user){
-          showAccount(user, userProfile);
+          showAccount(user, null);
           if(db){
             db.ref("users/"+user.uid).once("value").then(function(snap){
-              userProfile = snap.val() || {};
-              showAccount(user, userProfile);
+              showAccount(user, snap.val() || {});
             }).catch(function(){});
           }
-        } else {
-          userProfile = null;
-          hideAccount();
-        }
+        } else { hideAccount(); }
       });
-    } else {
-      hideAccount();
-    }
+    } else { hideAccount(); }
 
     var signOutBtn = $("#signOutBtn");
     if(signOutBtn){
       signOutBtn.addEventListener("click", function(){
         if(!auth) return;
-        auth.signOut().then(function(){ toast("Signed out", "success"); })
-        .catch(function(){ toast("Sign out failed", "error"); });
+        auth.signOut().then(function(){ toast("Signed out", "success"); }).catch(function(){ toast("Sign out failed", "error"); });
       });
     }
 
-    /* ---------- INIT ---------- */
     loadProducts();
     loadUpdates();
-
-    /* ---------- STAT COUNTER ANIMATION ---------- */
-    (function(){
-      var statProducts = $("#statProducts");
-      var statUpdates = $("#statUpdates");
-      if(!statProducts) return;
-      var observer = new IntersectionObserver(function(entries){
-        entries.forEach(function(en){
-          if(en.isIntersecting){
-            var el = en.target;
-            var text = el.textContent;
-            if(text === "—"){ el.textContent = "0"; }
-            observer.unobserve(el);
-          }
-        });
-      }, {threshold:.5});
-      observer.observe(statProducts);
-      observer.observe(statUpdates);
-    })();
-
   })();
   </script>
 </body>
