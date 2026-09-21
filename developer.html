@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>About the Developer — Zishan, Founder of ZISHU TRON</title>
+  <meta name="description" content="Meet Zishan, Founder & Developer of ZISHU TRON. A student and developer building software, applications and digital products." />
+  <link rel="icon" href="https://i.postimg.cc/k5MLzQ4r/file-00000000f1388211a43bfe8ca49302e4.jpg" type="image/jpeg" />
+  <meta name="theme-color" content="#050d1a" />
+  <meta property="og:title" content="About the Developer — Zishan, Founder of ZISHU TRON" />
+  <meta property="og:description" content="A student and developer building software, applications and digital products through ZISHU TRON." />
+  <meta property="og:type" content="profile" />
+  <meta property="og:image" content="https://i.postimg.cc/J03qRF6g/file-00000000672081f8b21d29d30298e881.png" />
+  <link rel="canonical" href="https://zishutron.github.io/developer.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Zishan",
+    "jobTitle": "Founder & Developer",
+    "worksFor": { "@type": "Organization", "name": "ZISHU TRON", "url": "https://zishutron.github.io/" },
+    "url": "https://zishutron.github.io/developer.html",
+    "sameAs": [
+      "https://github.com/zishutron",
+      "https://x.com/zishanstardust",
+      "https://youtube.com/@zishutron",
+      "https://linkedin.com/in/zishu-tron-a8a71241"
+    ]
+  }
+  </script>
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --bg:#f6f8fc;--bg-2:#eef2f9;--surface:#fff;--surface-2:#f8fafd;
+      --text:#050d1a;--text-2:#2a3f5a;--text-3:#5f7590;
+      --border:rgba(5,13,26,.08);--border-2:rgba(5,13,26,.05);
+      --accent:#2563eb;--accent-2:#1d4ed8;--accent-glow:rgba(37,99,235,.12);
+      --navy:#050d1a;--radius:16px;--radius-lg:24px;
+      --shadow:0 4px 24px rgba(5,13,26,.06);--shadow-lg:0 20px 60px rgba(5,13,26,.12);
+      --ease:cubic-bezier(.22,1,.36,1);
+    }
+    .dark{
+      --bg:#050d1a;--bg-2:#081426;--surface:#0a1628;--surface-2:#0e1d33;
+      --text:#f0f4fa;--text-2:#a8bcd4;--text-3:#6a809c;
+      --border:rgba(255,255,255,.07);--border-2:rgba(255,255,255,.04);
+      --accent:#3b82f6;--accent-2:#60a5fa;--accent-glow:rgba(59,130,246,.15);
+      --shadow:0 4px 24px rgba(0,0,0,.35);--shadow-lg:0 20px 60px rgba(0,0,0,.5);
+    }
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;transition:background .4s var(--ease),color .4s var(--ease)}
+    a{text-decoration:none;color:inherit}
+    button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+    img{max-width:100%;display:block}
+    :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+    .container{max-width:1140px;margin:0 auto;padding:0 2rem}
+    @media(max-width:640px){.container{padding:0 1.25rem}}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+    .reveal.in{opacity:1;transform:none}
+    @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+
+    /* Header */
+    .site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.78);backdrop-filter:blur(18px) saturate(180%);-webkit-backdrop-filter:blur(18px) saturate(180%);border-bottom:1px solid var(--border)}
+    .dark .site-header{background:rgba(5,13,26,.78)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.1rem;letter-spacing:-.02em}
+    .brand img{width:34px;height:34px;border-radius:8px}
+    .brand small{display:block;font-size:.6rem;font-weight:500;letter-spacing:.18em;color:var(--text-3);text-transform:uppercase}
+    .nav-links{display:flex;gap:1.75rem;align-items:center}
+    .nav-links a{font-size:.9rem;font-weight:500;color:var(--text-2);transition:color .2s var(--ease)}
+    .nav-links a:hover{color:var(--accent)}
+    .nav-actions{display:flex;align-items:center;gap:.6rem}
+    .icon-btn{width:38px;height:38px;display:grid;place-items:center;border-radius:10px;color:var(--text-2);transition:.2s}
+    .icon-btn:hover{background:var(--bg-2);color:var(--text)}
+    .dark .icon-btn:hover{background:var(--surface-2)}
+    .icon-btn svg{width:20px;height:20px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:.65rem 1.35rem;border-radius:10px;font-weight:600;font-size:.88rem;transition:all .22s var(--ease)}
+    .btn-primary{background:var(--accent);color:#fff;box-shadow:0 4px 16px rgba(37,99,235,.28)}
+    .btn-primary:hover{background:var(--accent-2);transform:translateY(-1px)}
+    .btn-ghost{background:transparent;color:var(--text);border:1.5px solid var(--border)}
+    .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+    /* Hero */
+    .dev-hero{background:var(--navy);color:#fff;padding:6rem 0 5rem;position:relative;overflow:hidden}
+    .dev-hero::before{content:"";position:absolute;top:-30%;right:-10%;width:700px;height:700px;background:radial-gradient(circle,rgba(37,99,235,.22),transparent 70%);pointer-events:none}
+    .dev-hero::after{content:"";position:absolute;bottom:-40%;left:-15%;width:700px;height:700px;background:radial-gradient(circle,rgba(124,58,237,.14),transparent 70%);pointer-events:none}
+    .dev-hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:center}
+    .dev-avatar{width:140px;height:140px;border-radius:24px;background:linear-gradient(135deg,#2563eb,#7c3aed);display:grid;place-items:center;font-size:3.5rem;font-weight:900;color:#fff;box-shadow:0 20px 60px rgba(37,99,235,.4);flex-shrink:0;letter-spacing:-.04em}
+    .dev-hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:.6rem}
+    .dev-role{font-size:1.05rem;color:#60a5fa;font-weight:600;margin-bottom:1.25rem}
+    .dev-statement{font-size:1.05rem;color:rgba(200,215,240,.78);max-width:640px;line-height:1.7}
+    .dev-meta{display:flex;gap:1.5rem;margin-top:1.75rem;flex-wrap:wrap}
+    .dev-meta-item{padding:.75rem 1.25rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px}
+    .dev-meta-item .dm-label{font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(150,180,220,.6)}
+    .dev-meta-item .dm-value{font-size:1rem;font-weight:700;color:#fff;margin-top:.15rem}
+
+    section{padding:5rem 0}
+    .section-head{max-width:720px;margin-bottom:3rem}
+    .section-eyebrow{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+    .section-title{font-size:clamp(1.7rem,3.6vw,2.5rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;color:var(--text);margin-bottom:1rem}
+    .section-lead{font-size:1.05rem;color:var(--text-2);line-height:1.7}
+
+    /* Story */
+    .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+    .story-text p{font-size:1rem;color:var(--text-2);margin-bottom:1.25rem;line-height:1.75}
+    .story-text p:last-child{margin-bottom:0}
+    .story-visual{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);position:sticky;top:100px}
+    .story-visual img{width:100%;height:auto}
+
+    /* Journey / Timeline */
+    .journey-section{background:var(--bg-2)}
+    .timeline{position:relative;max-width:760px;margin:0 auto}
+    .timeline::before{content:"";position:absolute;left:23px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),rgba(37,99,235,.1))}
+    .tl-item{position:relative;padding-left:72px;padding-bottom:2.5rem}
+    .tl-item:last-child{padding-bottom:0}
+    .tl-dot{position:absolute;left:12px;top:0;width:24px;height:24px;border-radius:50%;background:var(--surface);border:3px solid var(--accent);display:grid;place-items:center;z-index:1}
+    .tl-dot::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent)}
+    .tl-step{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.35rem}
+    .tl-title{font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:.35rem}
+    .tl-desc{font-size:.92rem;color:var(--text-2);line-height:1.65}
+
+    /* What I Build */
+    .build-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem}
+    .build-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem 1.5rem;transition:all .3s var(--ease)}
+    .build-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--accent)}
+    .build-card .bc-icon{width:46px;height:46px;border-radius:12px;background:var(--accent-glow);display:grid;place-items:center;color:var(--accent);margin-bottom:1.1rem}
+    .build-card .bc-icon svg{width:23px;height:23px}
+    .build-card h3{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.4rem}
+    .build-card p{font-size:.86rem;color:var(--text-2);line-height:1.6}
+
+    /* Projects */
+    .projects-section{background:var(--navy);color:#fff}
+    .projects-section .section-title{color:#fff}
+    .projects-section .section-eyebrow{color:#60a5fa}
+    .projects-section .section-lead{color:rgba(200,215,240,.72)}
+    .proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.25rem;margin-top:2rem}
+    .proj-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;transition:all .3s var(--ease)}
+    .proj-card:hover{background:rgba(255,255,255,.07);border-color:rgba(96,165,250,.4);transform:translateY(-3px)}
+    .proj-card .pj-icon{width:44px;height:44px;border-radius:11px;background:rgba(59,130,246,.15);display:grid;place-items:center;flex-shrink:0;overflow:hidden}
+    .proj-card .pj-icon img{width:100%;height:100%;object-fit:cover}
+    .proj-card .pj-icon svg{width:22px;height:22px;color:#60a5fa}
+    .proj-card h4{font-size:.98rem;font-weight:700;color:#fff;margin-bottom:.25rem}
+    .proj-card p{font-size:.82rem;color:rgba(190,210,235,.7);line-height:1.55}
+    .proj-link{display:inline-flex;align-items:center;gap:5px;font-size:.78rem;font-weight:600;color:#60a5fa;margin-top:.5rem}
+    .proj-link:hover{gap:9px}
+
+    /* Philosophy */
+    .phil-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+    .phil-card{padding:1.75rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);transition:all .3s var(--ease)}
+    .phil-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+    .phil-card .ph-num{font-size:2rem;font-weight:900;color:var(--accent-glow);line-height:1;margin-bottom:.75rem}
+    .dark .phil-card .ph-num{color:rgba(59,130,246,.3)}
+    .phil-card h3{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.4rem}
+    .phil-card p{font-size:.88rem;color:var(--text-2);line-height:1.6}
+
+    /* Status / Profile */
+    .status-section{background:var(--bg-2)}
+    .status-card{max-width:680px;margin:0 auto;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.5rem;box-shadow:var(--shadow)}
+    .status-row{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:1px solid var(--border-2)}
+    .status-row:last-child{border-bottom:none}
+    .status-row .sr-label{font-size:.82rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--text-3)}
+    .status-row .sr-value{font-size:1rem;font-weight:600;color:var(--text);text-align:right}
+
+    /* Skills */
+    .skills-wrap{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;max-width:760px;margin:0 auto}
+    .skill-tag{padding:.5rem 1.1rem;background:var(--surface);border:1px solid var(--border);border-radius:100px;font-size:.86rem;font-weight:500;color:var(--text-2);transition:all .2s var(--ease)}
+    .skill-tag:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-glow)}
+
+    /* Note */
+    .note-section{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+    .note-section::before{content:"";position:absolute;top:-40%;left:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(37,99,235,.18),transparent 70%);pointer-events:none}
+    .note-inner{position:relative;z-index:1;max-width:760px;margin:0 auto;text-align:center}
+    .note-inner .quote-mark{font-size:4rem;font-weight:900;color:rgba(96,165,250,.3);line-height:.8;margin-bottom:1rem}
+    .note-inner p{font-size:1.15rem;color:rgba(210,225,245,.85);line-height:1.8;margin-bottom:1.5rem;font-style:italic}
+    .note-inner .note-sign{font-size:.95rem;font-weight:700;color:#60a5fa}
+    .note-inner .note-sign small{display:block;font-size:.78rem;font-weight:500;color:rgba(150,180,220,.6);font-style:normal;margin-top:.25rem}
+
+    /* Social */
+    .social-section{text-align:center}
+    .social-links{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:2rem}
+    .social-link{display:flex;align-items:center;gap:10px;padding:.85rem 1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;font-size:.9rem;font-weight:600;color:var(--text-2);transition:all .25s var(--ease)}
+    .social-link:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow)}
+    .social-link svg{width:20px;height:20px}
+
+    /* Footer */
+    .dev-footer{background:var(--navy);color:#fff;padding:3rem 0 2rem;text-align:center}
+    .dev-footer .df-brand{display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:1rem}
+    .dev-footer .df-brand img{width:36px;height:36px;border-radius:9px}
+    .dev-footer .df-brand span{font-weight:800;font-size:1.05rem;letter-spacing:-.02em}
+    .dev-footer p{font-size:.85rem;color:rgba(180,200,225,.6);margin-bottom:1.5rem}
+    .dev-footer .df-links{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;font-size:.82rem;color:rgba(180,200,225,.65)}
+    .dev-footer .df-links a:hover{color:#fff}
+    .dev-footer .df-copy{margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.08);font-size:.78rem;color:rgba(150,180,220,.5)}
+
+    @media(max-width:900px){
+      .dev-hero-inner{grid-template-columns:1fr;text-align:center;gap:2rem}
+      .dev-avatar{margin:0 auto}
+      .dev-meta{justify-content:center}
+      .story-grid{grid-template-columns:1fr;gap:2.5rem}
+      .story-visual{position:static}
+    }
+    @media(max-width:640px){
+      .nav-links{display:none}
+      section{padding:3.5rem 0}
+      .dev-hero{padding:4rem 0 3rem}
+      .tl-item{padding-left:60px}
+      .timeline::before{left:19px}
+      .tl-dot{left:8px}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <img src="https://i.postimg.cc/k5MLzQ4r/file-00000000f1388211a43bfe8ca49302e4.jpg" alt="ZISHU TRON" />
+        <span>ZISHU TRON<small>Technology</small></span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#products">Products</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#updates">Updates</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="developer.html" style="color:var(--accent);font-weight:600;">Developer</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </button>
+        <a href="auth.html" class="btn btn-ghost">Login</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="dev-hero">
+      <div class="container dev-hero-inner">
+        <div class="dev-avatar" aria-hidden="true">Z</div>
+        <div>
+          <h1>Zishan</h1>
+          <div class="dev-role">Founder &amp; Developer, ZISHU TRON</div>
+          <p class="dev-statement">A student, developer and builder focused on creating useful technology products and turning ideas into real digital experiences.</p>
+          <div class="dev-meta">
+            <div class="dev-meta-item"><div class="dm-label">Role</div><div class="dm-value">Founder &amp; Developer</div></div>
+            <div class="dev-meta-item"><div class="dm-label">Status</div><div class="dm-value">Student</div></div>
+            <div class="dev-meta-item"><div class="dm-label">Age</div><div class="dm-value">16</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO I AM -->
+    <section id="who">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-eyebrow">Who I Am</span>
+          <h2 class="section-title">A Student, Developer<br />and Builder</h2>
+        </div>
+        <div class="story-grid">
+          <div class="story-text reveal">
+            <p>I'm Zishan, the founder and developer behind ZISHU TRON. I'm a student, and I spend most of my time learning, experimenting and building software.</p>
+            <p>My journey into technology started with curiosity — wanting to understand how apps work, how websites are made, and how ideas could become real products. That curiosity turned into a habit of building, testing and improving.</p>
+            <p>ZISHU TRON is the result of that habit. It's my long-term effort to create useful technology products, from AI-powered tools to web applications and digital experiences.</p>
+          </div>
+          <div class="story-visual reveal">
+            <img src="https://i.postimg.cc/J03qRF6g/file-00000000672081f8b21d29d30298e881.png" alt="ZISHU TRON technology banner" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MY STORY -->
+    <section id="story" style="background:var(--bg-2);">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-eyebrow">My Story</span>
+          <h2 class="section-title">From Curiosity<br />to Creation</h2>
+        </div>
+        <div class="story-grid">
+          <div class="story-text reveal">
+            <p>I didn't start with a plan. I started with questions. How do apps work? How do websites load? How could I make something people would actually use?</p>
+            <p>At first, it was small experiments — simple pages, tiny scripts, and lots of trial and error. Every mistake taught me something. Every small win motivated me to keep going.</p>
+            <p>Over time, those experiments grew into real projects. I began building applications, learning about design, databases and user experience. I started to think less about just making things work, and more about making things <em>useful</em>.</p>
+            <p>ZISHU TRON became the place where all of that came together — a home for the products I build, the ideas I'm exploring, and the technology I want to keep improving.</p>
+          </div>
+          <div class="story-text reveal">
+            <p>I'm still learning. I'm still a student. But I've learned that the best way to grow is to build — to take an idea, make it real, put it in front of people, and then make it better.</p>
+            <p>That's what ZISHU TRON is about. Not just products, but a process. A commitment to keep creating, keep improving, and keep turning ideas into things that actually exist.</p>
+            <p>This is the story so far. And it's only the beginning.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOURNEY -->
+    <section class="journey-section" id="journey">
+      <div class="container">
+        <div class="section-head reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
+          <span class="section-eyebrow">My Journey</span>
+          <h2 class="section-title">How ZISHU TRON Came to Be</h2>
+        </div>
+        <div class="timeline">
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-step">01 — Learning</div>
+            <div class="tl-title">Discovering technology</div>
+            <div class="tl-desc">Learning the fundamentals — how software works, how the web is built, and what it takes to make an idea real.</div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-step">02 — Experimenting</div>
+            <div class="tl-title">Building small projects</div>
+            <div class="tl-desc">Creating simple experiments, testing ideas, and learning through mistakes. Every project taught something new.</div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-step">03 — Building Projects</div>
+            <div class="tl-title">From experiments to real products</div>
+            <div class="tl-desc">Moving beyond practice into building actual applications — tools with real purpose and real users in mind.</div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-step">04 — Creating Digital Products</div>
+            <div class="tl-title">Thinking like a product builder</div>
+            <div class="tl-desc">Learning to design, build and refine complete digital experiences — not just code, but products people can use.</div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-step">05 — ZISHU TRON</div>
+            <div class="tl-title">A home for the work</div>
+            <div class="tl-desc">Bringing everything together under one brand — ZISHU TRON — a long-term effort to build useful technology.</div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-step">06 — Building for the Future</div>
+            <div class="tl-title">Continuing the journey</div>
+            <div class="tl-desc">Keep learning. Keep building. Keep improving. The work continues, one product at a time.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT I BUILD -->
+    <section id="build">
+      <div class="container">
+        <div class="section-head center reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
+          <span class="section-eyebrow">What I Build</span>
+          <h2 class="section-title">Areas of Development</h2>
+          <p class="section-lead">The kinds of products and technologies I focus on through ZISHU TRON.</p>
+        </div>
+        <div class="build-grid">
+          <div class="build-card reveal">
+            <div class="bc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg></div>
+            <h3>Android Applications</h3>
+            <p>Mobile apps designed around real daily use and clean user experience.</p>
+          </div>
+          <div class="build-card reveal">
+            <div class="bc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+            <h3>Web Applications</h3>
+            <p>Fast, responsive web experiences built with modern tools.</p>
+          </div>
+          <div class="build-card reveal">
+            <div class="bc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+            <h3>AI-Powered Tools</h3>
+            <p>Practical AI features that add real value to everyday products.</p>
+          </div>
+          <div class="build-card reveal">
+            <div class="bc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+            <h3>Digital Products</h3>
+            <p>Complete product experiences from concept to launch.</p>
+          </div>
+          <div class="build-card reveal">
+            <div class="bc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+            <h3>Developer Tools</h3>
+            <p>Utilities and tools that make building software more practical.</p>
+          </div>
+          <div class="build-card reveal">
+            <div class="bc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+            <h3>User-Focused Software</h3>
+            <p>Products designed around clarity, simplicity and real usability.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects-section" id="projects">
+      <div class="container">
+        <div class="section-head center reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
+          <span class="section-eyebrow">Built by Me</span>
+          <h2 class="section-title">From Ideas to Products</h2>
+          <p class="section-lead">A selection of projects built through ZISHU TRON.</p>
+        </div>
+        <div class="proj-grid" id="devProjects">
+          <div class="proj-card"><div class="pj-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/></svg></div><div><h4>Loading…</h4></div></div>
+        </div>
+        <div style="text-align:center;margin-top:2.5rem;">
+          <a href="index.html#products" class="btn btn-primary">View All Products</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section id="philosophy">
+      <div class="container">
+        <div class="section-head center reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
+          <span class="section-eyebrow">How I Build</span>
+          <h2 class="section-title">Principles Behind<br />the Work</h2>
+        </div>
+        <div class="phil-grid">
+          <div class="phil-card reveal"><div class="ph-num">01</div><h3>Build instead of only imagining</h3><p>Ideas matter, but execution matters more. The best way to learn is to make something real.</p></div>
+          <div class="phil-card reveal"><div class="ph-num">02</div><h3>Learn by creating</h3><p>Every project is a lesson. Building teaches things that reading alone never will.</p></div>
+          <div class="phil-card reveal"><div class="ph-num">03</div><h3>Keep improving</h3><p>Version one is never the end. Refining, fixing and evolving is part of the process.</p></div>
+          <div class="phil-card reveal"><div class="ph-num">04</div><h3>Focus on useful products</h3><p>Technology should solve something, help someone, or make a task simpler.</p></div>
+          <div class="phil-card reveal"><div class="ph-num">05</div><h3>Make technology accessible</h3><p>Good design and clear experiences make technology usable for more people.</p></div>
+          <div class="phil-card reveal"><div class="ph-num">06</div><h3>Turn ideas into real experiences</h3><p>The goal isn't just to think — it's to ship, share and iterate.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATUS -->
+    <section class="status-section" id="status">
+      <div class="container">
+        <div class="section-head center reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
+          <span class="section-eyebrow">Current Status</span>
+          <h2 class="section-title">Profile</h2>
+        </div>
+        <div class="status-card reveal">
+          <div class="status-row"><span class="sr-label">Name</span><span class="sr-value">Zishan</span></div>
+          <div class="status-row"><span class="sr-label">Role</span><span class="sr-value">Founder &amp; Developer</span></div>
+          <div class="status-row"><span class="sr-label">Status</span><span class="sr-value">Student</span></div>
+          <div class="status-row"><span class="sr-label">Age</span><span class="sr-value">16</span></div>
+          <div class="status-row"><span class="sr-label">Focus</span><span class="sr-value">Building software, applications and digital products through ZISHU TRON</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" style="background:var(--bg-2);">
+      <div class="container">
+        <div class="section-head center reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
+          <span class="section-eyebrow">Areas of Interest</span>
+          <h2 class="section-title">Skills &amp; Technologies</h2>
+          <p class="section-lead">Technologies reflected in the ZISHU TRON projects.</p>
+        </div>
+        <div class="skills-wrap reveal">
+          <span class="skill-tag">Java / Android Development</span>
+          <span class="skill-tag">HTML / CSS / JavaScript</span>
+          <span class="skill-tag">Firebase</span>
+          <span class="skill-tag">Web Applications</span>
+          <span class="skill-tag">AI Integration</span>
+          <span class="skill-tag">Product Design</span>
+          <span class="skill-tag">UI / UX</span>
+          <span class="skill-tag">Software Development</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOTE -->
+    <section class="note-section" id="note">
+      <div class="container">
+        <div class="note-inner reveal">
+          <div class="quote-mark">"</div>
+          <p>I'm building ZISHU TRON as a long-term journey. My focus is simple: keep learning, keep creating, and keep improving the products I make. I don't have all the answers yet — but I believe in building, sharing, and getting better with every step.</p>
+          <div class="note-sign">Zishan<small>Founder &amp; Developer, ZISHU TRON</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL -->
+    <section class="social-section" id="connect">
+      <div class="container">
+        <div class="section-head center reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
+          <span class="section-eyebrow">Connect</span>
+          <h2 class="section-title">Follow the Journey</h2>
+        </div>
+        <div class="social-links reveal">
+          <a href="https://github.com/zishutron" target="_blank" rel="noopener" class="social-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.15 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.62.24 2.85.12 3.15.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
+          <a href="https://x.com/zishanstardust" target="_blank" rel="noopener" class="social-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a>
+          <a href="https://youtube.com/@zishutron" target="_blank" rel="noopener" class="social-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>YouTube</a>
+          <a href="https://linkedin.com/in/zishu-tron-a8a71241" target="_blank" rel="noopener" class="social-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="dev-footer">
+    <div class="container">
+      <div class="df-brand">
+        <img src="https://i.postimg.cc/k5MLzQ4r/file-00000000f1388211a43bfe8ca49302e4.jpg" alt="ZISHU TRON" />
+        <span>ZISHU TRON</span>
+      </div>
+      <p>Building Intelligent Technology for a Better Future.</p>
+      <div class="df-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#products">Products</a>
+        <a href="index.html#about">About</a>
+        <a href="developer.html">Developer</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+      <div class="df-copy">&copy; <span id="year"></span> ZISHU TRON. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+  <script>
+  (function(){
+    "use strict";
+    var firebaseConfig = {
+      apiKey: "AIzaSyBU5CZxIycjaY9t12BGhWADJyAbrS8WzqY",
+      authDomain: "zishu-tron.firebaseapp.com",
+      databaseURL: "https://zishu-tron-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "zishu-tron",
+      storageBucket: "zishu-tron.firebasestorage.app",
+      messagingSenderId: "818976752868",
+      appId: "1:818976752868:web:6097a46a709329a3dd18f1",
+      measurementId: "G-0S122FQGJF"
+    };
+    var db;
+    try { firebase.initializeApp(firebaseConfig); db = firebase.database(); } catch(e){ console.warn(e); }
+
+    function $(s){ return document.querySelector(s); }
+    function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+
+    // Theme
+    var root = document.documentElement;
+    var saved = localStorage.getItem("zt-theme");
+    if(saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) root.classList.add("dark");
+    $("#themeToggle").addEventListener("click", function(){
+      root.classList.toggle("dark");
+      localStorage.setItem("zt-theme", root.classList.contains("dark") ? "dark" : "light");
+    });
+
+    // Year
+    $("#year").textContent = new Date().getFullYear();
+
+    // Reveal
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); obs.unobserve(en.target); } });
+    }, {threshold:.12, rootMargin:"0px 0px -40px 0px"});
+    document.querySelectorAll(".reveal").forEach(function(el){ obs.observe(el); });
+
+    // Load projects from DB
+    function renderProjects(products){
+      var list = [];
+      for(var id in products){ if(products.hasOwnProperty(id)){ var p = products[id]; if(p && p.published){ p.id = id; list.push(p); } } }
+      list.sort(function(a,b){
+        var af = a.featured ? 0 : 1, bf = b.featured ? 0 : 1;
+        if(af !== bf) return af - bf;
+        return (a.displayOrder||9999) - (b.displayOrder||9999);
+      });
+      var wrap = $("#devProjects");
+      if(list.length === 0){
+        wrap.innerHTML = '<div class="proj-card" style="grid-column:1/-1;justify-content:center;"><div><h4>No projects published yet.</h4></div></div>';
+        return;
+      }
+      var html = "";
+      list.slice(0,6).forEach(function(p){
+        var url = p.url || "#";
+        var iconHtml = p.icon
+          ? '<img src="'+esc(p.icon)+'" alt="" loading="lazy" onerror="this.style.display=\'none\';this.parentNode.innerHTML=\'<svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot;><rect x=&quot;3&quot; y=&quot;3&quot; width=&quot;18&quot; height=&quot;18&quot; rx=&quot;3&quot;/></svg>\';" />'
+          : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>';
+        html += '<div class="proj-card reveal">'
+          + '<div class="pj-icon">'+iconHtml+'</div>'
+          + '<div><h4>'+esc(p.title||"Product")+'</h4><p>'+esc((p.description||"").slice(0,90))+'</p>'
+          + '<a href="'+esc(url)+'"'+(url.indexOf("http")===0?' target="_blank" rel="noopener"':'')+' class="proj-link">Open Project &rarr;</a></div>'
+          + '</div>';
+      });
+      wrap.innerHTML = html;
+      wrap.querySelectorAll(".reveal").forEach(function(el){ obs.observe(el); });
+    }
+
+    if(db){
+      db.ref("products").on("value", function(snap){
+        var val = snap.val();
+        if(!val || Object.keys(val).length === 0){
+          renderProjects({
+            "zishu-ai": { title:"Zishu AI", url:"https://zishuai.cloud/", description:"Intelligent voice assistant with natural conversation capabilities.", published:true, featured:true, displayOrder:1 },
+            "upcodez": { title:"Upcodez", url:"https://zishutron.github.io/upcodez/", description:"An OTT platform to explore amazing videos.", published:true, displayOrder:2 },
+            "stardust-canvas": { title:"Stardust Canvas", url:"https://zishutron.github.io/Stardust-media/", description:"Photo sharing platform for creative communities.", published:true, displayOrder:3 },
+            "student-os": { title:"Stardust Student OS", url:"https://zishutron.github.io/stardust-student-OS/", description:"Educational operating system for students.", published:true, displayOrder:4 },
+            "stardust-hub": { title:"Stardust Hub", url:"https://zishutron.github.io/Stardust-hub/", description:"Social media platform for creators.", published:true, displayOrder:5 },
+            "warrior": { title:"Stardust Warrior", url:"https://zishutron.github.io/Stardust-warrior/", description:"Zombie survival game with immersive gameplay.", published:true, displayOrder:6 }
+          });
+        } else {
+          renderProjects(val);
+        }
+      });
+    } else {
+      renderProjects({});
+    }
+  })();
+  </script>
+</body>
+</html>
