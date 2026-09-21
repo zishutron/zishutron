@@ -794,22 +794,27 @@
     }
 
     function loadProducts(){
-      if(!db){ renderProducts({}); renderEcosystem({}); return; }
-      db.ref("products").on("value", function(snap){
-        var val = snap.val() || {};
-        renderProducts(val); renderEcosystem(val);
-        $("#statProducts").textContent = Object.keys(val).filter(function(k){ return val[k].published; }).length;
-      }, function(){ renderProducts({}); renderEcosystem({}); });
-    }
+  if(!db){ renderProducts({}); renderEcosystem({}); return; }
+  db.ref("products")
+    .orderByChild("published")
+    .equalTo(true)
+    .on("value", function(snap){
+      var val = snap.val() || {};
+      renderProducts(val); renderEcosystem(val);
+      $("#statProducts").textContent = Object.keys(val).length;
+    }, function(){ renderProducts({}); renderEcosystem({}); });
+}
     function loadUpdates(){
-      if(!db){ renderUpdates({}); return; }
-      db.ref("updates").on("value", function(snap){
-        var val = snap.val() || {};
-        renderUpdates(val);
-        $("#statUpdates").textContent = Object.keys(val).filter(function(k){ return val[k].published; }).length;
-      }, function(){ renderUpdates({}); });
-    }
-
+  if(!db){ renderUpdates({}); return; }
+  db.ref("updates")
+    .orderByChild("published")
+    .equalTo(true)
+    .on("value", function(snap){
+      var val = snap.val() || {};
+      renderUpdates(val);
+      $("#statUpdates").textContent = Object.keys(val).length;
+    }, function(){ renderUpdates({}); });
+}
     function showAccount(user, profile){
       $("#loginBtn").style.display = "none";
       $("#mobileLoginBtn").style.display = "none";
