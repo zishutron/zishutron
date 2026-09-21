@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Block private pages from search engines
+Disallow: /admin.html
+Disallow: /account.html
+
+# Sitemap location
+Sitemap: https://zishutron.zishuai.cloud/sitemap.xml
