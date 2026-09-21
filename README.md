@@ -14,17 +14,17 @@ A technology brand creating AI-powered software, applications, digital tools and
 
 <br />
 
-[![Website](https://img.shields.io/badge/Website-zishutron.zishuai.cloud-2563eb?style=for-the-badge&logo=googlechrome&logoColor=white)](https://zishutron.zishuai.cloud/)
-[![Products](https://img.shields.io/badge/Products-17%2B%20Live-16a34a?style=for-the-badge&logo=appstore&logoColor=white)](https://zishutron.zishuai.cloud/#products)
-[![Discord](https://img.shields.io/badge/Discord-Join%20Community-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/Xhh5r2UM5C)
-[![X](https://img.shields.io/badge/X-Follow-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/zishanstardust)
+<a href="https://zishutron.zishuai.cloud/"><img src="https://img.shields.io/badge/Website-zishutron.zishuai.cloud-2563eb?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Website" /></a>
+<a href="https://zishutron.zishuai.cloud/#products"><img src="https://img.shields.io/badge/Products-17%2B%20Live-16a34a?style=for-the-badge&logo=appstore&logoColor=white" alt="Products" /></a>
+<a href="https://discord.gg/Xhh5r2UM5C"><img src="https://img.shields.io/badge/Discord-Join%20Community-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
+<a href="https://x.com/zishanstardust"><img src="https://img.shields.io/badge/X-Follow-000000?style=for-the-badge&logo=x&logoColor=white" alt="X" /></a>
 
-<br />
+<br /><br />
 
-[![Status](https://img.shields.io/badge/Status-Actively%20Building-16a34a?style=flat-square)](#)
-[![Made%20with](https://img.shields.io/badge/Made%20with-HTML%20%7C%20CSS%20%7C%20JS-2563eb?style=flat-square)](#)
-[![Powered%20by](https://img.shields.io/badge/Powered%20by-Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black)](#)
-[![License](https://img.shields.io/badge/License-Proprietary-6b7280?style=flat-square)](#)
+<img src="https://img.shields.io/badge/Status-Actively%20Building-16a34a?style=flat-square" alt="Status" />
+<img src="https://img.shields.io/badge/Made%20with-HTML%20%7C%20CSS%20%7C%20JS-2563eb?style=flat-square" alt="Made with" />
+<img src="https://img.shields.io/badge/Powered%20by-Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black" alt="Firebase" />
+<img src="https://img.shields.io/badge/License-Proprietary-6b7280?style=flat-square" alt="License" />
 
 </div>
 
@@ -95,20 +95,23 @@ We believe the future isn't something we wait for. It's something we build, refi
 <div align="center">
 
 ### Frontend
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
 
 ### Backend & Services
-![Firebase Auth](https://img.shields.io/badge/Firebase%20Auth-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
-![Realtime Database](https://img.shields.io/badge/Realtime%20Database-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
-![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white)
-![ImgBB](https://img.shields.io/badge/ImgBB-5B8DEF?style=for-the-badge&logo=image&logoColor=white)
+
+<img src="https://img.shields.io/badge/Firebase%20Auth-FFCA28?style=for-the-badge&logo=firebase&logoColor=black" alt="Firebase Auth" />
+<img src="https://img.shields.io/badge/Realtime%20Database-FFCA28?style=for-the-badge&logo=firebase&logoColor=black" alt="Realtime Database" />
+<img src="https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white" alt="Cloudinary" />
+<img src="https://img.shields.io/badge/ImgBB-5B8DEF?style=for-the-badge&logo=image&logoColor=white" alt="ImgBB" />
 
 ### Tools & Hosting
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-181717?style=for-the-badge&logo=github&logoColor=white)
-![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)
+
+<img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
+<img src="https://img.shields.io/badge/GitHub%20Pages-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Pages" />
+<img src="https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=cloudflare&logoColor=white" alt="Cloudflare" />
 
 </div>
 
@@ -401,12 +404,12 @@ GitHub Analytics
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=zishutron&show_icons=true&theme=tokyonight&count_private=true&hide_border=true" alt="GitHub Stats" width="48%" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=zishutron&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" width="48%" />
+<img src="https://github-readme-stats.vercel.app/api?username=zishutron&show_icons=true&theme=tokyonight&count_private=true&hide_border=true&cache_seconds=1800" alt="GitHub Stats" width="48%" />
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=zishutron&layout=compact&theme=tokyonight&hide_border=true&cache_seconds=1800" alt="Top Languages" width="48%" />
 
-<br />
+<br /><br />
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=zishutron&theme=tokyonight&hide_border=true" alt="GitHub Streak" width="70%" />
+<img src="https://streak-stats.demolab.com/?user=zishutron&theme=tokyonight&hide_border=true" alt="GitHub Streak" width="70%" />
 
 </div>
 
@@ -416,14 +419,14 @@ Connect
 
 <div align="center">
 
-https://img.shields.io/badge/Website-zishutron.zishuai.cloud-2563eb?style=for-the-badge&logo=googlechrome&logoColor=white
-https://img.shields.io/badge/GitHub-zishutron-181717?style=for-the-badge&logo=github&logoColor=white
-https://img.shields.io/badge/X-@zishanstardust-000000?style=for-the-badge&logo=x&logoColor=white
-https://img.shields.io/badge/YouTube-@zishutron-FF0000?style=for-the-badge&logo=youtube&logoColor=white
-https://img.shields.io/badge/LinkedIn-Zishu%20Tron-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white
-https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord&logoColor=white
+<a href="https://zishutron.zishuai.cloud/"><img src="https://img.shields.io/badge/Website-zishutron.zishuai.cloud-2563eb?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Website" /></a>
+<a href="https://github.com/zishutron"><img src="https://img.shields.io/badge/GitHub-zishutron-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
+<a href="https://x.com/zishanstardust"><img src="https://img.shields.io/badge/X-@zishanstardust-000000?style=for-the-badge&logo=x&logoColor=white" alt="X" /></a>
+<a href="https://youtube.com/@zishutron"><img src="https://img.shields.io/badge/YouTube-@zishutron-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube" /></a>
+<a href="https://linkedin.com/in/zishu-tron-a8a71241"><img src="https://img.shields.io/badge/LinkedIn-Zishu%20Tron-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+<a href="https://discord.gg/Xhh5r2UM5C"><img src="https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
 
-<br />
+<br /><br />
 
 Official Support: support.stardustofficial@gmail.com
 
