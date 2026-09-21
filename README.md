@@ -234,12 +234,12 @@ Read the full story →
 
 ---
 
-GitHub Analytics
+## GitHub Analytics
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=zishutron&show_icons=true&theme=tokyonight&count_private=true&hide_border=true&cache_seconds=1800" alt="GitHub Stats" width="48%" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=zishutron&layout=compact&theme=tokyonight&hide_border=true&cache_seconds=1800" alt="Top Languages" width="48%" />
+<img src="https://github-readme-stats.shion.dev/api?username=zishutron&show_icons=true&theme=tokyonight&count_private=true&hide_border=true&cache_seconds=1800" alt="GitHub Stats" width="48%" />
+<img src="https://github-readme-stats.shion.dev/api/top-langs/?username=zishutron&layout=compact&theme=tokyonight&hide_border=true&cache_seconds=1800" alt="Top Languages" width="48%" />
 
 <br /><br />
 
