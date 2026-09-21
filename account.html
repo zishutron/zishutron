@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>My Account — ZISHU TRON</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="icon" href="https://i.postimg.cc/k5MLzQ4r/file-00000000f1388211a43bfe8ca49302e4.jpg" type="image/jpeg" />
+  <meta name="theme-color" content="#050d1a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --bg:#f6f8fc;--bg-2:#eef2f9;--surface:#fff;--surface-2:#f8fafd;
+      --text:#050d1a;--text-2:#2a3f5a;--text-3:#5f7590;
+      --border:rgba(5,13,26,.08);--border-2:rgba(5,13,26,.05);
+      --accent:#2563eb;--accent-2:#1d4ed8;--accent-glow:rgba(37,99,235,.12);
+      --danger:#dc2626;--success:#16a34a;--warning:#ca8a04;
+      --radius:14px;--shadow:0 4px 24px rgba(5,13,26,.06);--shadow-lg:0 20px 60px rgba(5,13,26,.12);
+      --ease:cubic-bezier(.22,1,.36,1);
+    }
+    .dark{
+      --bg:#050d1a;--bg-2:#081426;--surface:#0a1628;--surface-2:#0e1d33;
+      --text:#f0f4fa;--text-2:#a8bcd4;--text-3:#6a809c;
+      --border:rgba(255,255,255,.07);--border-2:rgba(255,255,255,.04);
+      --accent:#3b82f6;--accent-2:#60a5fa;--accent-glow:rgba(59,130,246,.15);
+      --shadow:0 4px 24px rgba(0,0,0,.35);--shadow-lg:0 20px 60px rgba(0,0,0,.5);
+    }
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+    a{text-decoration:none;color:inherit}
+    button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+    input,textarea,select{font-family:inherit;font-size:inherit}
+    img{max-width:100%;display:block}
+    :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+    .container{max-width:900px;margin:0 auto;padding:0 1.5rem}
+
+    .topbar{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.8);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+    .dark .topbar{background:rgba(5,13,26,.8)}
+    .topbar-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1rem}
+    .brand img{width:32px;height:32px;border-radius:8px}
+    .icon-btn{width:38px;height:38px;display:grid;place-items:center;border-radius:10px;color:var(--text-2);transition:.2s}
+    .icon-btn:hover{background:var(--bg-2);color:var(--text)}
+    .dark .icon-btn:hover{background:var(--surface-2)}
+    .icon-btn svg{width:20px;height:20px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:.6rem 1.25rem;border-radius:10px;font-weight:600;font-size:.86rem;transition:all .22s var(--ease)}
+    .btn-primary{background:var(--accent);color:#fff}
+    .btn-primary:hover{background:var(--accent-2);transform:translateY(-1px)}
+    .btn-ghost{background:transparent;color:var(--text);border:1.5px solid var(--border)}
+    .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+    .btn-danger{background:var(--danger);color:#fff}
+    .btn-danger:hover{background:#b91c1c}
+    .btn-sm{padding:.4rem .9rem;font-size:.78rem}
+
+    .account-wrap{padding:2.5rem 0 4rem}
+    .page-head{margin-bottom:2rem}
+    .page-head h1{font-size:1.75rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.35rem}
+    .page-head p{color:var(--text-2);font-size:.95rem}
+
+    .profile-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap}
+    .profile-avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#7c3aed);display:grid;place-items:center;font-size:2rem;font-weight:800;color:#fff;flex-shrink:0;overflow:hidden}
+    .profile-avatar img{width:100%;height:100%;object-fit:cover}
+    .profile-info{flex:1;min-width:200px}
+    .profile-info .pi-name{font-size:1.25rem;font-weight:800;margin-bottom:.2rem}
+    .profile-info .pi-email{font-size:.9rem;color:var(--text-2);margin-bottom:.4rem}
+    .profile-info .pi-meta{font-size:.78rem;color:var(--text-3)}
+    .badge{display:inline-flex;align-items:center;gap:4px;padding:.2rem .55rem;border-radius:100px;font-size:.68rem;font-weight:700;letter-spacing:.03em}
+    .badge-user{background:var(--accent-glow);color:var(--accent)}
+    .badge-admin{background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff}
+    .badge-verified{background:rgba(22,163,74,.12);color:var(--success)}
+
+    .tabs{display:flex;gap:.25rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:.35rem;margin-bottom:1.5rem;overflow-x:auto;scrollbar-width:none}
+    .tabs::-webkit-scrollbar{display:none}
+    .tab{flex:1;min-width:120px;padding:.6rem 1rem;border-radius:9px;font-size:.86rem;font-weight:600;color:var(--text-2);transition:.2s;white-space:nowrap;text-align:center}
+    .tab:hover{color:var(--text);background:var(--bg-2)}
+    .dark .tab:hover{background:var(--surface-2)}
+    .tab.active{background:var(--accent);color:#fff}
+
+    .panel{display:none}
+    .panel.active{display:block}
+    .panel-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;margin-bottom:1.5rem}
+    .panel-card h2{font-size:1.1rem;font-weight:700;margin-bottom:.35rem}
+    .panel-card .pc-sub{font-size:.88rem;color:var(--text-2);margin-bottom:1.5rem}
+
+    .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem}
+    .info-item{padding:1rem 1.25rem;background:var(--surface-2);border-radius:10px;border:1px solid var(--border-2)}
+    .info-item .ii-label{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);margin-bottom:.35rem}
+    .info-item .ii-value{font-size:.95rem;font-weight:600;color:var(--text);word-break:break-word}
+
+    .form-row{margin-bottom:1rem}
+    .form-row label{display:block;font-size:.82rem;font-weight:600;color:var(--text-2);margin-bottom:.35rem}
+    .form-row input{width:100%;padding:.7rem .9rem;border-radius:10px;border:1.5px solid var(--border);background:var(--surface-2);color:var(--text);font-size:.9rem}
+    .form-row input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+    .form-row input:disabled{opacity:.6;cursor:not-allowed}
+    .help{font-size:.74rem;color:var(--text-3);margin-top:.35rem}
+
+    .session-list{display:flex;flex-direction:column;gap:.75rem}
+    .session-item{display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;background:var(--surface-2);border:1px solid var(--border-2);border-radius:10px}
+    .session-item.current{border-color:var(--accent);background:var(--accent-glow)}
+    .session-icon{width:36px;height:36px;border-radius:9px;background:var(--surface);display:grid;place-items:center;flex-shrink:0;color:var(--accent)}
+    .session-icon svg{width:18px;height:18px}
+    .session-info{flex:1;min-width:0}
+    .session-info .si-title{font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:.15rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+    .session-info .si-detail{font-size:.76rem;color:var(--text-3)}
+    .session-badge{font-size:.65rem;font-weight:700;padding:.15rem .5rem;border-radius:100px;background:var(--accent);color:#fff}
+
+    .danger-zone{border:1.5px solid rgba(220,38,38,.3);background:rgba(220,38,38,.04);border-radius:var(--radius);padding:1.75rem}
+    .dark .danger-zone{background:rgba(220,38,38,.06)}
+    .danger-zone h2{color:var(--danger);font-size:1.05rem;font-weight:700;margin-bottom:.35rem}
+    .danger-zone p{font-size:.88rem;color:var(--text-2);margin-bottom:1.25rem;line-height:1.6}
+
+    .empty{padding:3rem 1.5rem;text-align:center;color:var(--text-3);font-size:.9rem}
+    .empty svg{width:44px;height:44px;margin:0 auto 1rem;display:block;opacity:.4}
+
+    .toast-wrap{position:fixed;bottom:1.5rem;right:1.5rem;z-index:3000;display:flex;flex-direction:column;gap:.6rem;max-width:360px}
+    .toast{display:flex;align-items:flex-start;gap:.75rem;padding:1rem 1.25rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-lg);font-size:.86rem;color:var(--text);animation:toastIn .3s var(--ease)}
+    .toast.success{border-left:3px solid var(--success)}
+    .toast.error{border-left:3px solid var(--danger)}
+    .toast svg{width:17px;height:17px;flex-shrink:0;margin-top:1px}
+    .toast.success svg{color:var(--success)}
+    .toast.error svg{color:var(--danger)}
+    @keyframes toastIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:none}}
+
+    .modal-backdrop{position:fixed;inset:0;background:rgba(5,13,26,.55);backdrop-filter:blur(4px);z-index:4000;display:none;align-items:center;justify-content:center;padding:1.5rem}
+    .modal-backdrop.open{display:flex}
+    .modal{background:var(--surface);border:1px solid var(--border);border-radius:16px;width:100%;max-width:440px;box-shadow:var(--shadow-lg);animation:modalIn .25s var(--ease)}
+    @keyframes modalIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+    .modal-head{padding:1.25rem 1.5rem;border-bottom:1px solid var(--border)}
+    .modal-head h3{font-size:1.05rem;font-weight:700}
+    .modal-body{padding:1.5rem}
+    .modal-body p{font-size:.9rem;color:var(--text-2);line-height:1.6;margin-bottom:1rem}
+    .modal-foot{padding:1.25rem 1.5rem;border-top:1px solid var(--border);display:flex;justify-content:flex-end;gap:.6rem}
+
+    #loadingScreen{position:fixed;inset:0;background:var(--bg);z-index:5000;display:grid;place-items:center}
+    .spinner{width:44px;height:44px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    @media(max-width:640px){
+      .profile-card{flex-direction:column;text-align:center}
+      .tabs{overflow-x:auto}
+    }
+  </style>
+</head>
+<body>
+
+  <div id="loadingScreen"><div class="spinner"></div></div>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="index.html" class="brand">
+        <img src="https://i.postimg.cc/k5MLzQ4r/file-00000000f1388211a43bfe8ca49302e4.jpg" alt="ZISHU TRON" />
+        <span>ZISHU TRON Account</span>
+      </a>
+      <div style="display:flex;gap:.5rem;align-items:center;">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </button>
+        <a href="index.html" class="btn btn-ghost btn-sm">Back to Site</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container account-wrap">
+    <div class="page-head">
+      <h1>My Account</h1>
+      <p>Manage your ZISHU TRON account, security and privacy.</p>
+    </div>
+
+    <div class="profile-card" id="profileCard">
+      <div class="profile-avatar" id="profileAvatar">U</div>
+      <div class="profile-info">
+        <div class="pi-name" id="profileName">Loading…</div>
+        <div class="pi-email" id="profileEmail"></div>
+        <div class="pi-meta" id="profileMeta"></div>
+      </div>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-tab="overview">Overview</button>
+      <button class="tab" data-tab="sessions">Login Activity</button>
+      <button class="tab" data-tab="security">Security</button>
+      <button class="tab" data-tab="settings">Settings</button>
+      <button class="tab" data-tab="danger">Danger Zone</button>
+    </div>
+
+    <!-- OVERVIEW -->
+    <section class="panel active" id="panel-overview">
+      <div class="panel-card">
+        <h2>Account Overview</h2>
+        <p class="pc-sub">Your ZISHU TRON account details across all products and services.</p>
+        <div class="info-grid">
+          <div class="info-item"><div class="ii-label">Display Name</div><div class="ii-value" id="ovName">—</div></div>
+          <div class="info-item"><div class="ii-label">Email</div><div class="ii-value" id="ovEmail">—</div></div>
+          <div class="info-item"><div class="ii-label">Email Verified</div><div class="ii-value" id="ovVerified">—</div></div>
+          <div class="info-item"><div class="ii-label">Sign-in Provider</div><div class="ii-value" id="ovProvider">—</div></div>
+          <div class="info-item"><div class="ii-label">Account Created</div><div class="ii-value" id="ovCreated">—</div></div>
+          <div class="info-item"><div class="ii-label">Last Sign-in</div><div class="ii-value" id="ovLastLogin">—</div></div>
+          <div class="info-item"><div class="ii-label">Account Role</div><div class="ii-value" id="ovRole">—</div></div>
+          <div class="info-item"><div class="ii-label">Account Status</div><div class="ii-value" id="ovStatus">—</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SESSIONS -->
+    <section class="panel" id="panel-sessions">
+      <div class="panel-card">
+        <h2>Login Activity</h2>
+        <p class="pc-sub">Recent sign-in activity on your ZISHU TRON account.</p>
+        <div class="session-list" id="sessionList">
+          <div class="empty">Loading activity…</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECURITY -->
+    <section class="panel" id="panel-security">
+      <div class="panel-card">
+        <h2>Security</h2>
+        <p class="pc-sub">Manage your password and account security.</p>
+        <div class="form-row">
+          <label>Email Address</label>
+          <input type="email" id="secEmail" disabled />
+          <div class="help">Your email cannot be changed here. Contact support if needed.</div>
+        </div>
+        <div class="form-row">
+          <label>Send Password Reset Email</label>
+          <button class="btn btn-ghost btn-sm" id="resetPwBtn" style="margin-top:.25rem;">Send Reset Link</button>
+          <div class="help">We'll send a password reset link to your email address.</div>
+        </div>
+        <div class="form-row">
+          <label>Send Verification Email</label>
+          <button class="btn btn-ghost btn-sm" id="verifyEmailBtn" style="margin-top:.25rem;">Send Verification</button>
+          <div class="help">Verify your email address to secure your account.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section class="panel" id="panel-settings">
+      <div class="panel-card">
+        <h2>Profile Settings</h2>
+        <p class="pc-sub">Update your display name and profile picture.</p>
+        <div class="form-row">
+          <label>Display Name</label>
+          <input type="text" id="setDisplayName" placeholder="Your name" />
+        </div>
+        <div class="form-row">
+          <label>Photo URL</label>
+          <input type="text" id="setPhotoURL" placeholder="https://…" />
+          <div class="help">Optional. Paste a link to an image.</div>
+        </div>
+        <button class="btn btn-primary btn-sm" id="saveProfileBtn">Save Changes</button>
+      </div>
+    </section>
+
+    <!-- DANGER -->
+    <section class="panel" id="panel-danger">
+      <div class="danger-zone">
+        <h2>Delete Account</h2>
+        <p>Permanently delete your ZISHU TRON account. This action cannot be undone. All your data, sessions and preferences will be removed from ZISHU TRON products and services.</p>
+        <button class="btn btn-danger btn-sm" id="deleteAccountBtn">Delete My Account Permanently</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="deleteModal">
+    <div class="modal">
+      <div class="modal-head"><h3>Delete Account</h3></div>
+      <div class="modal-body">
+        <p>This will permanently delete your ZISHU TRON account and all associated data. This action <strong>cannot be undone</strong>.</p>
+        <div class="form-row">
+          <label>Type DELETE to confirm</label>
+          <input type="text" id="deleteConfirmInput" placeholder="DELETE" autocomplete="off" />
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button class="btn btn-ghost btn-sm" id="deleteCancel">Cancel</button>
+        <button class="btn btn-danger btn-sm" id="deleteConfirm" disabled>Delete Account</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-wrap" id="toastWrap"></div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+  <script>
+  (function(){
+    "use strict";
+    var firebaseConfig = {
+      apiKey: "AIzaSyBU5CZxIycjaY9t12BGhWADJyAbrS8WzqY",
+      authDomain: "zishu-tron.firebaseapp.com",
+      databaseURL: "https://zishu-tron-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "zishu-tron",
+      storageBucket: "zishu-tron.firebasestorage.app",
+      messagingSenderId: "818976752868",
+      appId: "1:818976752868:web:6097a46a709329a3dd18f1",
+      measurementId: "G-0S122FQGJF"
+    };
+    var app, auth, db;
+    try { app = firebase.initializeApp(firebaseConfig); auth = firebase.auth(); db = firebase.database(); } catch(e){ console.warn("Firebase init failed", e); }
+
+    function $(s){ return document.querySelector(s); }
+    function $all(s){ return Array.prototype.slice.call(document.querySelectorAll(s)); }
+    function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+    function toast(msg, type){
+      var wrap = $("#toastWrap");
+      var t = document.createElement("div");
+      t.className = "toast " + (type||"success");
+      var icon = type === "error"
+        ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>'
+        : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>';
+      t.innerHTML = icon + '<span>'+esc(msg)+'</span>';
+      wrap.appendChild(t);
+      setTimeout(function(){ t.style.opacity="0"; t.style.transform="translateX(20px)"; t.style.transition="all .3s"; setTimeout(function(){ t.remove(); }, 320); }, 3200);
+    }
+
+    var root = document.documentElement;
+    var saved = localStorage.getItem("zt-theme");
+    if(saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) root.classList.add("dark");
+    $("#themeToggle").addEventListener("click", function(){
+      root.classList.toggle("dark");
+      localStorage.setItem("zt-theme", root.classList.contains("dark") ? "dark" : "light");
+    });
+
+    $all(".tab").forEach(function(tab){
+      tab.addEventListener("click", function(){
+        var t = this.getAttribute("data-tab");
+        $all(".tab").forEach(function(x){ x.classList.remove("active"); });
+        this.classList.add("active");
+        $all(".panel").forEach(function(p){ p.classList.remove("active"); });
+        $("#panel-"+t).classList.add("active");
+      });
+    });
+
+    function showLoading(v){ $("#loadingScreen").style.display = v ? "grid" : "none"; }
+
+    function formatDate(ts){
+      if(!ts) return "—";
+      try { return new Date(ts).toLocaleString(); } catch(e){ return "—"; }
+    }
+    function providerName(p){
+      var map = { "google.com": "Google", "password": "Email / Password" };
+      return map[p] || p || "—";
+    }
+
+    var currentUser = null, profile = null;
+
+    function renderProfile(){
+      if(!currentUser) return;
+      var name = (profile && profile.displayName) || currentUser.displayName || (currentUser.email ? currentUser.email.split("@")[0] : "User");
+      var email = currentUser.email || "";
+      var avatar = (profile && profile.photoURL) || currentUser.photoURL || "";
+      var provider = (currentUser.providerData && currentUser.providerData[0] && currentUser.providerData[0].providerId) || (profile && profile.provider) || "";
+      var role = (profile && profile.role) || "user";
+      var status = (profile && profile.status) || "active";
+      var created = (profile && profile.createdAt) || currentUser.metadata.creationTime;
+      var lastLogin = (profile && profile.lastLoginAt) || currentUser.metadata.lastSignInTime;
+
+      // Profile card
+      var av = $("#profileAvatar");
+      if(avatar){
+        av.innerHTML = '<img src="'+esc(avatar)+'" alt="" onerror="this.parentNode.textContent=\''+esc(name.charAt(0).toUpperCase())+'\';" />';
+      } else {
+        av.textContent = name.charAt(0).toUpperCase();
+      }
+      $("#profileName").textContent = name;
+      $("#profileEmail").textContent = email;
+      $("#profileMeta").innerHTML = '<span class="badge '+(role==="admin"?"badge-admin":"badge-user")+'">'+esc(role.toUpperCase())+'</span>' + (currentUser.emailVerified ? ' <span class="badge badge-verified" style="margin-left:6px;">VERIFIED</span>' : '');
+
+      // Overview
+      $("#ovName").textContent = name;
+      $("#ovEmail").textContent = email;
+      $("#ovVerified").textContent = currentUser.emailVerified ? "Yes" : "No";
+      $("#ovProvider").textContent = providerName(provider);
+      $("#ovCreated").textContent = typeof created === "number" ? formatDate(created) : created || "—";
+      $("#ovLastLogin").textContent = typeof lastLogin === "number" ? formatDate(lastLogin) : lastLogin || "—";
+      $("#ovRole").textContent = role.charAt(0).toUpperCase() + role.slice(1);
+      $("#ovStatus").textContent = status.charAt(0).toUpperCase() + status.slice(1);
+
+      $("#secEmail").value = email;
+      $("#setDisplayName").value = name;
+      $("#setPhotoURL").value = avatar;
+    }
+
+    function renderSessions(){
+      var list = $("#sessionList");
+      if(!currentUser){ list.innerHTML = '<div class="empty">No sessions found.</div>'; return; }
+      if(!db){ list.innerHTML = '<div class="empty">Session data unavailable.</div>'; return; }
+      db.ref("users/"+currentUser.uid+"/sessions").limitToLast(20).once("value").then(function(snap){
+        var sessions = snap.val() || {};
+        var arr = [];
+        for(var k in sessions){ if(sessions.hasOwnProperty(k)){ var s = sessions[k]; s.id = k; arr.push(s); } }
+        arr.sort(function(a,b){ return (b.timestamp||0) - (a.timestamp||0); });
+        if(arr.length === 0){
+          list.innerHTML = '<div class="empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>No login activity recorded yet. Future sign-ins will appear here.</div>';
+          return;
+        }
+        var html = "";
+        arr.forEach(function(s, idx){
+          var isCurrent = idx === 0;
+          html += '<div class="session-item'+(isCurrent?' current':'')+'">'
+            + '<div class="session-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>'
+            + '<div class="session-info">'
+            +   '<div class="si-title">'+esc(s.device || "Web Browser")+(isCurrent?' <span class="session-badge">CURRENT</span>':'')+'</div>'
+            +   '<div class="si-detail">'+esc(formatDate(s.timestamp))+' &middot; '+esc(s.ip || s.platform || "ZISHU TRON")+'</div>'
+            + '</div>'
+            + '</div>';
+        });
+        list.innerHTML = html;
+      }).catch(function(){
+        list.innerHTML = '<div class="empty">Session data unavailable.</div>';
+      });
+    }
+
+    function recordSession(user){
+      if(!db || !user) return;
+      var ref = db.ref("users/"+user.uid+"/sessions").push();
+      var data = {
+        timestamp: Date.now(),
+        platform: navigator.platform || "Web",
+        device: /Mobi|Android/i.test(navigator.userAgent) ? "Mobile Device" : "Desktop Browser",
+        userAgent: (navigator.userAgent || "").slice(0, 200)
+      };
+      ref.set(data).catch(function(){});
+    }
+
+    if(auth){
+      auth.onAuthStateChanged(function(user){
+        currentUser = user;
+        showLoading(false);
+        if(!user){
+          // Not signed in — redirect to auth
+          window.location.href = "auth.html";
+          return;
+        }
+        // Load profile
+        if(db){
+          db.ref("users/"+user.uid).once("value").then(function(snap){
+            profile = snap.val() || {};
+            renderProfile();
+            renderSessions();
+            // Record current session
+            var lastSession = profile.lastSession;
+            if(!lastSession || (Date.now() - lastSession) > 60 * 60 * 1000){
+              recordSession(user);
+              db.ref("users/"+user.uid+"/lastSession").set(Date.now()).catch(function(){});
+            }
+          }).catch(function(){
+            renderProfile();
+            renderSessions();
+          });
+        } else {
+          renderProfile();
+          renderSessions();
+        }
+      });
+    } else {
+      showLoading(false);
+      window.location.href = "auth.html";
+    }
+
+    // Security actions
+    $("#resetPwBtn").addEventListener("click", function(){
+      if(!currentUser || !currentUser.email) return;
+      auth.sendPasswordResetEmail(currentUser.email).then(function(){
+        toast("Password reset email sent", "success");
+      }).catch(function(e){
+        toast("Failed: " + (e.message||"unknown error"), "error");
+      });
+    });
+
+    $("#verifyEmailBtn").addEventListener("click", function(){
+      if(!currentUser) return;
+      if(currentUser.emailVerified){ toast("Email already verified", "success"); return; }
+      currentUser.sendEmailVerification().then(function(){
+        toast("Verification email sent", "success");
+      }).catch(function(e){
+        toast("Failed: " + (e.message||"unknown error"), "error");
+      });
+    });
+
+    // Settings
+    $("#saveProfileBtn").addEventListener("click", function(){
+      if(!currentUser) return;
+      var name = $("#setDisplayName").value.trim();
+      var photo = $("#setPhotoURL").value.trim();
+      if(!name){ toast("Display name is required", "error"); return; }
+      currentUser.updateProfile({ displayName: name, photoURL: photo }).then(function(){
+        if(db){
+          return db.ref("users/"+currentUser.uid).update({ displayName: name, photoURL: photo, updatedAt: Date.now() });
+        }
+      }).then(function(){
+        return db.ref("users/"+currentUser.uid).once("value");
+      }).then(function(snap){
+        profile = snap.val() || profile;
+        renderProfile();
+        toast("Profile updated", "success");
+      }).catch(function(e){
+        toast("Failed: " + (e.message||"unknown error"), "error");
+      });
+    });
+
+    // Delete account
+    var deleteModal = $("#deleteModal");
+    var deleteConfirmInput = $("#deleteConfirmInput");
+    var deleteConfirmBtn = $("#deleteConfirm");
+
+    $("#deleteAccountBtn").addEventListener("click", function(){
+      deleteModal.classList.add("open");
+      deleteConfirmInput.value = "";
+      deleteConfirmBtn.disabled = true;
+      setTimeout(function(){ deleteConfirmInput.focus(); }, 100);
+    });
+
+    deleteConfirmInput.addEventListener("input", function(){
+      deleteConfirmBtn.disabled = (this.value.trim() !== "DELETE");
+    });
+
+    $("#deleteCancel").addEventListener("click", function(){
+      deleteModal.classList.remove("open");
+    });
+
+    deleteConfirmBtn.addEventListener("click", function(){
+      if(!currentUser) return;
+      if(deleteConfirmInput.value.trim() !== "DELETE"){ toast("Type DELETE to confirm", "error"); return; }
+      var user = currentUser;
+      deleteConfirmBtn.disabled = true;
+      deleteConfirmBtn.textContent = "Deleting…";
+
+      // Delete user data from DB first
+      var cleanup = Promise.resolve();
+      if(db){
+        cleanup = db.ref("users/"+user.uid).remove().catch(function(){});
+      }
+
+      cleanup.then(function(){
+        return user.delete();
+      }).then(function(){
+        toast("Account deleted successfully", "success");
+        setTimeout(function(){ window.location.href = "index.html"; }, 1500);
+      }).catch(function(e){
+        deleteConfirmBtn.disabled = false;
+        deleteConfirmBtn.textContent = "Delete Account";
+        if(e && e.code === "auth/requires-recent-login"){
+          toast("Please sign out and sign in again before deleting your account.", "error");
+        } else {
+          toast("Failed: " + (e.message||"unknown error"), "error");
+        }
+      });
+    });
+
+    deleteModal.addEventListener("click", function(e){
+      if(e.target === this) this.classList.remove("open");
+    });
+
+  })();
+  </script>
+</body>
+</html>
