@@ -3,724 +3,1064 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>Zishu Tron — Building Intelligent Technology</title>
-  <meta name="description" content="ZISHU TRON is a technology brand creating AI-powered products, software, digital experiences, and innovative technology for the future." />
-  <!-- FAVICON - using your actual logo file from the repository -->
-<link rel="icon" href="favicon.png" type="image/png" />
-<link rel="apple-touch-icon" href="favicon.png" />
-  <!-- Google Font: Inter -->
+  <title>ZISHU TRON — Building Intelligent Technology for a Better Future</title>
+  <meta name="description" content="ZISHU TRON builds AI-powered software, applications, digital tools and intelligent technology for a better future." />
+  <link rel="icon" href="https://i.postimg.cc/k5MLzQ4r/file-00000000f1388211a43bfe8ca49302e4.jpg" type="image/jpeg" />
+  <link rel="apple-touch-icon" href="https://i.postimg.cc/k5MLzQ4r/file-00000000f1388211a43bfe8ca49302e4.jpg" />
+  <meta name="theme-color" content="#050d1a" />
+  <meta property="og:title" content="ZISHU TRON — Building Intelligent Technology for a Better Future" />
+  <meta property="og:description" content="AI-powered software, applications, digital tools and intelligent technology." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://i.postimg.cc/J03qRF6g/file-00000000672081f8b21d29d30298e881.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ZISHU TRON — Building Intelligent Technology" />
+  <link rel="canonical" href="https://zishutron.github.io/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
   <style>
-    /* ----- RESET & BASE ----- */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --bg: #f0f4f9;
-      --bg-card: #ffffff;
-      --bg-card-hover: #e8edf5;
-      --bg-hero: #e8edf5;
-      --text: #0a1a2e;
-      --text-muted: #3a5a7a;
-      --text-light: #7a9ab5;
-      --border: rgba(10, 30, 60, 0.08);
-      --border-card: rgba(10, 30, 60, 0.06);
-      --accent: #1a4b8c;
-      --accent-light: #2563eb;
-      --accent-glow: rgba(37, 99, 235, 0.08);
-      --shadow: 0 4px 24px rgba(10, 30, 60, 0.04);
-      --radius: 16px;
-      --transition: 0.25s ease;
-      --font: 'Inter', -apple-system, system-ui, sans-serif;
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --bg:#f6f8fc;--bg-2:#eef2f9;--surface:#ffffff;--surface-2:#f8fafd;
+      --text:#050d1a;--text-2:#2a3f5a;--text-3:#5f7590;
+      --border:rgba(5,13,26,.08);--border-2:rgba(5,13,26,.05);
+      --accent:#2563eb;--accent-2:#1d4ed8;--accent-glow:rgba(37,99,235,.12);
+      --navy:#050d1a;--navy-2:#0a1628;
+      --radius:14px;--radius-sm:10px;--radius-lg:22px;
+      --shadow-sm:0 1px 2px rgba(5,13,26,.04),0 2px 8px rgba(5,13,26,.03);
+      --shadow:0 4px 24px rgba(5,13,26,.06);
+      --shadow-lg:0 20px 60px rgba(5,13,26,.12);
+      --ease:cubic-bezier(.22,1,.36,1);
+      --t:.28s var(--ease);
+      --container:1240px;
     }
-    .dark {
-      --bg: #080d1a;
-      --bg-card: #0f1a2e;
-      --bg-card-hover: #1a2a44;
-      --bg-hero: #0a1222;
-      --text: #e8edf5;
-      --text-muted: #8aacd0;
-      --text-light: #5a7a9a;
-      --border: rgba(255,255,255,0.06);
-      --border-card: rgba(255,255,255,0.05);
-      --shadow: 0 4px 24px rgba(0,0,0,0.4);
-      --accent: #4b8cff;
-      --accent-light: #5a9aff;
-      --accent-glow: rgba(37, 99, 235, 0.12);
+    .dark{
+      --bg:#050d1a;--bg-2:#081426;--surface:#0a1628;--surface-2:#0e1d33;
+      --text:#f0f4fa;--text-2:#a8bcd4;--text-3:#6a809c;
+      --border:rgba(255,255,255,.07);--border-2:rgba(255,255,255,.04);
+      --accent:#3b82f6;--accent-2:#60a5fa;--accent-glow:rgba(59,130,246,.15);
+      --shadow-sm:0 1px 2px rgba(0,0,0,.3),0 2px 8px rgba(0,0,0,.25);
+      --shadow:0 4px 24px rgba(0,0,0,.35);
+      --shadow-lg:0 20px 60px rgba(0,0,0,.5);
     }
-    body {
-      font-family: var(--font);
-      background: var(--bg);
-      color: var(--text);
-      transition: background 0.35s, color 0.35s;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
-    img { max-width: 100%; display: block; }
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-    @media (prefers-reduced-motion: reduce) {
-      * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
-    }
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;transition:background .4s var(--ease),color .4s var(--ease);overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    ul{list-style:none}
+    img,video{max-width:100%;display:block}
+    button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+    input,textarea,select{font-family:inherit;font-size:inherit}
+    ::selection{background:var(--accent);color:#fff}
+    .container{max-width:var(--container);margin:0 auto;padding:0 2rem}
+    @media(max-width:640px){.container{padding:0 1.25rem}}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 
-    /* ----- BUTTONS & CARDS ----- */
-    .btn {
-      display: inline-block;
-      padding: 0.8rem 2rem;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: none;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      background: var(--accent);
-      color: white;
-      box-shadow: 0 8px 20px rgba(26, 75, 140, 0.15);
-      letter-spacing: -0.01em;
-    }
-    .btn:hover {
-      background: var(--accent-light);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 32px rgba(26, 75, 140, 0.25);
-    }
-    .btn-outline {
-      background: transparent;
-      color: var(--accent);
-      border: 1.5px solid var(--accent);
-      box-shadow: none;
-    }
-    .btn-outline:hover {
-      background: var(--accent);
-      color: white;
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
-    .btn-sm { padding: 0.5rem 1.4rem; font-size: 0.85rem; }
+    /* ============ REVEAL ANIMATIONS ============ */
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+    .reveal.in{opacity:1;transform:none}
+    @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
 
-    .card {
-      background: var(--bg-card);
-      border-radius: var(--radius);
-      padding: 2rem;
-      border: 1px solid var(--border-card);
-      box-shadow: var(--shadow);
-      transition: all 0.25s ease;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 48px rgba(10, 30, 60, 0.08);
-      border-color: var(--accent-light);
-    }
-    .dark .card:hover { box-shadow: 0 16px 48px rgba(0,0,0,0.4); }
+    /* ============ HEADER ============ */
+    .site-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.72);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid transparent;transition:background .3s var(--ease),border-color .3s var(--ease),padding .3s var(--ease)}
+    .dark .site-header{background:rgba(5,13,26,.72)}
+    .site-header.scrolled{background:rgba(255,255,255,.9);border-color:var(--border);box-shadow:0 1px 24px rgba(5,13,26,.05)}
+    .dark .site-header.scrolled{background:rgba(5,13,26,.9);box-shadow:0 1px 24px rgba(0,0,0,.3)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:76px;transition:height .3s var(--ease)}
+    .site-header.scrolled .nav{height:64px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.18rem;letter-spacing:-.02em;color:var(--text)}
+    .brand img{width:36px;height:36px;border-radius:8px;object-fit:cover}
+    .brand .brand-text{display:flex;flex-direction:column;line-height:1.05}
+    .brand .brand-text small{font-size:.62rem;font-weight:500;letter-spacing:.18em;color:var(--text-3);text-transform:uppercase}
+    .nav-links{display:flex;gap:2rem;align-items:center}
+    .nav-links a{font-size:.9rem;font-weight:500;color:var(--text-2);position:relative;transition:color .2s var(--ease);padding:6px 0}
+    .nav-links a::after{content:"";position:absolute;bottom:0;left:0;height:2px;width:0;background:var(--accent);transition:width .25s var(--ease);border-radius:2px}
+    .nav-links a:hover{color:var(--text)}
+    .nav-links a:hover::after{width:100%}
+    .nav-actions{display:flex;align-items:center;gap:.6rem}
+    .icon-btn{width:38px;height:38px;display:grid;place-items:center;border-radius:10px;color:var(--text-2);transition:background .2s var(--ease),color .2s var(--ease)}
+    .icon-btn:hover{background:var(--bg-2);color:var(--text)}
+    .dark .icon-btn:hover{background:var(--surface-2)}
+    .icon-btn svg{width:20px;height:20px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:.72rem 1.5rem;border-radius:10px;font-weight:600;font-size:.88rem;letter-spacing:-.01em;transition:all .22s var(--ease);white-space:nowrap;position:relative;overflow:hidden}
+    .btn-primary{background:var(--accent);color:#fff;box-shadow:0 4px 16px rgba(37,99,235,.28)}
+    .btn-primary:hover{background:var(--accent-2);transform:translateY(-1px);box-shadow:0 8px 24px rgba(37,99,235,.4)}
+    .btn-primary:active{transform:translateY(0)}
+    .btn-ghost{background:transparent;color:var(--text);border:1.5px solid var(--border)}
+    .btn-ghost:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-glow)}
+    .btn-light{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.25);backdrop-filter:blur(8px)}
+    .btn-light:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.5);transform:translateY(-1px)}
+    .btn-sm{padding:.5rem 1rem;font-size:.82rem}
+    .btn-lg{padding:.9rem 2rem;font-size:.95rem}
+    .hamburger{display:none;width:38px;height:38px;place-items:center;border-radius:10px;color:var(--text)}
+    .hamburger:hover{background:var(--bg-2)}
+    .dark .hamburger:hover{background:var(--surface-2)}
+    .hamburger span{display:block;width:20px;height:2px;background:currentColor;border-radius:2px;transition:transform .3s var(--ease),opacity .2s var(--ease)}
+    .hamburger span+span{margin-top:5px}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .hamburger.open span:nth-child(2){opacity:0}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-    /* ----- HEADER / NAV ----- */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(240, 244, 249, 0.78);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-      transition: all 0.3s ease;
-    }
-    .dark header { background: rgba(8, 13, 26, 0.82); }
-    header.scroll-compact { padding: 0.3rem 0; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 72px;
-      transition: height 0.2s;
-    }
-    header.scroll-compact .nav { height: 58px; }
-    .logo {
-      font-weight: 700;
-      font-size: 1.25rem;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .logo span { font-weight: 300; color: var(--text-muted); }
-    .nav-links {
-      display: flex;
-      gap: 2.2rem;
-      font-weight: 500;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-    .nav-links a {
-      transition: color 0.15s;
-      position: relative;
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.2s;
-    }
-    .nav-links a:hover { color: var(--text); }
-    .nav-links a:hover::after { width: 100%; }
-    .nav-cta .btn { padding: 0.5rem 1.6rem; font-size: 0.85rem; }
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    .theme-toggle {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 6px;
-      border-radius: 8px;
-      color: var(--text-muted);
-      transition: 0.15s;
-      display: flex;
-      align-items: center;
-    }
-    .theme-toggle:hover { background: var(--bg-card-hover); color: var(--text); }
-    .theme-toggle svg { width: 22px; height: 22px; }
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px;
-    }
-    .hamburger span {
-      width: 26px;
-      height: 2.5px;
-      background: var(--text);
-      border-radius: 4px;
-      transition: 0.2s;
-    }
+    .account{position:relative}
+    .account-trigger{display:flex;align-items:center;gap:8px;padding:4px;border-radius:50px;transition:background .2s var(--ease);cursor:pointer}
+    .account-trigger:hover{background:var(--bg-2)}
+    .dark .account-trigger:hover{background:var(--surface-2)}
+    .account-trigger .avatar{width:32px;height:32px;border-radius:50%;object-fit:cover;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:700;font-size:.8rem;border:2px solid var(--surface)}
+    .account-trigger .avatar-fallback{background:linear-gradient(135deg,var(--accent),#7c3aed)}
+    .account-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:230px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-lg);padding:6px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:all .22s var(--ease);z-index:100}
+    .account-menu.open{opacity:1;visibility:visible;transform:none}
+    .account-menu .am-header{padding:12px 12px 10px;border-bottom:1px solid var(--border-2);margin-bottom:6px}
+    .account-menu .am-name{font-weight:700;font-size:.9rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .account-menu .am-email{font-size:.76rem;color:var(--text-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .account-menu a,.account-menu button{display:flex;align-items:center;gap:10px;width:100%;padding:9px 12px;border-radius:8px;font-size:.86rem;color:var(--text-2);text-align:left;transition:background .15s var(--ease),color .15s var(--ease)}
+    .account-menu a:hover,.account-menu button:hover{background:var(--bg-2);color:var(--text)}
+    .dark .account-menu a:hover,.dark .account-menu button:hover{background:var(--surface-2)}
+    .account-menu svg{width:16px;height:16px;flex-shrink:0;opacity:.7}
 
-    /* ----- HERO ----- */
-    .hero {
-      padding: 4rem 0 3rem;
-      position: relative;
-      overflow: hidden;
-      background: var(--bg-hero);
-      transition: background 0.3s;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-    .hero-badge {
-      display: inline-block;
-      background: var(--accent-glow);
-      padding: 0.3rem 1.2rem;
-      border-radius: 60px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.6px;
-      color: var(--accent);
-      margin-bottom: 1.2rem;
-      border: 1px solid rgba(37, 99, 235, 0.1);
-    }
-    .hero h1 {
-      font-size: clamp(2.8rem, 6vw, 4.5rem);
-      font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      color: var(--text);
-      margin-bottom: 1.5rem;
-    }
-    .hero h1 .highlight { color: var(--accent-light); }
-    .hero p {
-      font-size: 1.15rem;
-      color: var(--text-muted);
-      max-width: 480px;
-      margin-bottom: 2.5rem;
-      font-weight: 400;
-    }
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .hero-visual {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .hero-brand-text {
-      font-size: clamp(3rem, 8vw, 6rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.05;
-      text-align: center;
-      color: var(--text);
-    }
-    .hero-brand-text .accent { color: var(--accent-light); }
-    .hero-brand-sub {
-      font-size: 0.85rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-top: 0.5rem;
-      font-weight: 500;
-    }
+    .mobile-nav{display:none;position:fixed;inset:64px 0 0;background:var(--bg);z-index:999;padding:1.5rem;overflow-y:auto;transform:translateX(100%);transition:transform .35s var(--ease)}
+    .mobile-nav.open{display:block;transform:translateX(0)}
+    .mobile-nav a{display:block;padding:1rem 1.25rem;font-size:1.1rem;font-weight:600;color:var(--text);border-radius:12px;transition:background .2s var(--ease)}
+    .mobile-nav a:hover{background:var(--bg-2)}
+    .dark .mobile-nav a:hover{background:var(--surface-2)}
+    .mobile-nav .mn-actions{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:.75rem}
 
-    /* ----- TRUST ----- */
-    .trust {
-      padding: 2.5rem 0 3.5rem;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: var(--bg-card);
-      transition: background 0.3s;
-    }
-    .trust h2 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.6rem; color: var(--text); }
-    .trust p { font-size: 1.05rem; color: var(--text-muted); max-width: 700px; }
+    /* ============ HERO ============ */
+    .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:120px 0 80px;overflow:hidden;background:var(--navy)}
+    .hero-bg{position:absolute;inset:0;z-index:0}
+    .hero-bg video,.hero-bg img{width:100%;height:100%;object-fit:cover}
+    .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(5,13,26,.72) 0%,rgba(5,13,26,.55) 40%,rgba(5,13,26,.82) 100%);pointer-events:none}
+    .hero-overlay::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 20% 30%,rgba(37,99,235,.28),transparent 60%);pointer-events:none}
+    .hero .container{position:relative;z-index:2;width:100%}
+    .hero-inner{max-width:820px}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;padding:.42rem 1rem;background:rgba(59,130,246,.12);border:1px solid rgba(96,165,250,.28);border-radius:100px;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#8bb8ff;margin-bottom:1.75rem;backdrop-filter:blur(8px)}
+    .hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:#3b82f6;box-shadow:0 0 12px #3b82f6;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+    .hero h1{font-size:clamp(2.4rem,6vw,4.6rem);font-weight:900;line-height:1.04;letter-spacing:-.035em;color:#fff;margin-bottom:1.5rem}
+    .hero h1 .accent{background:linear-gradient(135deg,#60a5fa 0%,#3b82f6 50%,#2563eb 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .hero-lead{font-size:clamp(1rem,1.6vw,1.2rem);color:rgba(230,240,255,.82);max-width:600px;margin-bottom:2.5rem;font-weight:400;line-height:1.65}
+    .hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+    .hero-stats{display:flex;gap:2.5rem;margin-top:3.5rem;flex-wrap:wrap}
+    .hero-stat .hs-num{font-size:1.6rem;font-weight:800;color:#fff;letter-spacing:-.02em}
+    .hero-stat .hs-label{font-size:.78rem;color:rgba(200,220,245,.6);letter-spacing:.04em;text-transform:uppercase;font-weight:500}
+    .hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.4);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase}
+    .hero-scroll .mouse{width:22px;height:34px;border:1.5px solid rgba(255,255,255,.3);border-radius:12px;position:relative}
+    .hero-scroll .mouse::before{content:"";position:absolute;top:6px;left:50%;transform:translateX(-50%);width:3px;height:6px;background:rgba(255,255,255,.5);border-radius:2px;animation:scrollDot 1.8s infinite}
+    @keyframes scrollDot{0%{opacity:0;transform:translateX(-50%) translateY(0)}40%{opacity:1}80%,100%{opacity:0;transform:translateX(-50%) translateY(12px)}}
+    @media(max-width:640px){.hero-scroll{display:none}}
 
-    /* ----- SECTIONS ----- */
-    section { padding: 4rem 0; }
-    .section-title {
-      font-size: 2.4rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.4rem;
-      color: var(--text);
-    }
-    .section-sub { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 2.5rem; }
-    .grid-2, .grid-3, .grid-4 {
-      display: grid;
-      gap: 1.8rem;
-    }
-    .grid-3 { grid-template-columns: repeat(3,1fr); }
-    .grid-2 { grid-template-columns: repeat(2,1fr); }
-    .grid-4 { grid-template-columns: repeat(4,1fr); }
+    /* ============ SECTION ============ */
+    section{padding:6rem 0;position:relative}
+    .section-head{max-width:760px;margin-bottom:3.5rem}
+    .section-eyebrow{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+    .section-title{font-size:clamp(1.9rem,4vw,2.85rem);font-weight:800;letter-spacing:-.03em;line-height:1.12;color:var(--text);margin-bottom:1rem}
+    .section-lead{font-size:clamp(1rem,1.4vw,1.12rem);color:var(--text-2);line-height:1.65}
+    .section-head.center{text-align:center;margin-left:auto;margin-right:auto}
 
-    /* ----- ABOUT ICONS ----- */
-    .about-icon { width: 32px; height: 32px; margin-bottom: 0.8rem; display: block; color: var(--accent); }
+    /* ============ PRODUCTS ============ */
+    .products-section{background:var(--bg)}
+    .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+    .product-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.75rem;display:flex;flex-direction:column;gap:1rem;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);overflow:hidden}
+    .product-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),#7c3aed);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+    .product-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:transparent}
+    .product-card:hover::before{transform:scaleX(1)}
+    .product-card .pc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+    .product-card .pc-icon{width:52px;height:52px;border-radius:14px;background:var(--bg-2);display:grid;place-items:center;overflow:hidden;flex-shrink:0;border:1px solid var(--border-2)}
+    .dark .product-card .pc-icon{background:var(--surface-2)}
+    .product-card .pc-icon img{width:100%;height:100%;object-fit:cover}
+    .product-card .pc-icon svg{width:26px;height:26px;color:var(--accent)}
+    .product-card .pc-icon .pc-initial{font-weight:800;font-size:1.2rem;color:var(--accent)}
+    .badge{display:inline-flex;align-items:center;gap:5px;padding:.28rem .7rem;border-radius:100px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+    .badge-available{background:rgba(34,197,94,.12);color:#16a34a}
+    .dark .badge-available{background:rgba(34,197,94,.15);color:#4ade80}
+    .badge-soon{background:rgba(234,179,8,.12);color:#ca8a04}
+    .dark .badge-soon{background:rgba(234,179,8,.15);color:#facc15}
+    .badge-beta{background:var(--accent-glow);color:var(--accent)}
+    .badge-featured{background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff}
+    .product-card .pc-title{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;color:var(--text)}
+    .product-card .pc-cat{font-size:.78rem;color:var(--accent);font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+    .product-card .pc-desc{font-size:.9rem;color:var(--text-2);line-height:1.6;flex-grow:1}
+    .product-card .pc-foot{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:auto;padding-top:1rem;border-top:1px solid var(--border-2)}
+    .product-card .pc-link{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;font-weight:600;color:var(--accent);transition:gap .2s var(--ease)}
+    .product-card .pc-link:hover{gap:10px}
+    .product-card .pc-link svg{width:14px;height:14px}
 
-    /* ----- PROJECT CARDS (real projects) ----- */
-    .project-card {
-      background: var(--bg-card);
-      border-radius: var(--radius);
-      padding: 1.6rem;
-      border: 1px solid var(--border-card);
-      box-shadow: var(--shadow);
-      transition: all 0.25s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent-light);
-      box-shadow: 0 12px 40px rgba(10, 30, 60, 0.08);
-    }
-    .dark .project-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
-    .project-card .project-title { font-weight: 700; font-size: 1.1rem; color: var(--text); }
-    .project-card .project-desc { color: var(--text-muted); font-size: 0.85rem; margin: 0.2rem 0 0.6rem; }
-    .project-card .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 600;
-      font-size: 0.8rem;
-      color: var(--accent);
-      transition: gap 0.2s;
-    }
-    .project-card .project-link:hover { gap: 12px; }
-    .project-card .project-link svg { width: 14px; height: 14px; }
+    /* ============ ABOUT ============ */
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+    .about-visual{position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg)}
+    .about-visual img{width:100%;height:auto;display:block}
+    .about-features{display:grid;gap:1.25rem;margin-top:2rem}
+    .about-feature{display:flex;gap:1rem;align-items:flex-start}
+    .about-feature .af-icon{width:40px;height:40px;border-radius:10px;background:var(--accent-glow);display:grid;place-items:center;flex-shrink:0;color:var(--accent)}
+    .about-feature .af-icon svg{width:20px;height:20px}
+    .about-feature h4{font-size:.98rem;font-weight:700;margin-bottom:.2rem;color:var(--text)}
+    .about-feature p{font-size:.88rem;color:var(--text-2);line-height:1.6}
 
-    /* ----- PRODUCTS ----- */
-    .product-card .status {
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      background: var(--accent-glow);
-      padding: 0.2rem 1rem;
-      border-radius: 60px;
-      display: inline-block;
-      margin-top: 0.4rem;
-      font-weight: 600;
-      color: var(--accent);
-    }
-    .product-card .status.available { background: #dbeafe; color: #1a4b8c; }
-    .dark .product-card .status.available { background: #1a2a44; color: #5a9aff; }
+    /* ============ WHY (dark) ============ */
+    .why-section{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+    .why-section::before{content:"";position:absolute;top:-30%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(37,99,235,.18),transparent 70%);pointer-events:none}
+    .why-section::after{content:"";position:absolute;bottom:-30%;left:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(124,58,237,.12),transparent 70%);pointer-events:none}
+    .why-section .section-title{color:#fff}
+    .why-section .section-lead{color:rgba(200,215,240,.72)}
+    .why-section .section-eyebrow{color:#60a5fa}
+    .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;position:relative;z-index:1}
+    .why-card{padding:2rem 1.75rem;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-lg);transition:all .3s var(--ease);backdrop-filter:blur(8px)}
+    .why-card:hover{background:rgba(255,255,255,.06);border-color:rgba(96,165,250,.35);transform:translateY(-4px)}
+    .why-card .wc-icon{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,rgba(59,130,246,.2),rgba(124,58,237,.15));display:grid;place-items:center;color:#60a5fa;margin-bottom:1.25rem}
+    .why-card .wc-icon svg{width:24px;height:24px}
+    .why-card h3{font-size:1.08rem;font-weight:700;margin-bottom:.5rem;color:#fff}
+    .why-card p{font-size:.88rem;color:rgba(190,210,235,.7);line-height:1.6}
 
-    /* ----- VISION DARK ----- */
-    .vision-dark {
-      background: var(--bg-hero);
-      color: var(--text);
-      text-align: center;
-      padding: 5rem 2rem;
-      margin: 1.5rem 0;
-      border-radius: 48px;
-      border: 1px solid var(--border);
-      transition: background 0.3s, color 0.3s;
-    }
-    .vision-dark h2 { font-size: 2.8rem; font-weight: 700; letter-spacing: -0.02em; }
-    .vision-dark p { font-size: 1.15rem; max-width: 640px; margin: 1.2rem auto 0; color: var(--text-muted); }
-    .vision-dark .tag { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); margin-top: 1.8rem; display: block; }
+    /* ============ TECHNOLOGY ============ */
+    .tech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem}
+    .tech-item{padding:1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);text-align:center;transition:all .3s var(--ease)}
+    .tech-item:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:var(--shadow)}
+    .tech-item .ti-icon{width:44px;height:44px;margin:0 auto 1rem;border-radius:12px;background:var(--accent-glow);display:grid;place-items:center;color:var(--accent)}
+    .tech-item .ti-icon svg{width:22px;height:22px}
+    .tech-item h4{font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:.3rem}
+    .tech-item p{font-size:.82rem;color:var(--text-3);line-height:1.5}
 
-    /* ----- FOOTER ----- */
-    footer {
-      background: var(--bg-card);
-      border-top: 1px solid var(--border);
-      padding: 3rem 0 2rem;
-      transition: background 0.3s;
-    }
-    .footer-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 2rem;
-    }
-    .footer-links a { color: var(--text-muted); margin-right: 2rem; font-weight: 500; font-size: 0.9rem; transition: 0.15s; }
-    .footer-links a:hover { color: var(--text); }
-    .footer-social a { margin-right: 1.4rem; opacity: 0.5; transition: 0.15s; display: inline-block; }
-    .footer-social a:hover { opacity: 1; }
-    .footer-social svg { width: 20px; height: 20px; vertical-align: middle; fill: var(--text-muted); }
-    .footer-social a:hover svg { fill: var(--text); }
-    .footer-bottom {
-      margin-top: 2.5rem;
-      font-size: 0.8rem;
-      color: var(--text-light);
-      border-top: 1px solid var(--border);
-      padding-top: 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
+    /* ============ ECOSYSTEM ============ */
+    .eco-section{background:var(--bg-2)}
+    .dark .eco-section{background:var(--bg-2)}
+    .eco-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.25rem}
+    .eco-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;transition:all .3s var(--ease)}
+    .eco-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--accent)}
+    .eco-card .ec-icon{width:44px;height:44px;border-radius:11px;background:var(--bg-2);display:grid;place-items:center;flex-shrink:0;overflow:hidden;border:1px solid var(--border-2)}
+    .dark .eco-card .ec-icon{background:var(--surface-2)}
+    .eco-card .ec-icon img{width:100%;height:100%;object-fit:cover}
+    .eco-card .ec-icon svg{width:22px;height:22px;color:var(--accent)}
+    .eco-card h4{font-size:.98rem;font-weight:700;color:var(--text);margin-bottom:.25rem}
+    .eco-card p{font-size:.82rem;color:var(--text-3);line-height:1.5}
 
-    /* ----- RESPONSIVE ----- */
-    @media (max-width: 1024px) {
-      .hero h1 { font-size: 3rem; }
-      .grid-4 { grid-template-columns: repeat(2,1fr); }
+    /* ============ VISION ============ */
+    .vision-section{background:var(--navy);color:#fff;text-align:center;position:relative;overflow:hidden;padding:7rem 0}
+    .vision-section::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(37,99,235,.2),transparent 70%);pointer-events:none}
+    .vision-bg{position:absolute;inset:0;z-index:0;opacity:.25}
+    .vision-bg img{width:100%;height:100%;object-fit:cover}
+    .vision-inner{position:relative;z-index:1;max-width:820px;margin:0 auto}
+    .vision-inner h2{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:1.5rem}
+    .vision-inner h2 .accent{background:linear-gradient(135deg,#60a5fa,#3b82f6);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .vision-inner p{font-size:clamp(1rem,1.5vw,1.15rem);color:rgba(200,215,240,.78);line-height:1.7;margin-bottom:2rem}
+    .vision-tag{display:inline-block;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(150,180,220,.7);padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1)}
+
+    /* ============ UPDATES ============ */
+    .updates-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+    .update-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:all .3s var(--ease);display:flex;flex-direction:column}
+    .update-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:transparent}
+    .update-card .uc-img{aspect-ratio:16/9;background:var(--bg-2);overflow:hidden}
+    .dark .update-card .uc-img{background:var(--surface-2)}
+    .update-card .uc-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+    .update-card:hover .uc-img img{transform:scale(1.04)}
+    .update-card .uc-body{padding:1.5rem;display:flex;flex-direction:column;gap:.6rem;flex-grow:1}
+    .update-card .uc-cat{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+    .update-card .uc-title{font-size:1.05rem;font-weight:700;color:var(--text);line-height:1.3}
+    .update-card .uc-desc{font-size:.86rem;color:var(--text-2);line-height:1.6;flex-grow:1}
+    .update-card .uc-date{font-size:.76rem;color:var(--text-3);margin-top:auto;padding-top:.75rem;border-top:1px solid var(--border-2)}
+
+    /* ============ CONTACT / CTA ============ */
+    .cta-section{padding:0 0 6rem}
+    .cta-inner{background:linear-gradient(135deg,var(--navy) 0%,#0a1f3d 100%);border-radius:var(--radius-lg);padding:4rem 3rem;color:#fff;position:relative;overflow:hidden;text-align:center}
+    .cta-inner::before{content:"";position:absolute;top:-50%;right:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(37,99,235,.25),transparent 70%);pointer-events:none}
+    .cta-inner::after{content:"";position:absolute;bottom:-50%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(124,58,237,.15),transparent 70%);pointer-events:none}
+    .cta-inner h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;letter-spacing:-.03em;margin-bottom:1rem;position:relative;z-index:1}
+    .cta-inner p{font-size:1.05rem;color:rgba(200,215,240,.75);max-width:560px;margin:0 auto 2rem;position:relative;z-index:1;line-height:1.65}
+    .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+    .cta-contacts{display:flex;gap:2.5rem;justify-content:center;flex-wrap:wrap;margin-top:3rem;position:relative;z-index:1}
+    .cta-contact{display:flex;align-items:center;gap:10px;color:rgba(200,215,240,.8);font-size:.9rem;transition:color .2s var(--ease)}
+    .cta-contact:hover{color:#fff}
+    .cta-contact svg{width:18px;height:18px;opacity:.7}
+
+    /* ============ FOOTER ============ */
+    .site-footer{position:relative;background:var(--navy);color:#fff;overflow:hidden;padding-top:5rem}
+    .footer-bg{position:absolute;inset:0;z-index:0;opacity:.18}
+    .footer-bg video,.footer-bg img{width:100%;height:100%;object-fit:cover}
+    .footer-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(5,13,26,.92) 0%,rgba(5,13,26,.97) 100%)}
+    .footer-content{position:relative;z-index:2}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.08)}
+    .footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:1.25rem}
+    .footer-brand img{width:42px;height:42px;border-radius:10px}
+    .footer-brand .fb-text{font-weight:800;font-size:1.2rem;letter-spacing:-.02em}
+    .footer-brand .fb-text small{display:block;font-size:.62rem;font-weight:500;letter-spacing:.18em;color:rgba(150,180,220,.6);text-transform:uppercase;margin-top:2px}
+    .footer-desc{font-size:.88rem;color:rgba(180,200,225,.65);line-height:1.7;max-width:340px;margin-bottom:1.5rem}
+    .footer-social{display:flex;gap:.6rem;flex-wrap:wrap}
+    .footer-social a{width:38px;height:38px;display:grid;place-items:center;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);transition:all .2s var(--ease)}
+    .footer-social a:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-2px)}
+    .footer-social svg{width:17px;height:17px;fill:rgba(200,215,240,.7)}
+    .footer-social a:hover svg{fill:#fff}
+    .footer-col h4{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(150,180,220,.55);margin-bottom:1.25rem}
+    .footer-col ul{display:flex;flex-direction:column;gap:.7rem}
+    .footer-col a{font-size:.88rem;color:rgba(190,210,235,.7);transition:color .2s var(--ease)}
+    .footer-col a:hover{color:#fff}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding:2rem 0;font-size:.82rem;color:rgba(150,180,220,.55)}
+    .footer-bottom a{color:rgba(180,200,225,.65);transition:color .2s var(--ease)}
+    .footer-bottom a:hover{color:#fff}
+    .footer-bottom .fb-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+
+    /* ============ TOAST ============ */
+    .toast-wrap{position:fixed;bottom:1.5rem;right:1.5rem;z-index:3000;display:flex;flex-direction:column;gap:.6rem;max-width:360px}
+    .toast{display:flex;align-items:flex-start;gap:.75rem;padding:1rem 1.25rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-lg);font-size:.88rem;color:var(--text);animation:toastIn .35s var(--ease)}
+    .toast.success{border-left:3px solid #16a34a}
+    .toast.error{border-left:3px solid #dc2626}
+    .toast svg{width:18px;height:18px;flex-shrink:0;margin-top:1px}
+    .toast.success svg{color:#16a34a}
+    .toast.error svg{color:#dc2626}
+    @keyframes toastIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:none}}
+
+    /* ============ SKELETON ============ */
+    .skeleton{background:linear-gradient(90deg,var(--bg-2) 25%,var(--surface-2) 50%,var(--bg-2) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:8px}
+    @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+    .skeleton-card{height:220px;border-radius:var(--radius-lg)}
+
+    /* ============ RESPONSIVE ============ */
+    @media(max-width:1024px){
+      .nav-links{display:none}
+      .hamburger{display:grid}
+      .about-grid{grid-template-columns:1fr;gap:2.5rem}
+      .footer-grid{grid-template-columns:1.5fr 1fr 1fr;gap:2rem}
     }
-    @media (max-width: 820px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .hero-visual { order: -1; margin-bottom: 0.5rem; }
-      .hero-brand-text { font-size: clamp(2.8rem, 10vw, 4.5rem); }
-      .nav-links { display: none; flex-direction: column; background: var(--bg-card); position: absolute; top: 72px; left: 0; width: 100%; padding: 2rem; gap: 1.2rem; border-bottom: 1px solid var(--border); }
-      .nav-links.open { display: flex; }
-      .hamburger { display: flex; }
-      .nav-cta { display: none; }
-      .grid-3 { grid-template-columns: 1fr 1fr; }
+    @media(max-width:768px){
+      section{padding:4.5rem 0}
+      .hero{padding:100px 0 60px;min-height:auto}
+      .hero-stats{gap:1.5rem;margin-top:2.5rem}
+      .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
+      .cta-inner{padding:3rem 1.5rem}
+      .cta-contacts{gap:1.25rem;flex-direction:column;align-items:center}
+      .mobile-nav{display:block}
     }
-    @media (max-width: 600px) {
-      .container { padding: 0 1.2rem; }
-      .hero h1 { font-size: 2.2rem; }
-      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-      .vision-dark h2 { font-size: 2rem; }
-      .footer-links a { margin-right: 1rem; font-size: 0.8rem; }
+    @media(max-width:480px){
+      .products-grid,.eco-grid,.updates-grid{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+      .hero-btns{flex-direction:column}
+      .hero-btns .btn{width:100%}
+      .toast-wrap{left:1rem;right:1rem;bottom:1rem}
     }
   </style>
 </head>
 <body>
-  <header id="header">
+  <!-- HEADER -->
+  <header class="site-header" id="siteHeader">
     <div class="container nav">
-      <div class="logo">ZISHU <span>TRON</span></div>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#products">Products</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#community">Community</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+      <a href="#home" class="brand" aria-label="ZISHU TRON home">
+        <img src="https://i.postimg.cc/k5MLzQ4r/file-00000000f1388211a43bfe8ca49302e4.jpg" alt="ZISHU TRON logo" />
+        <span class="brand-text">ZISHU TRON<small>Technology</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#updates">Updates</a>
+        <a href="#contact">Contact</a>
+        <a href="developer.html">Developer</a>
+      </nav>
       <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-          </svg>
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         </button>
-        <div class="nav-cta"><a href="#products" class="btn btn-sm">Explore</a></div>
-        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        <a href="auth.html" class="btn btn-ghost btn-sm" id="loginBtn">Login</a>
+        <div class="account" id="accountWrap" style="display:none;">
+          <button class="account-trigger" id="accountTrigger" aria-label="Account menu" aria-expanded="false">
+            <span class="avatar avatar-fallback" id="accountAvatar">Z</span>
+          </button>
+          <div class="account-menu" id="accountMenu">
+            <div class="am-header">
+              <div class="am-name" id="amName">User</div>
+              <div class="am-email" id="amEmail">user@example.com</div>
+            </div>
+            <a href="account.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>My Account</a>
+            <a href="account.html#products"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>My Products</a>
+            <a href="account.html#settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Settings</a>
+            <button id="signOutBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>Sign Out</button>
+          </div>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
   </header>
 
+  <!-- MOBILE NAV -->
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#about">About</a>
+    <a href="#updates">Updates</a>
+    <a href="#contact">Contact</a>
+    <a href="developer.html">Developer</a>
+    <div class="mn-actions">
+      <a href="auth.html" class="btn btn-primary" id="mobileLoginBtn">Login</a>
+      <a href="auth.html" class="btn btn-ghost" id="mobileAccountBtn" style="display:none;">My Account</a>
+    </div>
+  </nav>
+
   <main>
     <!-- HERO -->
-    <section id="home" class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="hero-badge">ZISHU TRON / TECHNOLOGY COMPANY</div>
-          <h1>Building Intelligent Technology <span class="highlight">for Tomorrow.</span></h1>
-          <p>ZISHU TRON creates AI-powered products, software, digital experiences, and technology designed to make the future more useful, accessible, and intelligent.</p>
+    <section class="hero" id="home">
+      <div class="hero-bg">
+        <video autoplay muted playsinline loop preload="metadata" poster="https://i.postimg.cc/J03qRF6g/file-00000000672081f8b21d29d30298e881.png" aria-hidden="true">
+          <source src="https://res.cloudinary.com/vnq9eo7a/video/upload/v1789965498/Create_looping_technology_backgr__20260921100323.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-eyebrow"><span class="dot"></span>INNOVATION TODAY. A SMARTER TOMORROW.</div>
+          <h1>Building Intelligent<br />Technology for a<br /><span class="accent">Better Future</span></h1>
+          <p class="hero-lead">ZISHU TRON builds software, applications, digital tools and intelligent technology designed to make everyday life simpler, smarter and more connected.</p>
           <div class="hero-btns">
-            <a href="#products" class="btn">Explore Our Products</a>
-            <a href="#about" class="btn btn-outline">About ZISHU TRON</a>
+            <a href="#products" class="btn btn-primary btn-lg">Explore Our Products
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#about" class="btn btn-light btn-lg">Learn More</a>
           </div>
-        </div>
-        <div class="hero-visual">
-          <div>
-            <div class="hero-brand-text">ZISHU <span class="accent">TRON</span></div>
-            <div class="hero-brand-sub">Building Intelligent Technology</div>
+          <div class="hero-stats">
+            <div class="hero-stat"><div class="hs-num" id="statProducts">—</div><div class="hs-label">Products</div></div>
+            <div class="hero-stat"><div class="hs-num" id="statUpdates">—</div><div class="hs-label">Updates</div></div>
+            <div class="hero-stat"><div class="hs-num">1</div><div class="hs-label">Account</div></div>
           </div>
         </div>
       </div>
+      <div class="hero-scroll" aria-hidden="true"><span>Scroll</span><div class="mouse"></div></div>
     </section>
 
-    <!-- TRUST -->
-    <section class="trust">
+    <!-- PRODUCTS -->
+    <section class="products-section" id="products">
       <div class="container">
-        <h2>We build technology with purpose.</h2>
-        <p>From intelligent assistants to software platforms and experimental digital products, ZISHU TRON explores new ways technology can become simpler, smarter, and more human.</p>
+        <div class="section-head reveal">
+          <span class="section-eyebrow">Products</span>
+          <h2 class="section-title">Powerful Solutions<br />for Everyone</h2>
+          <p class="section-lead">We build modern, user-focused applications and digital tools designed to make technology simpler, smarter and more useful.</p>
+        </div>
+        <div class="products-grid" id="productsGrid">
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+        </div>
       </div>
     </section>
 
     <!-- ABOUT -->
     <section id="about">
       <div class="container">
-        <h2 class="section-title">About ZISHU TRON</h2>
-        <p style="max-width:720px; font-size:1.05rem; color:var(--text-muted); margin-bottom:2.5rem;">ZISHU TRON is an independent technology brand focused on creating innovative software, AI experiences, digital platforms, and experimental technology products. Our goal is simple: build useful technology that feels modern, intuitive, and accessible.</p>
-        <div class="grid-3">
-          <div class="card about-feature">
-            <svg class="about-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-            <h3>Innovation</h3><p>We continuously explore new ideas, technologies, and digital experiences.</p>
+        <div class="about-grid">
+          <div class="reveal">
+            <span class="section-eyebrow">About ZISHU TRON</span>
+            <h2 class="section-title">Turning Ideas Into<br />Real Technology</h2>
+            <p class="section-lead" style="margin-bottom:1.5rem;">ZISHU TRON is an independent technology brand focused on building software, applications, digital tools and technology experiences. Our goal is simple: create useful products that feel modern, intuitive and accessible.</p>
+            <div class="about-features">
+              <div class="about-feature">
+                <div class="af-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+                <div><h4>Innovation First</h4><p>We continuously explore new ideas, technologies and digital experiences.</p></div>
+              </div>
+              <div class="about-feature">
+                <div class="af-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 00-4 12.7V17a2 2 0 002 2h4a2 2 0 002-2v-2.3A7 7 0 0012 2z"/><path d="M9 21h6"/></svg></div>
+                <div><h4>Intelligent by Design</h4><p>We use AI and modern software technology to create smarter products.</p></div>
+              </div>
+              <div class="about-feature">
+                <div class="af-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg></div>
+                <div><h4>Built to Last</h4><p>We turn ideas into real products, platforms and experiences that keep improving.</p></div>
+              </div>
+            </div>
           </div>
-          <div class="card about-feature">
-            <svg class="about-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            <h3>Intelligence</h3><p>We use AI and modern software technologies to create smarter products.</p>
-          </div>
-          <div class="card about-feature">
-            <svg class="about-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-            <h3>Creation</h3><p>We turn ideas into real products, platforms, and experiences.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRODUCTS -->
-    <section id="products" style="background:var(--bg-card); transition: background 0.3s;">
-      <div class="container">
-        <h2 class="section-title">Products &amp; Experiences</h2>
-        <p class="section-sub">Technology created by ZISHU TRON.</p>
-        <div class="grid-3">
-          <div class="card product-card">
-            <h3>Zishu AI</h3>
-            <p style="font-weight:500; color:var(--accent);">AI Voice Assistant</p>
-            <p style="color:var(--text-muted); margin:0.4rem 0;">Zishu is an intelligent voice assistant designed to provide natural, useful, and conversational AI experiences.</p>
-            <span class="status available">Available</span>
-            <div style="margin-top:1rem;"><a href="https://zishuai.cloud/" target="_blank" class="btn btn-sm">Explore Zishu</a></div>
-          </div>
-          <div class="card product-card">
-            <h3>Upcodez</h3>
-            <p style="font-weight:500; color:var(--accent);">OTT</p>
-            <p style="color:var(--text-muted); margin:0.4rem 0;">UpCodez Is a OTT platform Here you will get a chance to explore amazing videos.</p>
-            <span class="status available">Available</span>
-            <div style="margin-top:1rem;"><a href="https://zishutron.github.io/upcodez/" target="_blank" class="btn btn-sm">Explore</a></div>
-          </div>
-          <div class="card product-card">
-            <h3>Zishu Insight</h3>
-            <p style="font-weight:500; color:var(--accent);">Official Updates</p>
-            <p style="color:var(--text-muted); margin:0.4rem 0;">The official newsroom for ZISHU TRON updates and announcements.</p>
-            <span class="status available">Available</span>
-            <div style="margin-top:1rem;"><a href="https://zishutron.github.io/zishu-insight/" target="_blank" class="btn btn-sm">Explore</a></div>
+          <div class="about-visual reveal">
+            <img src="https://i.postimg.cc/J03qRF6g/file-00000000672081f8b21d29d30298e881.png" alt="ZISHU TRON technology banner" loading="lazy" />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS (Real projects) -->
-    <section id="projects">
+    <!-- WHY (dark) -->
+    <section class="why-section">
       <div class="container">
-        <h2 class="section-title">Our Projects</h2>
-        <p class="section-sub">Real products and platforms built by ZISHU TRON.</p>
-        <div class="grid-3">
-          <div class="project-card">
-            <div class="project-title">Aisha</div>
-            <div class="project-desc">Proposal website for creative projects and collaborations.</div>
-            <a href="https://zishutron.github.io/Aisha/" target="_blank" class="project-link">Visit Project →</a>
+        <div class="section-head center reveal">
+          <span class="section-eyebrow">Why ZISHU TRON</span>
+          <h2 class="section-title">Innovation, Quality,<br />and a Clear Vision</h2>
+          <p class="section-lead">Everything we build is guided by a commitment to quality, simplicity and a long-term view of technology.</p>
+        </div>
+        <div class="why-grid">
+          <div class="why-card reveal">
+            <div class="wc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 00-4 12.7V17a2 2 0 002 2h4a2 2 0 002-2v-2.3A7 7 0 0012 2z"/><path d="M9 21h6"/></svg></div>
+            <h3>AI-Powered Solutions</h3>
+            <p>Intelligent features that make our products more useful, responsive and personal.</p>
           </div>
-          <div class="project-card">
-            <div class="project-title">Zishu AI</div>
-            <div class="project-desc">Intelligent voice assistant with natural conversation capabilities.</div>
-            <a href="https://zishuai.cloud/" target="_blank" class="project-link">Visit Project →</a>
+          <div class="why-card reveal">
+            <div class="wc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 9h6v6H9z"/></svg></div>
+            <h3>Clean & Modern Design</h3>
+            <p>Interfaces that feel focused, calm and easy to use across every device.</p>
           </div>
-          <div class="project-card">
-            <div class="project-title">Upcodez</div>
-            <div class="project-desc">UpCodez Is a OTT platform Here you will get a chance to explore amazing videos. </div>
-            <a href="https://zishutron.github.io/upcodez/" target="_blank" class="project-link">Visit Project →</a>
+          <div class="why-card reveal">
+            <div class="wc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+            <h3>Fast & Reliable Performance</h3>
+            <p>Products built to load quickly, work consistently and stay out of your way.</p>
           </div>
-          <div class="project-card">
-            <div class="project-title">Stardust Canvas</div>
-            <div class="project-desc">Photo sharing platform for creative communities.</div>
-            <a href="https://zishutron.github.io/Stardust-media/" target="_blank" class="project-link">Visit Project →</a>
-          </div>
-          <div class="project-card">
-            <div class="project-title">Zishu App Store</div>
-            <div class="project-desc">Application store featuring ZISHU TRON products.</div>
-            <a href="https://zishutron.github.io/Stardust-store/" target="_blank" class="project-link">Visit Project →</a>
-          </div>
-          <div class="project-card">
-            <div class="project-title">Ring For Me</div>
-            <div class="project-desc">Simple and elegant ringtone customization tool.</div>
-            <a href="https://zishutron.github.io/ringforme/" target="_blank" class="project-link">Visit Project →</a>
-          </div>
-          <div class="project-card">
-            <div class="project-title">Zishu X Messenger</div>
-            <div class="project-desc">Lightweight messaging platform for quick communication.</div>
-            <a href="https://zishutron.github.io/Stardust-X-messenger/" target="_blank" class="project-link">Visit Project →</a>
-          </div>
-          <div class="project-card">
-            <div class="project-title">Stardust Hub</div>
-            <div class="project-desc">Social media platform for creators and communities.</div>
-            <a href="https://zishutron.github.io/Stardust-hub/" target="_blank" class="project-link">Visit Project →</a>
-          </div>
-          <div class="project-card">
-            <div class="project-title">Stardust Warrior</div>
-            <div class="project-desc">Zombie survival game with immersive gameplay.</div>
-            <a href="https://zishutron.github.io/Stardust-warrior/" target="_blank" class="project-link">Play Game →</a>
-          </div>
-          <div class="project-card">
-            <div class="project-title">Stardust Student OS</div>
-            <div class="project-desc">Educational operating system for students and learners.</div>
-            <a href="https://zishutron.github.io/stardust-student-OS/" target="_blank" class="project-link">Visit Project →</a>
-          </div>
-          <div class="project-card">
-            <div class="project-title">Stardust Learning</div>
-            <div class="project-desc">Online learning platform with interactive courses.</div>
-            <a href="https://zishutron.github.io/stardust-learning/" target="_blank" class="project-link">Visit Project →</a>
-          </div>
-          <div class="project-card">
-            <div class="project-title">Roller Splash Pro</div>
-            <div class="project-desc">Fast-paced ball game with addictive mechanics.</div>
-            <a href="https://zishutron.github.io/Stardust-ball-game/" target="_blank" class="project-link">Play Game →</a>
-          </div>
-          <div class="project-card">
-            <div class="project-title">Stardust Trader</div>
-            <div class="project-desc">Trading platform for digital assets and collectibles.</div>
-            <a href="https://zishutron.github.io/stardust-trader/" target="_blank" class="project-link">Visit Project →</a>
-          </div>
-          <div class="project-card">
-            <div class="project-title">Stardust Business Tycoon</div>
-            <div class="project-desc">Business simulation game for aspiring entrepreneurs.</div>
-            <a href="https://zishutron.github.io/Stardust-business-tycoon/" target="_blank" class="project-link">Play Game →</a>
-          </div>
-          <div class="project-card">
-            <div class="project-title">Zishu Notepad</div>
-            <div class="project-desc">A clean, secure cloud notepad to create, organize, and access your notes anywhere.</div>
-            <a href="https://zishutron.github.io/stardust-formatter/" target="_blank" class="project-link">Visit Project →</a>
-          </div>
-          <div class="project-card">
-            <div class="project-title">Stardust Discord Bot</div>
-            <div class="project-desc">Official website for the Stardust Discord Bot.</div>
-            <a href="https://zishutron.github.io/Stardust-website/" target="_blank" class="project-link">Visit Project →</a>
+          <div class="why-card reveal">
+            <div class="wc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 11-6.219-8.56"/><path d="M22 4l-10 10-3-3"/></svg></div>
+            <h3>Continuous Innovation</h3>
+            <p>We keep improving, experimenting and refining everything we build.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- VISION DARK -->
-    <section class="container" style="padding:0;">
-      <div class="vision-dark">
-        <h2>The Future Is Built.</h2>
-        <p>We believe the future isn't something we simply wait for. It is something we create, experiment with, improve, and share.</p>
-        <span class="tag">ZISHU TRON — Building Intelligent Technology.</span>
+    <!-- TECHNOLOGY -->
+    <section id="technology">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="section-eyebrow">Capabilities</span>
+          <h2 class="section-title">Technology &amp; Capabilities</h2>
+          <p class="section-lead">The areas we focus on when designing and building ZISHU TRON products.</p>
+        </div>
+        <div class="tech-grid">
+          <div class="tech-item reveal"><div class="ti-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><h4>Software Development</h4><p>Applications built with modern tooling and clean architecture.</p></div>
+          <div class="tech-item reveal"><div class="ti-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><h4>Web Applications</h4><p>Fast, responsive web experiences for every screen.</p></div>
+          <div class="tech-item reveal"><div class="ti-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg></div><h4>Android Applications</h4><p>Mobile apps designed around real daily use.</p></div>
+          <div class="tech-item reveal"><div class="ti-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div><h4>AI-Powered Tools</h4><p>Practical AI features that add real value to products.</p></div>
+          <div class="tech-item reveal"><div class="ti-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4>Digital Products</h4><p>Complete product experiences from idea to launch.</p></div>
+          <div class="tech-item reveal"><div class="ti-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg></div><h4>Cloud-Based Services</h4><p>Reliable cloud infrastructure for connected products.</p></div>
+          <div class="tech-item reveal"><div class="ti-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h4>User-Focused Experiences</h4><p>Design decisions driven by real usability and clarity.</p></div>
+        </div>
       </div>
     </section>
 
-    <!-- COMMUNITY -->
-    <section id="community" style="background:var(--bg-card); transition: background 0.3s;">
+    <!-- ECOSYSTEM -->
+    <section class="eco-section" id="ecosystem">
       <div class="container">
-        <h2 class="section-title">Build With Us</h2>
-        <p style="max-width:600px; color:var(--text-muted); margin-bottom:2.5rem;">Technology becomes better when ideas are shared. Join the ZISHU TRON community to follow our projects, discuss ideas, and stay connected.</p>
-        <div class="grid-4">
-          <a href="https://github.com/zishutron" target="_blank" class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:6px;">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--text)"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.15 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.62.24 2.85.12 3.15.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            <span style="font-weight:600;">GitHub</span>
-            <span style="font-size:0.85rem;color:var(--text-muted);">Code &amp; development</span>
-          </a>
-          <a href="https://discord.gg/Xhh5r2UM5C" target="_blank" class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:6px;">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--text)"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.01.078.078 0 00.084-.028 14.09 14.09 0 001.226-1.99.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.99a.076.076 0 00.085.028 19.839 19.839 0 005.994-3.01.077.077 0 00.03-.057c.5-5.096-.838-9.59-3.51-13.66a.061.061 0 00-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
-            <span style="font-weight:600;">Discord</span>
-            <span style="font-size:0.85rem;color:var(--text-muted);">Community &amp; discussions</span>
-          </a>
-          <a href="https://x.com/zishanstardust" target="_blank" class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:6px;">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--text)"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            <span style="font-weight:600;">X</span>
-            <span style="font-size:0.85rem;color:var(--text-muted);">Updates &amp; announcements</span>
-          </a>
-          <a href="https://youtube.com/@zishutron" target="_blank" class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:6px;">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--text)"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-            <span style="font-weight:600;">YouTube</span>
-            <span style="font-size:0.85rem;color:var(--text-muted);">Videos &amp; demos</span>
-          </a>
-          <a href="https://linkedin.com/in/zishu-tron-a8a71241" target="_blank" class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:6px;">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--text)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            <span style="font-weight:600;">LinkedIn</span>
-            <span style="font-size:0.85rem;color:var(--text-muted);">Professional presence</span>
-          </a>
+        <div class="section-head center reveal">
+          <span class="section-eyebrow">Ecosystem</span>
+          <h2 class="section-title">One Connected<br />Product Ecosystem</h2>
+          <p class="section-lead">ZISHU TRON products share a common vision, a common account and a common design language.</p>
+        </div>
+        <div class="eco-grid" id="ecoGrid">
+          <div class="skeleton skeleton-card" style="height:100px;"></div>
+          <div class="skeleton skeleton-card" style="height:100px;"></div>
+          <div class="skeleton skeleton-card" style="height:100px;"></div>
+          <div class="skeleton skeleton-card" style="height:100px;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISION -->
+    <section class="vision-section" id="vision">
+      <div class="vision-bg"><img src="https://i.postimg.cc/J03qRF6g/file-00000000672081f8b21d29d30298e881.png" alt="" aria-hidden="true" loading="lazy" /></div>
+      <div class="container vision-inner">
+        <h2 class="reveal">A Smarter, More<br /><span class="accent">Connected World</span></h2>
+        <p class="reveal">We believe the future isn't something we simply wait for. It is something we create, experiment with, improve and share. ZISHU TRON is our long-term effort to build technology that makes that future more useful and more human.</p>
+        <span class="vision-tag reveal">ZISHU TRON — Building Intelligent Technology.</span>
+      </div>
+    </section>
+
+    <!-- UPDATES -->
+    <section id="updates">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-eyebrow">Updates</span>
+          <h2 class="section-title">Latest Updates<br />&amp; News</h2>
+          <p class="section-lead">Announcements, product news and insights from the ZISHU TRON team.</p>
+        </div>
+        <div class="updates-grid" id="updatesGrid">
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA / CONTACT -->
+    <section class="cta-section" id="contact">
+      <div class="container">
+        <div class="cta-inner reveal">
+          <h2>Let's Build Something<br />Together</h2>
+          <p>Whether you have a question, an idea or just want to follow our journey, we would love to hear from you.</p>
+          <div class="cta-btns">
+            <a href="mailto:hello@zishutron.com" class="btn btn-primary btn-lg">Get in Touch
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://discord.gg/Xhh5r2UM5C" target="_blank" rel="noopener" class="btn btn-light btn-lg">Join Community</a>
+          </div>
+          <div class="cta-contacts">
+            <a href="mailto:hello@zishutron.com" class="cta-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>hello@zishutron.com</a>
+            <a href="https://github.com/zishutron" target="_blank" rel="noopener" class="cta-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>GitHub</a>
+            <a href="https://x.com/zishanstardust" target="_blank" rel="noopener" class="cta-contact"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="container">
+  <footer class="site-footer">
+    <div class="footer-bg">
+      <video muted playsinline loop preload="none" poster="https://i.postimg.cc/J03qRF6g/file-00000000672081f8b21d29d30298e881.png" aria-hidden="true" id="footerVideo">
+        <source data-src="https://res.cloudinary.com/vnq9eo7a/video/upload/v1789966161/Futuristic_technology_company_ba__20260921101733.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="footer-overlay"></div>
+    <div class="footer-content container">
       <div class="footer-grid">
         <div>
-          <span style="font-weight:700; font-size:1.3rem; color:var(--text);">ZISHU TRON</span>
-          <br><span style="color:var(--text-muted);">Building Intelligent Technology.</span>
+          <div class="footer-brand">
+            <img src="https://i.postimg.cc/k5MLzQ4r/file-00000000f1388211a43bfe8ca49302e4.jpg" alt="ZISHU TRON logo" loading="lazy" />
+            <div class="fb-text">ZISHU TRON<small>Technology</small></div>
+          </div>
+          <p class="footer-desc">Building intelligent technology for a better future. Software, applications, digital tools and AI-powered products designed to make technology simpler and more useful.</p>
+          <div class="footer-social">
+            <a href="https://github.com/zishutron" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.15 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.62.24 2.85.12 3.15.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></a>
+            <a href="https://discord.gg/Xhh5r2UM5C" target="_blank" rel="noopener" aria-label="Discord"><svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.01.078.078 0 00.084-.028 14.09 14.09 0 001.226-1.99.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.99a.076.076 0 00.085.028 19.839 19.839 0 005.994-3.01.077.077 0 00.03-.057c.5-5.096-.838-9.59-3.51-13.66a.061.061 0 00-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></a>
+            <a href="https://x.com/zishanstardust" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="https://youtube.com/@zishutron" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+            <a href="https://linkedin.com/in/zishu-tron-a8a71241" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          </div>
         </div>
-        <div class="footer-links">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#products">Products</a>
-          <a href="#projects">Projects</a>
-          <a href="#community">Community</a>
-          <a href="#contact">Contact</a>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#updates">Updates</a></li>
+            <li><a href="developer.html">Developer</a></li>
+          </ul>
         </div>
-        <div class="footer-social">
-          <a href="https://github.com/zishutron" target="_blank" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.15 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.62.24 2.85.12 3.15.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></a>
-          <a href="https://discord.gg/Xhh5r2UM5C" target="_blank" aria-label="Discord"><svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.01.078.078 0 00.084-.028 14.09 14.09 0 001.226-1.99.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.99a.076.076 0 00.085.028 19.839 19.839 0 005.994-3.01.077.077 0 00.03-.057c.5-5.096-.838-9.59-3.51-13.66a.061.061 0 00-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></a>
-          <a href="https://x.com/zishanstardust" target="_blank" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-          <a href="https://youtube.com/@zishutron" target="_blank" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-          <a href="https://linkedin.com/in/zishu-tron-a8a71241" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul id="footerProducts">
+            <li><a href="https://zishuai.cloud/" target="_blank" rel="noopener">Zishu AI</a></li>
+            <li><a href="https://zishutron.github.io/upcodez/" target="_blank" rel="noopener">Upcodez</a></li>
+            <li><a href="https://zishutron.github.io/zishu-insight/" target="_blank" rel="noopener">Zishu Insight</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@zishutron.com">hello@zishutron.com</a></li>
+            <li><a href="https://discord.gg/Xhh5r2UM5C" target="_blank" rel="noopener">Discord Community</a></li>
+            <li><a href="https://github.com/zishutron" target="_blank" rel="noopener">GitHub</a></li>
+          </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 ZISHU TRON. All rights reserved.</span>
-        <span><a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a></span>
+        <span>&copy; <span id="year"></span> ZISHU TRON. All rights reserved.</span>
+        <div class="fb-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="auth.html">Account</a>
+        </div>
       </div>
     </div>
   </footer>
 
+  <div class="toast-wrap" id="toastWrap" aria-live="polite"></div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
   <script>
-    // Theme toggle
-    const themeToggle = document.getElementById('themeToggle');
-    const savedTheme = localStorage.getItem('zt-theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      document.documentElement.classList.add('dark');
+  (function(){
+    "use strict";
+
+    /* ---------- FIREBASE CONFIG ---------- */
+    var firebaseConfig = {
+      apiKey: "AIzaSyBU5CZxIycjaY9t12BGhWADJyAbrS8WzqY",
+      authDomain: "zishu-tron.firebaseapp.com",
+      databaseURL: "https://zishu-tron-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "zishu-tron",
+      storageBucket: "zishu-tron.firebasestorage.app",
+      messagingSenderId: "818976752868",
+      appId: "1:818976752868:web:6097a46a709329a3dd18f1",
+      measurementId: "G-0S122FQGJF"
+    };
+
+    var app, auth, db;
+    try {
+      app = firebase.initializeApp(firebaseConfig);
+      auth = firebase.auth();
+      db = firebase.database();
+    } catch(e) { console.warn("Firebase init failed", e); }
+
+    /* ---------- STATE ---------- */
+    var currentUser = null;
+    var userProfile = null;
+    var adminFlag = false;
+
+    /* ---------- UTIL ---------- */
+    function $(s, c){ return (c||document).querySelector(s); }
+    function $all(s, c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); }
+    function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+    function sanitizeUrl(u){
+      if(!u) return "";
+      u = String(u).trim();
+      if(/^(https?:|mailto:|tel:|\/|#)/i.test(u)) return u;
+      return "https://" + u;
     }
-    themeToggle.addEventListener('click', () => {
-      document.documentElement.classList.toggle('dark');
-      localStorage.setItem('zt-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    function toast(msg, type){
+      var wrap = $("#toastWrap");
+      if(!wrap) return;
+      var t = document.createElement("div");
+      t.className = "toast " + (type||"success");
+      var icon = type === "error"
+        ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>'
+        : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>';
+      t.innerHTML = icon + '<span>' + esc(msg) + '</span>';
+      wrap.appendChild(t);
+      setTimeout(function(){
+        t.style.opacity = "0";
+        t.style.transform = "translateX(20px)";
+        t.style.transition = "all .3s";
+        setTimeout(function(){ t.remove(); }, 320);
+      }, 3200);
+    }
+
+    /* ---------- THEME ---------- */
+    var root = document.documentElement;
+    var savedTheme = localStorage.getItem("zt-theme");
+    if(savedTheme === "dark" || (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)){
+      root.classList.add("dark");
+    }
+    $("#themeToggle").addEventListener("click", function(){
+      root.classList.toggle("dark");
+      localStorage.setItem("zt-theme", root.classList.contains("dark") ? "dark" : "light");
     });
 
-    // Sticky header compact
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) header.classList.add('scroll-compact');
-      else header.classList.remove('scroll-compact');
+    /* ---------- HEADER SCROLL ---------- */
+    var header = $("#siteHeader");
+    var ticking = false;
+    window.addEventListener("scroll", function(){
+      if(ticking) return;
+      ticking = true;
+      requestAnimationFrame(function(){
+        if(window.scrollY > 24) header.classList.add("scrolled");
+        else header.classList.remove("scrolled");
+        ticking = false;
+      });
+    }, {passive:true});
+
+    /* ---------- MOBILE NAV ---------- */
+    var hamburger = $("#hamburger");
+    var mobileNav = $("#mobileNav");
+    hamburger.addEventListener("click", function(){
+      var open = mobileNav.classList.toggle("open");
+      hamburger.classList.toggle("open", open);
+      hamburger.setAttribute("aria-expanded", open);
+      document.body.style.overflow = open ? "hidden" : "";
+    });
+    $all("a", mobileNav).forEach(function(a){
+      a.addEventListener("click", function(){
+        mobileNav.classList.remove("open");
+        hamburger.classList.remove("open");
+        hamburger.setAttribute("aria-expanded","false");
+        document.body.style.overflow = "";
+      });
     });
 
-    // Mobile hamburger
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
-    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-    }));
+    /* ---------- ACCOUNT MENU ---------- */
+    var accountTrigger = $("#accountTrigger");
+    var accountMenu = $("#accountMenu");
+    if(accountTrigger){
+      accountTrigger.addEventListener("click", function(e){
+        e.stopPropagation();
+        var open = accountMenu.classList.toggle("open");
+        accountTrigger.setAttribute("aria-expanded", open);
+      });
+      document.addEventListener("click", function(){
+        accountMenu.classList.remove("open");
+        accountTrigger.setAttribute("aria-expanded","false");
+      });
+      accountMenu.addEventListener("click", function(e){ e.stopPropagation(); });
+    }
+
+    /* ---------- YEAR ---------- */
+    $("#year").textContent = new Date().getFullYear();
+
+    /* ---------- REVEAL ON SCROLL ---------- */
+    var revealObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add("in"); revealObserver.unobserve(en.target); }
+      });
+    }, {threshold:0.12, rootMargin:"0px 0px -40px 0px"});
+    $all(".reveal").forEach(function(el){ revealObserver.observe(el); });
+
+    /* ---------- FOOTER VIDEO LAZY ---------- */
+    var footerVideo = $("#footerVideo");
+    if(footerVideo){
+      var fvObserver = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if(en.isIntersecting){
+            var src = footerVideo.querySelector("source[data-src]");
+            if(src){ src.src = src.getAttribute("data-src"); footerVideo.load(); footerVideo.play().catch(function(){}); }
+            fvObserver.disconnect();
+          }
+        });
+      }, {rootMargin:"200px"});
+      fvObserver.observe(footerVideo);
+    }
+
+    /* ---------- RENDER PRODUCTS ---------- */
+    function productInitial(title){ return (title||"Z").trim().charAt(0).toUpperCase(); }
+    function statusClass(s){
+      s = (s||"").toLowerCase();
+      if(s === "available") return "badge-available";
+      if(s === "coming soon" || s === "soon") return "badge-soon";
+      return "badge-beta";
+    }
+    function renderProducts(products){
+      var grid = $("#productsGrid");
+      if(!grid) return;
+      var list = [];
+      for(var id in products){
+        if(!products.hasOwnProperty(id)) continue;
+        var p = products[id];
+        if(!p || !p.published) continue;
+        list.push(Object.assign({id:id}, p));
+      }
+      list.sort(function(a,b){
+        var ao = a.displayOrder == null ? 9999 : Number(a.displayOrder);
+        var bo = b.displayOrder == null ? 9999 : Number(b.displayOrder);
+        if(ao !== bo) return ao - bo;
+        return (b.createdAt||0) - (a.createdAt||0);
+      });
+      if(list.length === 0){
+        grid.innerHTML = '<div class="product-card" style="grid-column:1/-1;text-align:center;padding:3rem 1.5rem;"><p style="color:var(--text-3);">No products published yet. Check back soon.</p></div>';
+        return;
+      }
+      var html = "";
+      list.forEach(function(p){
+        var url = sanitizeUrl(p.url || "#");
+        var iconHtml = p.icon
+          ? '<img src="'+esc(p.icon)+'" alt="" loading="lazy" onerror="this.style.display=\'none\';this.parentNode.innerHTML=\'<span class=&quot;pc-initial&quot;>'+esc(productInitial(p.title))+'</span>\';" />'
+          : '<span class="pc-initial">'+esc(productInitial(p.title))+'</span>';
+        var featuredBadge = p.featured ? '<span class="badge badge-featured">Featured</span>' : '';
+        var status = p.status ? '<span class="badge '+statusClass(p.status)+'">'+esc(p.status)+'</span>' : '';
+        html += '<article class="product-card reveal">'
+          + '<div class="pc-top">'
+          +   '<div class="pc-icon">'+iconHtml+'</div>'
+          +   '<div style="display:flex;flex-direction:column;gap:4px;align-items:flex-end;">'+featuredBadge+status+'</div>'
+          + '</div>'
+          + '<div class="pc-cat">'+esc(p.category||"Product")+'</div>'
+          + '<h3 class="pc-title">'+esc(p.title||"Untitled")+'</h3>'
+          + '<p class="pc-desc">'+esc(p.description||"")+'</p>'
+          + '<div class="pc-foot">'
+          +   '<a href="'+esc(url)+'"'+(url.indexOf("http")===0?' target="_blank" rel="noopener"':'')+' class="pc-link">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>'
+          + '</div>'
+          + '</article>';
+      });
+      grid.innerHTML = html;
+      $all(".reveal", grid).forEach(function(el){ revealObserver.observe(el); });
+    }
+
+    function renderEcosystem(products){
+      var grid = $("#ecoGrid");
+      if(!grid) return;
+      var list = [];
+      for(var id in products){
+        if(!products.hasOwnProperty(id)) continue;
+        var p = products[id];
+        if(!p || !p.published) continue;
+        list.push(Object.assign({id:id}, p));
+      }
+      list.sort(function(a,b){
+        var af = a.featured ? 0 : 1, bf = b.featured ? 0 : 1;
+        if(af !== bf) return af - bf;
+        return (a.displayOrder||9999) - (b.displayOrder||9999);
+      });
+      if(list.length === 0){ grid.innerHTML = ""; return; }
+      var html = "";
+      list.slice(0, 8).forEach(function(p){
+        var url = sanitizeUrl(p.url || "#");
+        var iconHtml = p.icon
+          ? '<img src="'+esc(p.icon)+'" alt="" loading="lazy" onerror="this.style.display=\'none\';this.parentNode.innerHTML=\'<span style=&quot;font-weight:800;color:var(--accent);&quot;>'+esc(productInitial(p.title))+'</span>\';" />'
+          : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>';
+        html += '<a href="'+esc(url)+'"'+(url.indexOf("http")===0?' target="_blank" rel="noopener"':'')+' class="eco-card reveal">'
+          + '<div class="ec-icon">'+iconHtml+'</div>'
+          + '<div><h4>'+esc(p.title||"Untitled")+'</h4><p>'+esc((p.description||"").slice(0,80))+'</p></div>'
+          + '</a>';
+      });
+      grid.innerHTML = html;
+      $all(".reveal", grid).forEach(function(el){ revealObserver.observe(el); });
+    }
+
+    function renderFooterProducts(products){
+      var ul = $("#footerProducts");
+      if(!ul) return;
+      var list = [];
+      for(var id in products){
+        if(!products.hasOwnProperty(id)) continue;
+        var p = products[id];
+        if(!p || !p.published) continue;
+        list.push(p);
+      }
+      if(list.length === 0) return;
+      list.sort(function(a,b){ return (a.displayOrder||9999) - (b.displayOrder||9999); });
+      var html = "";
+      list.slice(0,5).forEach(function(p){
+        var url = sanitizeUrl(p.url || "#");
+        html += '<li><a href="'+esc(url)+'"'+(url.indexOf("http")===0?' target="_blank" rel="noopener"':'')+'>'+esc(p.title||"Product")+'</a></li>';
+      });
+      ul.innerHTML = html;
+    }
+
+    /* ---------- RENDER UPDATES ---------- */
+    function renderUpdates(updates){
+      var grid = $("#updatesGrid");
+      if(!grid) return;
+      var list = [];
+      for(var id in updates){
+        if(!updates.hasOwnProperty(id)) continue;
+        var u = updates[id];
+        if(!u || !u.published) continue;
+        list.push(Object.assign({id:id}, u));
+      }
+      list.sort(function(a,b){
+        var ao = a.displayOrder == null ? 9999 : Number(a.displayOrder);
+        var bo = b.displayOrder == null ? 9999 : Number(b.displayOrder);
+        if(ao !== bo) return ao - bo;
+        return (b.createdAt||0) - (a.createdAt||0);
+      });
+      if(list.length === 0){
+        grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:3rem 1.5rem;color:var(--text-3);">No updates published yet. Check back soon.</div>';
+        return;
+      }
+      var html = "";
+      list.slice(0,6).forEach(function(u){
+        var url = u.url ? sanitizeUrl(u.url) : "";
+        var dateStr = u.createdAt ? new Date(u.createdAt).toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"}) : "";
+        var imgHtml = u.image
+          ? '<img src="'+esc(u.image)+'" alt="" loading="lazy" onerror="this.parentNode.style.display=\'none\';" />'
+          : '<div style="width:100%;height:100%;background:linear-gradient(135deg,var(--accent-glow),transparent);"></div>';
+        var inner = '<div class="uc-img">'+imgHtml+'</div>'
+          + '<div class="uc-body">'
+          + (u.category ? '<span class="uc-cat">'+esc(u.category)+'</span>' : '')
+          + '<h3 class="uc-title">'+esc(u.title||"Update")+'</h3>'
+          + '<p class="uc-desc">'+esc(u.description||"")+'</p>'
+          + (dateStr ? '<div class="uc-date">'+esc(dateStr)+'</div>' : '')
+          + '</div>';
+        if(url){
+          html += '<a href="'+esc(url)+'"'+(url.indexOf("http")===0?' target="_blank" rel="noopener"':'')+' class="update-card reveal">'+inner+'</a>';
+        } else {
+          html += '<article class="update-card reveal">'+inner+'</article>';
+        }
+      });
+      grid.innerHTML = html;
+      $all(".reveal", grid).forEach(function(el){ revealObserver.observe(el); });
+    }
+
+    /* ---------- LOAD DATA ---------- */
+    var fallbackProducts = {
+      "zishu-ai": { title:"Zishu AI", url:"https://zishuai.cloud/", description:"Intelligent voice assistant designed for natural, useful and conversational AI experiences.", category:"AI Assistant", status:"Available", featured:true, displayOrder:1, published:true, icon:"", banner:"", createdAt:Date.now() },
+      "upcodez": { title:"Upcodez", url:"https://zishutron.github.io/upcodez/", description:"An OTT platform where you can explore amazing videos and content.", category:"Entertainment", status:"Available", featured:false, displayOrder:2, published:true, icon:"", banner:"", createdAt:Date.now()-1000 },
+      "zishu-insight": { title:"Zishu Insight", url:"https://zishutron.github.io/zishu-insight/", description:"The official newsroom for ZISHU TRON updates and announcements.", category:"News", status:"Available", featured:false, displayOrder:3, published:true, icon:"", banner:"", createdAt:Date.now()-2000 }
+    };
+
+    function loadProducts(){
+      if(!db){ renderProducts(fallbackProducts); renderEcosystem(fallbackProducts); renderFooterProducts(fallbackProducts); return; }
+      db.ref("products").on("value", function(snap){
+        var val = snap.val();
+        if(!val || Object.keys(val).length === 0){
+          renderProducts(fallbackProducts);
+          renderEcosystem(fallbackProducts);
+          renderFooterProducts(fallbackProducts);
+        } else {
+          renderProducts(val);
+          renderEcosystem(val);
+          renderFooterProducts(val);
+        }
+        $("#statProducts").textContent = Object.keys(val || fallbackProducts).length;
+      }, function(err){
+        console.warn("Products load error", err);
+        renderProducts(fallbackProducts);
+        renderEcosystem(fallbackProducts);
+        renderFooterProducts(fallbackProducts);
+      });
+    }
+
+    function loadUpdates(){
+      if(!db){ renderUpdates({}); return; }
+      db.ref("updates").on("value", function(snap){
+        var val = snap.val() || {};
+        renderUpdates(val);
+        $("#statUpdates").textContent = Object.keys(val).length;
+      }, function(err){ console.warn("Updates load error", err); renderUpdates({}); });
+    }
+
+    /* ---------- AUTH STATE ---------- */
+    function showAccount(user, profile){
+      $("#loginBtn").style.display = "none";
+      $("#mobileLoginBtn").style.display = "none";
+      $("#accountWrap").style.display = "block";
+      $("#mobileAccountBtn").style.display = "flex";
+      var name = (profile && profile.displayName) || user.displayName || (user.email ? user.email.split("@")[0] : "User");
+      var email = user.email || "";
+      var avatar = (profile && profile.photoURL) || user.photoURL || "";
+      $("#amName").textContent = name;
+      $("#amEmail").textContent = email;
+      var av = $("#accountAvatar");
+      if(avatar){
+        av.innerHTML = '<img src="'+esc(avatar)+'" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" onerror="this.parentNode.textContent=\''+esc(name.charAt(0).toUpperCase())+'\';" />';
+        av.classList.remove("avatar-fallback");
+      } else {
+        av.textContent = name.charAt(0).toUpperCase();
+        av.classList.add("avatar-fallback");
+      }
+    }
+    function hideAccount(){
+      $("#loginBtn").style.display = "";
+      $("#mobileLoginBtn").style.display = "";
+      $("#accountWrap").style.display = "none";
+      $("#mobileAccountBtn").style.display = "none";
+    }
+
+    if(auth){
+      auth.onAuthStateChanged(function(user){
+        currentUser = user;
+        if(user){
+          showAccount(user, userProfile);
+          if(db){
+            db.ref("users/"+user.uid).once("value").then(function(snap){
+              userProfile = snap.val() || {};
+              showAccount(user, userProfile);
+            }).catch(function(){});
+          }
+        } else {
+          userProfile = null;
+          hideAccount();
+        }
+      });
+    } else {
+      hideAccount();
+    }
+
+    var signOutBtn = $("#signOutBtn");
+    if(signOutBtn){
+      signOutBtn.addEventListener("click", function(){
+        if(!auth) return;
+        auth.signOut().then(function(){ toast("Signed out", "success"); })
+        .catch(function(){ toast("Sign out failed", "error"); });
+      });
+    }
+
+    /* ---------- INIT ---------- */
+    loadProducts();
+    loadUpdates();
+
+    /* ---------- STAT COUNTER ANIMATION ---------- */
+    (function(){
+      var statProducts = $("#statProducts");
+      var statUpdates = $("#statUpdates");
+      if(!statProducts) return;
+      var observer = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if(en.isIntersecting){
+            var el = en.target;
+            var text = el.textContent;
+            if(text === "—"){ el.textContent = "0"; }
+            observer.unobserve(el);
+          }
+        });
+      }, {threshold:.5});
+      observer.observe(statProducts);
+      observer.observe(statUpdates);
+    })();
+
+  })();
   </script>
 </body>
 </html>
