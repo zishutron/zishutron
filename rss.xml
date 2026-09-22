@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ZISHU TRON Updates</title>
+    <link>https://zishutron.zishuai.cloud/</link>
+    <description>Product and company updates from ZISHU TRON.</description>
+    <language>en</language>
+    <lastBuildDate>Tue, 22 Sep 2026 09:04:19 GMT</lastBuildDate>
+    <atom:link href="https://zishutron.zishuai.cloud/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Welcome to ZISHU TRON — A New Chapter Begins</title>
+      <link>https://zishutron.zishuai.cloud/updates/welcome-to-zishu-tron-a-new-chapter-begins/</link>
+      <guid isPermaLink="true">https://zishutron.zishuai.cloud/updates/welcome-to-zishu-tron-a-new-chapter-begins/</guid>
+      <pubDate>Mon, 21 Sep 2026 07:01:06 GMT</pubDate>
+      <description>Today marks the beginning of something we have been building for a long time.
+
+ZISHU TRON is a technology brand focused on creating software, applications, digital tools and intelligent experiences. Our goal is simple — build technology that is useful, modern and accessible to everyone.
+
+This is not just a website. It is a long-term journey. Every product we release, every update we ship, and every idea we explore is part of a bigger vision: to make technology feel simpler, smarter and more human.
+
+We are starting small, but we are building for the long run. Thank you for being here from the beginning.
+
+Welcome to ZISHU TRON.</description>
+      <category>Announcement</category>
+    </item>
+  </channel>
+</rss>
