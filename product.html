@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+<title>{{TITLE}} — ZISHU TRON</title>
+<meta name="description" content="{{DESCRIPTION}}" />
+<link rel="icon" href="https://i.postimg.cc/k5MLzQ4r/file-00000000f1388211a43bfe8ca49302e4.jpg" type="image/jpeg" />
+<meta name="theme-color" content="#050d1a" />
+<meta property="og:title" content="{{TITLE}} — ZISHU TRON" />
+<meta property="og:description" content="{{DESCRIPTION}}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{CANONICAL_URL}}" />
+{{#ICON}}<meta property="og:image" content="{{ICON}}" />{{/ICON}}
+<meta name="twitter:card" content="{{#ICON}}summary_large_image{{/ICON}}{{^ICON}}summary{{/ICON}}" />
+<link rel="canonical" href="{{CANONICAL_URL}}" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+
+<script type="application/ld+json">{{JSONLD}}</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#f6f8fc;--bg-2:#eef2f9;--surface:#fff;--surface-2:#f8fafd;
+  --text:#050d1a;--text-2:#2a3f5a;--text-3:#5f7590;
+  --border:rgba(5,13,26,.08);--border-2:rgba(5,13,26,.05);
+  --accent:#2563eb;--accent-2:#1d4ed8;--accent-glow:rgba(37,99,235,.12);
+  --navy:#050d1a;--radius:14px;--radius-lg:22px;
+  --shadow:0 4px 24px rgba(5,13,26,.06);--shadow-lg:0 20px 60px rgba(5,13,26,.12);
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+.dark{
+  --bg:#050d1a;--bg-2:#081426;--surface:#0a1628;--surface-2:#0e1d33;
+  --text:#f0f4fa;--text-2:#a8bcd4;--text-3:#6a809c;
+  --border:rgba(255,255,255,.07);--border-2:rgba(255,255,255,.04);
+  --accent:#3b82f6;--accent-2:#60a5fa;--accent-glow:rgba(59,130,246,.15);
+  --shadow:0 4px 24px rgba(0,0,0,.35);--shadow-lg:0 20px 60px rgba(0,0,0,.5);
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;transition:background .4s var(--ease),color .4s var(--ease)}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+img,video{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.container{max-width:1140px;margin:0 auto;padding:0 2rem}
+@media(max-width:640px){.container{padding:0 1.25rem}}
+
+.site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.78);backdrop-filter:blur(18px) saturate(180%);-webkit-backdrop-filter:blur(18px) saturate(180%);border-bottom:1px solid var(--border)}
+.dark .site-header{background:rgba(5,13,26,.78)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.1rem;letter-spacing:-.02em}
+.brand img{width:34px;height:34px;border-radius:8px}
+.brand small{display:block;font-size:.6rem;font-weight:500;letter-spacing:.18em;color:var(--text-3);text-transform:uppercase}
+.nav-links{display:flex;gap:1.75rem;align-items:center}
+.nav-links a{font-size:.9rem;font-weight:500;color:var(--text-2);transition:color .2s var(--ease)}
+.nav-links a:hover{color:var(--accent)}
+.nav-actions{display:flex;align-items:center;gap:.6rem}
+.icon-btn{width:38px;height:38px;display:grid;place-items:center;border-radius:10px;color:var(--text-2);transition:.2s}
+.icon-btn:hover{background:var(--bg-2);color:var(--text)}
+.dark .icon-btn:hover{background:var(--surface-2)}
+.icon-btn svg{width:20px;height:20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:.65rem 1.35rem;border-radius:10px;font-weight:600;font-size:.88rem;transition:all .22s var(--ease)}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 4px 16px rgba(37,99,235,.28)}
+.btn-primary:hover{background:var(--accent-2);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--text);border:1.5px solid var(--border)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.btn-lg{padding:.9rem 2rem;font-size:.95rem}
+
+.product-hero{padding:3rem 0 4rem;position:relative;overflow:hidden}
+.product-hero::before{content:"";position:absolute;top:-30%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,var(--accent-glow),transparent 70%);pointer-events:none;z-index:0}
+.product-hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 320px;gap:3rem;align-items:center}
+.product-icon-large{width:120px;height:120px;border-radius:24px;background:var(--surface);border:1px solid var(--border);display:grid;place-items:center;overflow:hidden;box-shadow:var(--shadow-lg);flex-shrink:0}
+.product-icon-large img{width:100%;height:100%;object-fit:cover}
+.product-icon-large .fallback{font-size:3rem;font-weight:900;color:var(--accent)}
+.product-cat{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.product-hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:900;letter-spacing:-.03em;line-height:1.08;margin-bottom:1rem}
+.product-hero .lead{font-size:1.1rem;color:var(--text-2);max-width:640px;line-height:1.65;margin-bottom:2rem}
+.product-badges{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.75rem}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:.35rem .85rem;border-radius:100px;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.badge-available{background:rgba(34,197,94,.12);color:#16a34a}
+.dark .badge-available{background:rgba(34,197,94,.15);color:#4ade80}
+.badge-soon{background:rgba(234,179,8,.12);color:#ca8a04}
+.dark .badge-soon{background:rgba(234,179,8,.15);color:#facc15}
+.badge-beta{background:var(--accent-glow);color:var(--accent)}
+.badge-featured{background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff}
+.product-actions{display:flex;gap:.75rem;flex-wrap:wrap}
+.product-actions .btn-lg{flex:0 1 auto}
+
+.banner-wrap{margin-top:2rem;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);position:relative;z-index:1}
+.banner-wrap img{width:100%;height:auto;display:block}
+
+.info-section{padding:4rem 0}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:2rem}
+.info-card{padding:1.75rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);transition:.3s var(--ease)}
+.info-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--accent)}
+.info-card .ic-icon{width:44px;height:44px;border-radius:11px;background:var(--accent-glow);display:grid;place-items:center;color:var(--accent);margin-bottom:1rem}
+.info-card .ic-icon svg{width:22px;height:22px}
+.info-card h3{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.4rem}
+.info-card p{font-size:.88rem;color:var(--text-2);line-height:1.6}
+
+.embed-section{padding:2rem 0 4rem}
+.embed-section h2{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-bottom:1rem}
+.embed-frame{border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);background:var(--surface);min-height:480px;box-shadow:var(--shadow-lg)}
+.embed-frame iframe{width:100%;height:600px;border:0;display:block}
+
+.related-section{background:var(--bg-2);padding:4rem 0}
+.related-section h2{font-size:1.6rem;font-weight:800;letter-spacing:-.02em;margin-bottom:2rem;text-align:center}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem}
+.rel-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;transition:.3s var(--ease);display:flex;gap:1rem;align-items:flex-start}
+.rel-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--accent)}
+.rel-card .rc-icon{width:52px;height:52px;border-radius:12px;background:var(--bg-2);display:grid;place-items:center;overflow:hidden;flex-shrink:0}
+.rel-card .rc-icon img{width:100%;height:100%;object-fit:cover}
+.rel-card .rc-icon .fallback{font-size:1.4rem;font-weight:800;color:var(--accent)}
+.rel-card h3{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.25rem}
+.rel-card p{font-size:.82rem;color:var(--text-3);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+.site-footer{position:relative;background:var(--navy);color:#fff;overflow:hidden;padding:3rem 0 2rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:1rem}
+.footer-brand img{width:42px;height:42px;border-radius:10px}
+.footer-brand .fb-text{font-weight:800;font-size:1.2rem;letter-spacing:-.02em}
+.footer-brand .fb-text small{display:block;font-size:.62rem;font-weight:500;letter-spacing:.18em;color:rgba(150,180,220,.6);text-transform:uppercase;margin-top:2px}
+.footer-desc{font-size:.88rem;color:rgba(180,200,225,.65);line-height:1.7;max-width:340px;margin-bottom:1.25rem}
+.footer-col h4{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(150,180,220,.55);margin-bottom:1.25rem}
+.footer-col ul{display:flex;flex-direction:column;gap:.7rem;list-style:none}
+.footer-col a{font-size:.88rem;color:rgba(190,210,235,.7);transition:color .2s var(--ease)}
+.footer-col a:hover{color:#fff}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding:1.5rem 0 0;font-size:.82rem;color:rgba(150,180,220,.55)}
+.footer-bottom a{color:rgba(180,200,225,.65)}
+.footer-bottom a:hover{color:#fff}
+.footer-bottom .fb-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+
+@media(max-width:860px){
+  .nav-links{display:none}
+  .product-hero-inner{grid-template-columns:1fr;text-align:center;gap:2rem}
+  .product-icon-large{margin:0 auto}
+  .product-actions{justify-content:center}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
+}
+@media(max-width:640px){
+  section,.info-section,.related-section{padding:3rem 0}
+  .footer-grid{grid-template-columns:1fr}
+  .embed-frame iframe{height:400px}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="/" class="brand">
+      <img src="https://i.postimg.cc/k5MLzQ4r/file-00000000f1388211a43bfe8ca49302e4.jpg" alt="ZISHU TRON" />
+      <span>ZISHU TRON<small>Technology</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/#products">Products</a>
+      <a href="/#about">About</a>
+      <a href="/#updates">Updates</a>
+      <a href="/#contact">Contact</a>
+      <a href="/developer.html">Developer</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="product-hero">
+    <div class="container product-hero-inner">
+      <div>
+        <div class="product-cat">{{CATEGORY}}</div>
+        <h1>{{TITLE}}</h1>
+        <p class="lead">{{DESCRIPTION}}</p>
+        <div class="product-badges">
+          <span class="badge {{STATUS_CLASS}}">{{STATUS}}</span>
+          {{#FEATURED}}<span class="badge badge-featured">Featured</span>{{/FEATURED}}
+        </div>
+        <div class="product-actions">
+          {{#URL}}<a href="{{URL}}" class="btn btn-primary btn-lg"{{#EXTERNAL}} target="_blank" rel="noopener"{{/EXTERNAL}}>Open Product
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>{{/URL}}
+          <a href="/#products" class="btn btn-ghost btn-lg">All Products</a>
+        </div>
+      </div>
+      <div class="product-icon-large">
+        {{#ICON}}<img src="{{ICON}}" alt="{{TITLE}} icon" />{{/ICON}}
+        {{^ICON}}<span class="fallback">{{INITIAL}}</span>{{/ICON}}
+      </div>
+    </div>
+  </section>
+
+  {{#BANNER}}
+  <div class="container banner-wrap">
+    <img src="{{BANNER}}" alt="{{TITLE}} banner" />
+  </div>
+  {{/BANNER}}
+
+  <section class="info-section">
+    <div class="container">
+      <div class="product-cat">About this product</div>
+      <h2 style="font-size:1.75rem;font-weight:800;letter-spacing:-.02em;margin-bottom:1rem;">What is {{TITLE}}?</h2>
+      <p style="font-size:1.05rem;color:var(--text-2);line-height:1.75;max-width:780px;">{{LONG_DESCRIPTION}}</p>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+          <h3>Category</h3>
+          <p>{{CATEGORY}}</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <h3>Status</h3>
+          <p>{{STATUS}}</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div>
+          <h3>Available At</h3>
+          <p><a href="{{URL}}" style="color:var(--accent);word-break:break-all;">{{URL}}</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{#HAS_EMBED}}
+  <section class="embed-section">
+    <div class="container">
+      <h2>Try {{TITLE}} Live</h2>
+      <div class="embed-frame">
+        <iframe src="{{EMBED_URL}}" loading="lazy" title="{{TITLE}} embedded preview" allow="clipboard-write; encrypted-media; fullscreen"></iframe>
+      </div>
+    </div>
+  </section>
+  {{/HAS_EMBED}}
+
+  {{#RELATED_HTML}}
+  <section class="related-section">
+    <div class="container">
+      <h2>More from ZISHU TRON</h2>
+      <div class="related-grid">{{RELATED_HTML}}</div>
+    </div>
+  </section>
+  {{/RELATED_HTML}}
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="https://i.postimg.cc/k5MLzQ4r/file-00000000f1388211a43bfe8ca49302e4.jpg" alt="ZISHU TRON" />
+          <div class="fb-text">ZISHU TRON<small>Technology</small></div>
+        </div>
+        <p class="footer-desc">Building intelligent technology for a better future. Software, applications, digital tools and AI-powered products.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#updates">Updates</a></li>
+          <li><a href="/developer.html">Developer</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="mailto:support.stardustofficial@gmail.com">Contact</a></li>
+          <li><a href="https://github.com/zishutron" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/zishutron" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://x.com/zishanstardust" target="_blank" rel="noopener">X</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> ZISHU TRON. All rights reserved.</span>
+      <div class="fb-links">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var saved = localStorage.getItem("zt-theme");
+  if(saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) root.classList.add("dark");
+  var toggle = document.getElementById("themeToggle");
+  if(toggle){
+    toggle.addEventListener("click", function(){
+      root.classList.toggle("dark");
+      localStorage.setItem("zt-theme", root.classList.contains("dark") ? "dark" : "light");
+    });
+  }
+  var y = document.getElementById("year");
+  if(y) y.textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
