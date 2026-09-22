@@ -13,7 +13,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://i.postimg.cc/J03qRF6g/file-00000000672081f8b21d29d30298e881.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://zishutron.github.io/" />
+  <link rel="canonical" href="https://zishutron.zishuai.cloud/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
@@ -118,7 +118,7 @@
     .dark .mobile-nav a:hover{background:var(--surface-2)}
     .mobile-nav .mn-actions{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:.75rem}
 
-    /* HERO - VIDEO VISIBILITY FIXED */
+    /* HERO */
     .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:120px 0 80px;overflow:hidden;background:var(--navy)}
     .hero-bg{position:absolute;inset:0;z-index:0}
     .hero-bg video,.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:1;filter:none;image-rendering:auto}
@@ -259,7 +259,7 @@
     .cta-contact:hover{color:#fff}
     .cta-contact svg{width:18px;height:18px;opacity:.7}
 
-    /* FOOTER - VIDEO VISIBILITY FIXED */
+    /* FOOTER */
     .site-footer{position:relative;background:var(--navy);color:#fff;overflow:hidden;padding-top:5rem}
     .footer-bg{position:absolute;inset:0;z-index:0;opacity:.4}
     .footer-bg video,.footer-bg img{width:100%;height:100%;object-fit:cover;opacity:1;filter:none}
@@ -407,7 +407,10 @@
           <h2 class="section-title">Powerful Solutions<br />for Everyone</h2>
           <p class="section-lead">We build modern, user-focused applications and digital tools designed to make technology simpler, smarter and more useful.</p>
         </div>
-        <div class="products-grid" id="productsGrid"></div>
+        <div class="products-grid" id="productsGrid">
+          <!-- PRODUCTS_START -->
+          <!-- PRODUCTS_END -->
+        </div>
       </div>
     </section>
 
@@ -498,7 +501,10 @@
           <h2 class="section-title">One Connected<br />Product Ecosystem</h2>
           <p class="section-lead">ZISHU TRON products share a common vision, a common account and a common design language.</p>
         </div>
-        <div class="eco-grid" id="ecoGrid"></div>
+        <div class="eco-grid" id="ecoGrid">
+          <!-- ECO_START -->
+          <!-- ECO_END -->
+        </div>
       </div>
     </section>
 
@@ -518,7 +524,10 @@
           <h2 class="section-title">Latest Updates<br />&amp; News</h2>
           <p class="section-lead">Announcements, product news and insights from the ZISHU TRON team.</p>
         </div>
-        <div class="updates-grid" id="updatesGrid"></div>
+        <div class="updates-grid" id="updatesGrid">
+          <!-- UPDATES_START -->
+          <!-- UPDATES_END -->
+        </div>
       </div>
     </section>
 
@@ -719,7 +728,10 @@
       }
       var html = "";
       list.forEach(function(p){
-        var url = sanitizeUrl(p.url || "#");
+        // Prefer SSR-style link to /products/<slug>/ if we have slug, else use p.url
+        var slug = p.slug || (p.title||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+        var url = slug ? ("/products/" + encodeURIComponent(slug) + "/") : sanitizeUrl(p.url || "#");
+        var isExternal = !slug && (p.url && p.url.indexOf("http") === 0);
         var iconHtml = p.icon
           ? '<img src="'+esc(p.icon)+'" alt="" loading="lazy" onerror="this.style.display=\'none\';this.parentNode.innerHTML=\'<span class=&quot;pc-initial&quot;>'+esc(productInitial(p.title))+'</span>\';" />'
           : '<span class="pc-initial">'+esc(productInitial(p.title))+'</span>';
@@ -730,7 +742,7 @@
           + '<div class="pc-cat">'+esc(p.category||"Product")+'</div>'
           + '<h3 class="pc-title">'+esc(p.title||"Untitled")+'</h3>'
           + '<p class="pc-desc">'+esc(p.description||"")+'</p>'
-          + '<div class="pc-foot"><a href="'+esc(url)+'"'+(url.indexOf("http")===0?' target="_blank" rel="noopener"':'')+' class="pc-link">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>'
+          + '<div class="pc-foot"><a href="'+esc(url)+'"'+(isExternal?' target="_blank" rel="noopener"':'')+' class="pc-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>'
           + '</article>';
       });
       grid.innerHTML = html;
@@ -745,11 +757,13 @@
       if(list.length === 0){ grid.innerHTML = ""; return; }
       var html = "";
       list.slice(0, 8).forEach(function(p){
-        var url = sanitizeUrl(p.url || "#");
+        var slug = p.slug || (p.title||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+        var url = slug ? ("/products/" + encodeURIComponent(slug) + "/") : sanitizeUrl(p.url || "#");
+        var isExternal = !slug && (p.url && p.url.indexOf("http") === 0);
         var iconHtml = p.icon
           ? '<img src="'+esc(p.icon)+'" alt="" loading="lazy" onerror="this.style.display=\'none\';this.parentNode.innerHTML=\'<span style=&quot;font-weight:800;color:var(--accent);&quot;>'+esc(productInitial(p.title))+'</span>\';" />'
           : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>';
-        html += '<a href="'+esc(url)+'"'+(url.indexOf("http")===0?' target="_blank" rel="noopener"':'')+' class="eco-card reveal">'
+        html += '<a href="'+esc(url)+'"'+(isExternal?' target="_blank" rel="noopener"':'')+' class="eco-card reveal">'
           + '<div class="ec-icon">'+iconHtml+'</div>'
           + '<div><h4>'+esc(p.title||"Untitled")+'</h4><p>'+esc((p.description||"").slice(0,80))+'</p></div>'
           + '</a>';
@@ -774,7 +788,10 @@
       }
       var html = "";
       list.slice(0,6).forEach(function(u){
-        var url = u.url ? sanitizeUrl(u.url) : "";
+        // Prefer SSR-style link to /updates/<slug>/
+        var slug = u.slug || (u.title||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+        var url = slug ? ("/updates/" + encodeURIComponent(slug) + "/") : (u.url ? sanitizeUrl(u.url) : "");
+        var isExternal = !slug && (u.url && u.url.indexOf("http") === 0);
         var dateStr = u.createdAt ? new Date(u.createdAt).toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"}) : "";
         var imgHtml = u.image
           ? '<img src="'+esc(u.image)+'" alt="" loading="lazy" onerror="this.parentNode.style.display=\'none\';" />'
@@ -786,7 +803,7 @@
           + '<p class="uc-desc">'+esc(u.description||"")+'</p>'
           + (dateStr ? '<div class="uc-date">'+esc(dateStr)+'</div>' : '')
           + '</div>';
-        if(url){ html += '<a href="'+esc(url)+'"'+(url.indexOf("http")===0?' target="_blank" rel="noopener"':'')+' class="update-card reveal">'+inner+'</a>'; }
+        if(url){ html += '<a href="'+esc(url)+'"'+(isExternal?' target="_blank" rel="noopener"':'')+' class="update-card reveal">'+inner+'</a>'; }
         else { html += '<article class="update-card reveal">'+inner+'</article>'; }
       });
       grid.innerHTML = html;
@@ -794,27 +811,27 @@
     }
 
     function loadProducts(){
-  if(!db){ renderProducts({}); renderEcosystem({}); return; }
-  db.ref("products")
-    .orderByChild("published")
-    .equalTo(true)
-    .on("value", function(snap){
-      var val = snap.val() || {};
-      renderProducts(val); renderEcosystem(val);
-      $("#statProducts").textContent = Object.keys(val).length;
-    }, function(){ renderProducts({}); renderEcosystem({}); });
-}
+      if(!db){ renderProducts({}); renderEcosystem({}); return; }
+      db.ref("products")
+        .orderByChild("published")
+        .equalTo(true)
+        .on("value", function(snap){
+          var val = snap.val() || {};
+          renderProducts(val); renderEcosystem(val);
+          $("#statProducts").textContent = Object.keys(val).length;
+        }, function(){ renderProducts({}); renderEcosystem({}); });
+    }
     function loadUpdates(){
-  if(!db){ renderUpdates({}); return; }
-  db.ref("updates")
-    .orderByChild("published")
-    .equalTo(true)
-    .on("value", function(snap){
-      var val = snap.val() || {};
-      renderUpdates(val);
-      $("#statUpdates").textContent = Object.keys(val).length;
-    }, function(){ renderUpdates({}); });
-}
+      if(!db){ renderUpdates({}); return; }
+      db.ref("updates")
+        .orderByChild("published")
+        .equalTo(true)
+        .on("value", function(snap){
+          var val = snap.val() || {};
+          renderUpdates(val);
+          $("#statUpdates").textContent = Object.keys(val).length;
+        }, function(){ renderUpdates({}); });
+    }
     function showAccount(user, profile){
       $("#loginBtn").style.display = "none";
       $("#mobileLoginBtn").style.display = "none";
