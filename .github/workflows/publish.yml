@@ -1,0 +1,68 @@
+name: Build & Publish Site
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Har 10 minute me check karega naye products/updates ke liye
+    - cron: '*/10 * * * *'
+  push:
+    branches: [ main ]
+    paths:
+      - 'scripts/**'
+      - 'product.html'
+      - 'update.html'
+      - 'index.html'
+      - '.github/workflows/publish.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate static pages
+        env:
+          FIREBASE_DB_URL: ${{ secrets.FIREBASE_DB_URL }}
+          SITE_BASE_URL: ${{ secrets.SITE_BASE_URL }}
+        run: node scripts/build-site.mjs
+
+      - name: Commit generated files
+        run: |
+          git config user.name "zishu-bot"
+          git config user.email "bot@zishutron.invalid"
+          git add products updates sitemap.xml rss.xml index.html
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: rebuild static pages [skip ci]"
+            git push
+          else
+            echo "No changes to commit."
+          fi
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
