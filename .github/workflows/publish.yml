@@ -1,24 +1,26 @@
 name: Build & Publish Site
 
 on:
+  # Manual trigger (Actions tab se "Run workflow" button)
   workflow_dispatch:
+
+  # Scheduled trigger — har 10 minute me chalega
+  # Firebase me naye products/updates aane pe automatic rebuild
   schedule:
-    # Har 10 minute me check karega naye products/updates ke liye
     - cron: '*/10 * * * *'
+
+  # Push trigger — koi bhi file change karo to automatic chalega
   push:
     branches: [ main ]
-    paths:
-      - 'scripts/**'
-      - 'product.html'
-      - 'update.html'
-      - 'index.html'
-      - '.github/workflows/publish.yml'
+    # NOTE: No `paths` filter — every push triggers the build
 
+# Permissions needed for the workflow
 permissions:
-  contents: write
-  pages: write
-  id-token: write
+  contents: write       # To commit generated files
+  pages: write          # To deploy to GitHub Pages
+  id-token: write       # For OIDC deployment
 
+# Prevent parallel runs — queue them
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -26,24 +28,43 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
+      # ─────────────────────────────────────────────
+      # 1. Checkout repository
+      # ─────────────────────────────────────────────
       - name: Checkout
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
+      # ─────────────────────────────────────────────
+      # 2. Setup Node.js
+      # ─────────────────────────────────────────────
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
+      # ─────────────────────────────────────────────
+      # 3. Generate static pages from Firebase
+      #    - Fetches products and updates
+      #    - Generates /products/<slug>/ and /updates/<slug>/
+      #    - Injects SSR into index.html
+      #    - Regenerates sitemap.xml and rss.xml
+      # ─────────────────────────────────────────────
       - name: Generate static pages
         env:
           FIREBASE_DB_URL: ${{ secrets.FIREBASE_DB_URL }}
           SITE_BASE_URL: ${{ secrets.SITE_BASE_URL }}
         run: node scripts/build-site.mjs
 
+      # ─────────────────────────────────────────────
+      # 4. Commit and push generated files
+      #    - Only commits if there are actual changes
+      #    - Uses [skip ci] to avoid infinite loop
+      # ─────────────────────────────────────────────
       - name: Commit generated files
         run: |
           git config user.name "zishu-bot"
@@ -56,6 +77,9 @@ jobs:
             echo "No changes to commit."
           fi
 
+      # ─────────────────────────────────────────────
+      # 5. Deploy to GitHub Pages
+      # ─────────────────────────────────────────────
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
