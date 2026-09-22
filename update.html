@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+<title>{{TITLE}} — ZISHU TRON Updates</title>
+<meta name="description" content="{{DESCRIPTION}}" />
+<link rel="icon" href="https://i.postimg.cc/k5MLzQ4r/file-00000000f1388211a43bfe8ca49302e4.jpg" type="image/jpeg" />
+<meta name="theme-color" content="#050d1a" />
+<meta property="og:title" content="{{TITLE}} — ZISHU TRON" />
+<meta property="og:description" content="{{DESCRIPTION}}" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="{{CANONICAL_URL}}" />
+{{#IMAGE}}<meta property="og:image" content="{{IMAGE}}" />{{/IMAGE}}
+<meta name="twitter:card" content="{{#IMAGE}}summary_large_image{{/IMAGE}}{{^IMAGE}}summary{{/IMAGE}}" />
+<link rel="canonical" href="{{CANONICAL_URL}}" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+
+<script type="application/ld+json">{{JSONLD}}</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#f6f8fc;--bg-2:#eef2f9;--surface:#fff;
+  --text:#050d1a;--text-2:#2a3f5a;--text-3:#5f7590;
+  --border:rgba(5,13,26,.08);
+  --accent:#2563eb;--accent-2:#1d4ed8;--accent-glow:rgba(37,99,235,.12);
+  --navy:#050d1a;--radius:14px;--radius-lg:22px;
+  --shadow:0 4px 24px rgba(5,13,26,.06);--shadow-lg:0 20px 60px rgba(5,13,26,.12);
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+.dark{
+  --bg:#050d1a;--bg-2:#081426;--surface:#0a1628;
+  --text:#f0f4fa;--text-2:#a8bcd4;--text-3:#6a809c;
+  --border:rgba(255,255,255,.07);
+  --accent:#3b82f6;--accent-2:#60a5fa;--accent-glow:rgba(59,130,246,.15);
+  --shadow:0 4px 24px rgba(0,0,0,.35);--shadow-lg:0 20px 60px rgba(0,0,0,.5);
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;transition:background .4s var(--ease),color .4s var(--ease)}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.container{max-width:1140px;margin:0 auto;padding:0 2rem}
+@media(max-width:640px){.container{padding:0 1.25rem}}
+
+.site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.78);backdrop-filter:blur(18px) saturate(180%);border-bottom:1px solid var(--border)}
+.dark .site-header{background:rgba(5,13,26,.78)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.1rem;letter-spacing:-.02em}
+.brand img{width:34px;height:34px;border-radius:8px}
+.brand small{display:block;font-size:.6rem;font-weight:500;letter-spacing:.18em;color:var(--text-3);text-transform:uppercase}
+.nav-links{display:flex;gap:1.75rem;align-items:center}
+.nav-links a{font-size:.9rem;font-weight:500;color:var(--text-2);transition:color .2s var(--ease)}
+.nav-links a:hover{color:var(--accent)}
+.nav-actions{display:flex;align-items:center;gap:.6rem}
+.icon-btn{width:38px;height:38px;display:grid;place-items:center;border-radius:10px;color:var(--text-2);transition:.2s}
+.icon-btn:hover{background:var(--bg-2);color:var(--text)}
+.dark .icon-btn:hover{background:var(--surface)}
+.icon-btn svg{width:20px;height:20px}
+
+.update-wrap{max-width:820px;margin:0 auto;padding:3rem 2rem 5rem}
+.breadcrumbs{font-size:.82rem;color:var(--text-3);margin-bottom:1.5rem}
+.breadcrumbs a{color:var(--text-3)}
+.breadcrumbs a:hover{color:var(--accent)}
+.breadcrumbs .sep{margin:0 .5rem;opacity:.5}
+.update-cat{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.update-wrap h1{font-size:clamp(1.85rem,4.5vw,2.75rem);font-weight:900;letter-spacing:-.03em;line-height:1.15;margin-bottom:1rem;color:var(--text)}
+.update-meta{display:flex;flex-wrap:wrap;gap:1rem;font-size:.85rem;color:var(--text-3);padding-bottom:1.5rem;border-bottom:1px solid var(--border);margin-bottom:2rem}
+.update-cover{margin:0 0 2rem;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg)}
+.update-cover img{width:100%;height:auto;display:block}
+.update-lead{font-size:1.15rem;color:var(--text-2);line-height:1.65;margin-bottom:2rem}
+.update-body{font-size:1.05rem;color:var(--text-2);line-height:1.8}
+.update-body p{margin-bottom:1.25rem}
+.update-body h2{font-size:1.4rem;font-weight:800;color:var(--text);letter-spacing:-.02em;margin:2rem 0 1rem}
+.update-body h3{font-size:1.15rem;font-weight:700;color:var(--text);margin:1.5rem 0 .75rem}
+.update-body ul,.update-body ol{margin:1rem 0 1.25rem 1.5rem}
+.update-body li{margin-bottom:.5rem}
+.update-body a{color:var(--accent);text-decoration:underline}
+.update-body img{border-radius:12px;margin:1.25rem 0}
+.update-body blockquote{border-left:3px solid var(--accent);padding:.75rem 1.25rem;background:var(--accent-glow);margin:1.5rem 0;border-radius:0 8px 8px 0;font-style:italic}
+.update-body code{background:var(--bg-2);padding:.15rem .4rem;border-radius:5px;font-family:ui-monospace,Menlo,monospace;font-size:.9em}
+.dark .update-body code{background:var(--surface)}
+
+.update-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:.75rem 1.5rem;border-radius:10px;font-weight:600;font-size:.9rem;transition:all .22s var(--ease)}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 4px 16px rgba(37,99,235,.28)}
+.btn-primary:hover{background:var(--accent-2);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--text);border:1.5px solid var(--border)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+.related-section{background:var(--bg-2);padding:4rem 0;margin-top:4rem}
+.related-section h2{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-bottom:2rem;text-align:center}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem;max-width:1140px;margin:0 auto;padding:0 2rem}
+.rel-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;transition:.3s var(--ease)}
+.rel-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--accent)}
+.rel-card h3{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.5rem}
+.rel-card p{font-size:.85rem;color:var(--text-3);line-height:1.55}
+.rel-card .m{font-size:.75rem;color:var(--text-3);margin-top:.75rem}
+
+.site-footer{position:relative;background:var(--navy);color:#fff;overflow:hidden;padding:3rem 0 2rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.08);max-width:1140px;margin:0 auto;padding-left:2rem;padding-right:2rem}
+.footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:1rem}
+.footer-brand img{width:42px;height:42px;border-radius:10px}
+.footer-brand .fb-text{font-weight:800;font-size:1.2rem;letter-spacing:-.02em}
+.footer-brand .fb-text small{display:block;font-size:.62rem;font-weight:500;letter-spacing:.18em;color:rgba(150,180,220,.6);text-transform:uppercase;margin-top:2px}
+.footer-desc{font-size:.88rem;color:rgba(180,200,225,.65);line-height:1.7;max-width:340px}
+.footer-col h4{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(150,180,220,.55);margin-bottom:1.25rem}
+.footer-col ul{display:flex;flex-direction:column;gap:.7rem;list-style:none}
+.footer-col a{font-size:.88rem;color:rgba(190,210,235,.7);transition:color .2s var(--ease)}
+.footer-col a:hover{color:#fff}
+.footer-bottom{max-width:1140px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding:1.5rem 2rem 0;font-size:.82rem;color:rgba(150,180,220,.55)}
+.footer-bottom a{color:rgba(180,200,225,.65)}
+.footer-bottom a:hover{color:#fff}
+.footer-bottom .fb-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+
+@media(max-width:860px){
+  .nav-links{display:none}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .update-wrap{padding:2rem 1.25rem 3rem}
+  .related-grid{padding:0 1.25rem}
+  .footer-grid,.footer-bottom{padding-left:1.25rem;padding-right:1.25rem}
+  .footer-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="/" class="brand">
+      <img src="https://i.postimg.cc/k5MLzQ4r/file-00000000f1388211a43bfe8ca49302e4.jpg" alt="ZISHU TRON" />
+      <span>ZISHU TRON<small>Technology</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/#products">Products</a>
+      <a href="/#about">About</a>
+      <a href="/#updates">Updates</a>
+      <a href="/#contact">Contact</a>
+      <a href="/developer.html">Developer</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <article class="update-wrap">
+    <nav class="breadcrumbs">
+      <a href="/">Home</a><span class="sep">/</span>
+      <a href="/#updates">Updates</a><span class="sep">/</span>
+      <span>{{TITLE}}</span>
+    </nav>
+
+    {{#CATEGORY}}<div class="update-cat">{{CATEGORY}}</div>{{/CATEGORY}}
+    <h1>{{TITLE}}</h1>
+    <div class="update-meta">
+      <span>Published on {{PUBLISHED_HUMAN}}</span>
+      {{#UPDATED_HUMAN}}<span>Updated {{UPDATED_HUMAN}}</span>{{/UPDATED_HUMAN}}
+    </div>
+
+    {{#IMAGE}}
+    <div class="update-cover">
+      <img src="{{IMAGE}}" alt="{{TITLE}}" />
+    </div>
+    {{/IMAGE}}
+
+    <p class="update-lead">{{DESCRIPTION}}</p>
+
+    <div class="update-body">
+      {{CONTENT_HTML}}
+    </div>
+
+    {{#URL}}
+    <div class="update-actions">
+      <a href="{{URL}}" class="btn btn-primary"{{#EXTERNAL}} target="_blank" rel="noopener"{{/EXTERNAL}}>Open Link
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/#updates" class="btn btn-ghost">All Updates</a>
+    </div>
+    {{/URL}}
+  </article>
+
+  {{#RELATED_HTML}}
+  <section class="related-section">
+    <h2>More Updates</h2>
+    <div class="related-grid">{{RELATED_HTML}}</div>
+  </section>
+  {{/RELATED_HTML}}
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">
+        <img src="https://i.postimg.cc/k5MLzQ4r/file-00000000f1388211a43bfe8ca49302e4.jpg" alt="ZISHU TRON" />
+        <div class="fb-text">ZISHU TRON<small>Technology</small></div>
+      </div>
+      <p class="footer-desc">Building intelligent technology for a better future.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#updates">Updates</a></li>
+        <li><a href="/developer.html">Developer</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="mailto:support.stardustofficial@gmail.com">Contact</a></li>
+        <li><a href="https://github.com/zishutron" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/zishutron" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; <span id="year"></span> ZISHU TRON. All rights reserved.</span>
+    <div class="fb-links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var saved = localStorage.getItem("zt-theme");
+  if(saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) root.classList.add("dark");
+  var toggle = document.getElementById("themeToggle");
+  if(toggle){
+    toggle.addEventListener("click", function(){
+      root.classList.toggle("dark");
+      localStorage.setItem("zt-theme", root.classList.contains("dark") ? "dark" : "light");
+    });
+  }
+  var y = document.getElementById("year");
+  if(y) y.textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
