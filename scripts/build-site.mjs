@@ -7,7 +7,7 @@
  *   - /updates/<slug>/index.html   (one per published update)
  *   - /sitemap.xml                 (all public URLs)
  *   - /rss.xml                     (recent updates)
- *   - SSR injection into index.html (products + updates sections)
+ *   - SSR injection into index.html (products + updates sections + hero stats)
  */
 
 import { readFile, writeFile, mkdir, rm } from 'node:fs/promises';
@@ -228,10 +228,28 @@ async function renderUpdate(update, template, allUpdates){
   };
   if(image) jsonLd.image = [image];
 
-  // Content: use description as-is (already text), or fall back to title
-  const contentHtml = update.content
-    ? String(update.content)
-    : `<p>${escapeHtml(update.description || '')}</p>`;
+  // Better content: use content if available, otherwise build rich body from description
+  let contentHtml;
+  if(update.content){
+    contentHtml = String(update.content);
+  } else {
+    const desc = escapeHtml(update.description || '');
+    const sentences = (update.description || '').split(/(?<=[.!?])\s+/).filter(s => s.trim().length > 10);
+    if(sentences.length > 1){
+      contentHtml = `<p>${escapeHtml(sentences[0])}</p>`;
+      const rest = sentences.slice(1).join(' ');
+      if(rest){
+        contentHtml += `<h2>Details</h2><p>${escapeHtml(rest)}</p>`;
+      }
+    } else {
+      contentHtml = `<p>${desc}</p>`;
+    }
+    contentHtml += `<h2>About this update</h2>`;
+    contentHtml += `<p>This update was published by ZISHU TRON${update.category ? ` under the <strong>${escapeHtml(update.category)}</strong> category` : ''}.</p>`;
+    if(update.url){
+      contentHtml += `<p>Learn more at: <a href="${escapeHtml(sanitizeUrl(update.url))}">${escapeHtml(update.url)}</a></p>`;
+    }
+  }
 
   const data = {
     TITLE: escapeHtml(update.title || 'Untitled'),
@@ -469,6 +487,17 @@ async function main(){
   } else {
     console.warn('[build] WARNING: ECO_START marker not found in index.html');
   }
+
+  // Hero stats SSR injection
+  homeHtml = homeHtml.replace(
+    /<!-- STAT_PRODUCTS_START -->[\s\S]*?<!-- STAT_PRODUCTS_END -->/,
+    `<!-- STAT_PRODUCTS_START -->${renderedProducts.length}<!-- STAT_PRODUCTS_END -->`
+  );
+  homeHtml = homeHtml.replace(
+    /<!-- STAT_UPDATES_START -->[\s\S]*?<!-- STAT_UPDATES_END -->/,
+    `<!-- STAT_UPDATES_START -->${renderedUpdates.length}<!-- STAT_UPDATES_END -->`
+  );
+  console.log(`[build] Injected hero stats: ${renderedProducts.length} products, ${renderedUpdates.length} updates`);
 
   await writeFile(INDEX_HTML, homeHtml, 'utf8');
 
