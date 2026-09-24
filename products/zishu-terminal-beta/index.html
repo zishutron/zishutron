@@ -5,24 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
 <title>Zishu Terminal (Beta) — ZISHU TRON</title>
 <meta name="description" content="Zishu Terminal — Beta (v5.0.0-beta.1)
-An advanced Android terminal and lightweight developer environment.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-ABOUT
-
-Zishu Terminal is a mobile-first terminal emul" />
+An advanced Android terminal and lightweight developer environment." />
 <link rel="icon" href="https://i.postimg.cc/k5MLzQ4r/file-00000000f1388211a43bfe8ca49302e4.jpg" type="image/jpeg" />
 <meta name="theme-color" content="#050d1a" />
 <meta property="og:title" content="Zishu Terminal (Beta) — ZISHU TRON" />
 <meta property="og:description" content="Zishu Terminal — Beta (v5.0.0-beta.1)
-An advanced Android terminal and lightweight developer environment.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-ABOUT
-
-Zishu Terminal is a mobile-first terminal emul" />
+An advanced Android terminal and lightweight developer environment." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://zishutron.zishuai.cloud/products/zishu-terminal-beta/" />
 <meta property="og:image" content="https://i.ibb.co/0pCm6zpM/493798d0aa25.png" />
@@ -33,7 +21,7 @@ Zishu Terminal is a mobile-first terminal emul" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Zishu Terminal (Beta)","description":"Zishu Terminal — Beta (v5.0.0-beta.1)\nAn advanced Android terminal and lightweight developer environment.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nABOUT\n\nZishu Terminal is a mobile-first terminal emulator and lightweight\ndeveloper environment for Android. It gives you a real shell on your\nphone, wrapped in a clean terminal UI designed for touchscreens.\n\nThis is an early-access beta release. Everything listed under \"What\nworks\" is functional and uses real Android APIs — nothing is faked.\nEverything under \"Not included\" is an honest limitation of this build.\n\nZishu Terminal is NOT a full Linux distribution, and NOT a Termux\nclone. It is a focused mobile terminal that works within Android's\nsecurity model — no root, no sandbox bypass, no hidden behavior.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nWHAT WORKS\n\n► Real terminal\n  • Real /system/bin/sh shell — not simulated\n  • ANSI color and formatting support (16 and 256 color)\n  • Persistent shell sessions\n  • Multiple independent sessions with switching\n  • Command history with up/down navigation\n  • Autocomplete for commands and file paths\n  • Large output handled safely (bounded buffer)\n  • Long-running commands and cancellation\n\n► Mobile-first terminal UI\n  • Quick-access keyboard bar (ESC, TAB, CTRL, ALT, arrows, symbols)\n  • Monospace font with adjustable size\n  • Themed blinking cursor (follows theme)\n  • Three themes: Dark, Light, Soft Green\n  • Full-screen terminal layout\n  • Landscape support\n  • Smart back button (hides keyboard first)\n\n► File manager\n  • Browse directories\n  • Create, rename, delete\n  • Copy, move, paste\n  • Show file size and modified date\n  • Open files in editor\n  • Hidden file support\n\n► Text editor\n  • Open, edit, save files\n  • Save As\n  • Search within file\n  • Line numbers\n  • Supports .txt, .sh, .json, .xml, .html, .css, .js, .java, .md\n  • Safe handling of large files\n\n► Projects\n  • Create project scaffolds\n  • Build detection (Makefile, package.json, setup.py, build.sh)\n  • Run commands\n  • Project info and cleanup\n\n► Local development server\n  • Serve any directory over HTTP\n  • Binds to 127.0.0.1 only by default (safe)\n  • Configurable port\n  • Start/stop/status controls\n  • Status UI\n\n► Package manager (zpkg)\n  • Install local .zpkg packages\n  • Remove packages\n  • List installed packages\n  • Search local database\n  • Package details\n  • Repository configuration (HTTPS only)\n  • Dependency resolution\n  • Database health check (zpkg doctor)\n\n► Zishu userspace\n  • $HOME, $PREFIX, $TMPDIR, $PATH\n  • Structured directory layout ($PREFIX/bin, /lib, /etc, /share, /var)\n  • Environment variable management (zenv)\n  • Path management (zpath, zwhich)\n\n► Command system\n  • zhelp, zinfo, zclear, zversion\n  • ztheme, zhistory, zsession, zstorage\n  • zpath, zenv, zwhich, zdoctor\n  • ztools, zjobs, zfind, zbuild\n  • zprofile, zpkg, zproject\n  • zedit, zrun, zserver\n  • zbackup, zrestore, zdiagnostics\n\n► Diagnostics\n  • Real environment checks (zdoctor)\n  • Honest tool detection (ztools)\n  • Reports what exists, never fakes it\n\n► Backup and restore\n  • Backup settings, history, package metadata\n  • Restore from backup\n  • Reset preferences (never deletes user files)\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nNOT INCLUDED IN THIS BETA\n\nThese are honest limitations. They are not hidden, not faked, and\nnot claimed as working:\n\n• Python interpreter\n• Git binary\n• OpenSSH client\n• Node.js / npm\n• C/C++ compilers (clang, gcc)\n• Java compiler (javac)\n• Remote package downloading\n  (architecture ready, planned for a future release)\n• Root access (never offered by design)\n\nWhy? These are large native binaries that cannot be bundled into a\nsmall Android APK without dedicated build infrastructure. They may\nbecome available in future releases through the package system.\n\nIf you type a command that is not installed, Zishu Terminal will\nhonestly tell you:\n  \"python: not found\"\nIt will not fake a response.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nSECURITY AND PRIVACY\n\n► What Zishu Terminal does NOT do:\n  • No root — respects Android's sandbox\n  • No sandbox bypass\n  • No telemetry\n  • No analytics SDKs\n  • No advertising\n  • No hidden network calls\n  • No account requirement\n  • No automatic remote execution\n  • No modification of system partitions\n  • No silent APK installation\n\n► What it does:\n  • Local HTTP server binds only to 127.0.0.1 by default\n  • Package repositories are HTTPS-only\n  • The core terminal works fully offline\n  • Permissions requested: storage (for file manager),\n    wake lock (optional keep-screen-on),\n    internet (loopback only for local server)\n\nZishu Terminal works entirely within Android's security boundaries.\nIt never asks for root, and never tries to get it.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nPERMISSIONS EXPLAINED\n\n• READ_EXTERNAL_STORAGE / WRITE_EXTERNAL_STORAGE\n  Used by the file manager to access user files.\n  WRITE is limited to Android 9 and below.\n\n• WAKE_LOCK\n  Used only when the user enables \"Keep screen awake\"\n  from settings. Off by default.\n\n• INTERNET\n  Used only for the local development server on 127.0.0.1.\n  No outgoing network calls are made unless the user\n  configures a repository or uses a network tool explicitly.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nWHO IS THIS FOR?\n\n• Android developers who want a shell on their phone\n• Power users who need quick terminal access\n• Anyone learning command-line basics on mobile\n• Testers who want a lightweight script runner\n• Developers who need a local dev server on their phone\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nSYSTEM REQUIREMENTS\n\n• Android 5.0 (API 21) or newer\n• ~5 MB free storage\n• No root required\n• Works offline\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nABOUT THIS BETA\n\nThis is v5.0.0-beta.1 — an early-access build. The core terminal\nis stable and tested. The package ecosystem and developer toolchains\nare being developed for future releases.\n\nYour feedback matters. If you find a bug or have a suggestion,\nplease report it with:\n  • Android version\n  • Device model\n  • What you did\n  • What happened vs. what you expected\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nCHANGELOG — v5.0.0-beta.1\n\n• Real ANSI color support in terminal output\n• Extended package manager (zpkg) — local install, repo config,\n  dependency resolution, database health check\n• Userspace: $HOME, $PREFIX, $PATH, $TMPDIR\n• New commands: ztools, zjobs, zfind, zbuild, zprofile,\n  zpath, zenv, zwhich\n• Tools status screen (real, honest tool detection)\n• Local server control UI\n• Jobs tracker\n• Help topics\n• Terminal profiles\n• Improved diagnostics\n• Non-destructive migration from earlier versions\n• Backup / restore of settings and history\n\nKnown limitations in this beta:\n• Remote package downloading not enabled\n• Developer toolchains (Python, Git, etc.) not bundled\n• These are honest gaps, not fake features.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nBUILT BY ZISHU TRON\n\nZishu Terminal is an independent project. It is not affiliated with\nTermux, Google, or any other terminal emulator.\n\nLicensed responsibly. Built for developers, by developers.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nThank you for trying Zishu Terminal.","applicationCategory":"Tools","operatingSystem":"Web","url":"https://zishutron.zishuai.cloud/products/zishu-terminal-beta/","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"ZISHU TRON","url":"https://zishutron.zishuai.cloud"},"datePublished":"2026-09-24T06:48:38.512Z","dateModified":"2026-09-24T06:49:14.156Z","image":"https://i.ibb.co/0pCm6zpM/493798d0aa25.png"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Zishu Terminal (Beta)","description":"Zishu Terminal — Beta (v5.0.0-beta.1)\nAn advanced Android terminal and lightweight developer environment.","applicationCategory":"Tools","operatingSystem":"Web","url":"https://zishutron.zishuai.cloud/products/zishu-terminal-beta/","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"ZISHU TRON","url":"https://zishutron.zishuai.cloud"},"datePublished":"2026-09-24T06:48:38.512Z","dateModified":"2026-09-24T07:06:37.530Z","image":"https://i.ibb.co/0pCm6zpM/493798d0aa25.png"}</script>
 
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -192,13 +180,7 @@ img,video{max-width:100%;display:block}
         <div class="product-cat">Tools</div>
         <h1>Zishu Terminal (Beta)</h1>
         <p class="lead">Zishu Terminal — Beta (v5.0.0-beta.1)
-An advanced Android terminal and lightweight developer environment.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-ABOUT
-
-Zishu Terminal is a mobile-first terminal emul</p>
+An advanced Android terminal and lightweight developer environment.</p>
         <div class="product-badges">
           <span class="badge badge-available">Available</span>
           <span class="badge badge-featured">Featured</span>
@@ -228,251 +210,7 @@ Zishu Terminal is a mobile-first terminal emul</p>
       <div class="product-cat">About this product</div>
       <h2 style="font-size:1.75rem;font-weight:800;letter-spacing:-.02em;margin-bottom:1rem;">What is Zishu Terminal (Beta)?</h2>
       <p style="font-size:1.05rem;color:var(--text-2);line-height:1.75;max-width:780px;">Zishu Terminal — Beta (v5.0.0-beta.1)
-An advanced Android terminal and lightweight developer environment.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-ABOUT
-
-Zishu Terminal is a mobile-first terminal emulator and lightweight
-developer environment for Android. It gives you a real shell on your
-phone, wrapped in a clean terminal UI designed for touchscreens.
-
-This is an early-access beta release. Everything listed under &quot;What
-works&quot; is functional and uses real Android APIs — nothing is faked.
-Everything under &quot;Not included&quot; is an honest limitation of this build.
-
-Zishu Terminal is NOT a full Linux distribution, and NOT a Termux
-clone. It is a focused mobile terminal that works within Android&#39;s
-security model — no root, no sandbox bypass, no hidden behavior.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-WHAT WORKS
-
-► Real terminal
-  • Real /system/bin/sh shell — not simulated
-  • ANSI color and formatting support (16 and 256 color)
-  • Persistent shell sessions
-  • Multiple independent sessions with switching
-  • Command history with up/down navigation
-  • Autocomplete for commands and file paths
-  • Large output handled safely (bounded buffer)
-  • Long-running commands and cancellation
-
-► Mobile-first terminal UI
-  • Quick-access keyboard bar (ESC, TAB, CTRL, ALT, arrows, symbols)
-  • Monospace font with adjustable size
-  • Themed blinking cursor (follows theme)
-  • Three themes: Dark, Light, Soft Green
-  • Full-screen terminal layout
-  • Landscape support
-  • Smart back button (hides keyboard first)
-
-► File manager
-  • Browse directories
-  • Create, rename, delete
-  • Copy, move, paste
-  • Show file size and modified date
-  • Open files in editor
-  • Hidden file support
-
-► Text editor
-  • Open, edit, save files
-  • Save As
-  • Search within file
-  • Line numbers
-  • Supports .txt, .sh, .json, .xml, .html, .css, .js, .java, .md
-  • Safe handling of large files
-
-► Projects
-  • Create project scaffolds
-  • Build detection (Makefile, package.json, setup.py, build.sh)
-  • Run commands
-  • Project info and cleanup
-
-► Local development server
-  • Serve any directory over HTTP
-  • Binds to 127.0.0.1 only by default (safe)
-  • Configurable port
-  • Start/stop/status controls
-  • Status UI
-
-► Package manager (zpkg)
-  • Install local .zpkg packages
-  • Remove packages
-  • List installed packages
-  • Search local database
-  • Package details
-  • Repository configuration (HTTPS only)
-  • Dependency resolution
-  • Database health check (zpkg doctor)
-
-► Zishu userspace
-  • $HOME, $PREFIX, $TMPDIR, $PATH
-  • Structured directory layout ($PREFIX/bin, /lib, /etc, /share, /var)
-  • Environment variable management (zenv)
-  • Path management (zpath, zwhich)
-
-► Command system
-  • zhelp, zinfo, zclear, zversion
-  • ztheme, zhistory, zsession, zstorage
-  • zpath, zenv, zwhich, zdoctor
-  • ztools, zjobs, zfind, zbuild
-  • zprofile, zpkg, zproject
-  • zedit, zrun, zserver
-  • zbackup, zrestore, zdiagnostics
-
-► Diagnostics
-  • Real environment checks (zdoctor)
-  • Honest tool detection (ztools)
-  • Reports what exists, never fakes it
-
-► Backup and restore
-  • Backup settings, history, package metadata
-  • Restore from backup
-  • Reset preferences (never deletes user files)
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-NOT INCLUDED IN THIS BETA
-
-These are honest limitations. They are not hidden, not faked, and
-not claimed as working:
-
-• Python interpreter
-• Git binary
-• OpenSSH client
-• Node.js / npm
-• C/C++ compilers (clang, gcc)
-• Java compiler (javac)
-• Remote package downloading
-  (architecture ready, planned for a future release)
-• Root access (never offered by design)
-
-Why? These are large native binaries that cannot be bundled into a
-small Android APK without dedicated build infrastructure. They may
-become available in future releases through the package system.
-
-If you type a command that is not installed, Zishu Terminal will
-honestly tell you:
-  &quot;python: not found&quot;
-It will not fake a response.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-SECURITY AND PRIVACY
-
-► What Zishu Terminal does NOT do:
-  • No root — respects Android&#39;s sandbox
-  • No sandbox bypass
-  • No telemetry
-  • No analytics SDKs
-  • No advertising
-  • No hidden network calls
-  • No account requirement
-  • No automatic remote execution
-  • No modification of system partitions
-  • No silent APK installation
-
-► What it does:
-  • Local HTTP server binds only to 127.0.0.1 by default
-  • Package repositories are HTTPS-only
-  • The core terminal works fully offline
-  • Permissions requested: storage (for file manager),
-    wake lock (optional keep-screen-on),
-    internet (loopback only for local server)
-
-Zishu Terminal works entirely within Android&#39;s security boundaries.
-It never asks for root, and never tries to get it.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-PERMISSIONS EXPLAINED
-
-• READ_EXTERNAL_STORAGE / WRITE_EXTERNAL_STORAGE
-  Used by the file manager to access user files.
-  WRITE is limited to Android 9 and below.
-
-• WAKE_LOCK
-  Used only when the user enables &quot;Keep screen awake&quot;
-  from settings. Off by default.
-
-• INTERNET
-  Used only for the local development server on 127.0.0.1.
-  No outgoing network calls are made unless the user
-  configures a repository or uses a network tool explicitly.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-WHO IS THIS FOR?
-
-• Android developers who want a shell on their phone
-• Power users who need quick terminal access
-• Anyone learning command-line basics on mobile
-• Testers who want a lightweight script runner
-• Developers who need a local dev server on their phone
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-SYSTEM REQUIREMENTS
-
-• Android 5.0 (API 21) or newer
-• ~5 MB free storage
-• No root required
-• Works offline
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-ABOUT THIS BETA
-
-This is v5.0.0-beta.1 — an early-access build. The core terminal
-is stable and tested. The package ecosystem and developer toolchains
-are being developed for future releases.
-
-Your feedback matters. If you find a bug or have a suggestion,
-please report it with:
-  • Android version
-  • Device model
-  • What you did
-  • What happened vs. what you expected
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-CHANGELOG — v5.0.0-beta.1
-
-• Real ANSI color support in terminal output
-• Extended package manager (zpkg) — local install, repo config,
-  dependency resolution, database health check
-• Userspace: $HOME, $PREFIX, $PATH, $TMPDIR
-• New commands: ztools, zjobs, zfind, zbuild, zprofile,
-  zpath, zenv, zwhich
-• Tools status screen (real, honest tool detection)
-• Local server control UI
-• Jobs tracker
-• Help topics
-• Terminal profiles
-• Improved diagnostics
-• Non-destructive migration from earlier versions
-• Backup / restore of settings and history
-
-Known limitations in this beta:
-• Remote package downloading not enabled
-• Developer toolchains (Python, Git, etc.) not bundled
-• These are honest gaps, not fake features.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-BUILT BY ZISHU TRON
-
-Zishu Terminal is an independent project. It is not affiliated with
-Termux, Google, or any other terminal emulator.
-
-Licensed responsibly. Built for developers, by developers.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Thank you for trying Zishu Terminal.</p>
+An advanced Android terminal and lightweight developer environment.</p>
 
       <div class="info-grid">
         <div class="info-card">
